@@ -6,6 +6,8 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final curWidth = MediaQuery.of(context).size.width;
+    final cruHeight = MediaQuery.of(context).size.height;
     return Scaffold(
     appBar: appBar(),
       body: Column(
@@ -21,11 +23,7 @@ class HomePage extends StatelessWidget {
                   decoration: BoxDecoration(
                     color: Colors.blue,
                   ),
-                  child: Text('percobaan menggunakna container'),
-                  constraints: BoxConstraints(
-                    maxWidth: MediaQuery.of(context).size.width * 0.5, // Limit the width
-                    maxHeight: MediaQuery.of(context).size.height * 0.2, // Limit the height
-                  ),
+                  child: Text('Widht saat ini $curWidth'),
                 ),
                 // CONTAINERS FOR GRID: 2 (top right)
                 Container(
@@ -33,11 +31,7 @@ class HomePage extends StatelessWidget {
                   decoration: BoxDecoration(
                     color: Colors.blue,
                   ),
-                  child: Text('percobaan menggunakna container'),
-                  constraints: BoxConstraints(
-                    maxWidth: MediaQuery.of(context).size.width * 0.5, // Limit the width
-                    maxHeight: MediaQuery.of(context).size.height * 0.2, // Limit the height
-                  ),
+                  child: Text('Height saat ini $cruHeight'),
                 ),
                 // CONTAINERS FOR GRID: 3 (bottom left)
                 Container(
@@ -46,10 +40,6 @@ class HomePage extends StatelessWidget {
                     color: const Color.fromARGB(255, 204, 218, 230),
                   ),
                   child: Text('percobaan menggunakna container'),
-                  constraints: BoxConstraints(
-                    maxWidth: MediaQuery.of(context).size.width * 0.5, // Limit the width
-                    maxHeight: MediaQuery.of(context).size.height * 0.3, // Limit the height
-                  ),
                 ),
                 // CONTAINERS FOR GRID: 4 (bottom right)
                 Container(
@@ -58,10 +48,6 @@ class HomePage extends StatelessWidget {
                     color: Colors.blue,
                   ),
                   child: Text('percobaan menggunakna container'),
-                  constraints: BoxConstraints(
-                    maxWidth: MediaQuery.of(context).size.width * 0.5, // Limit the width
-                    maxHeight: MediaQuery.of(context).size.height * 0.2, // Limit the height
-                  ),
                 ),
               ],
             ),
@@ -79,8 +65,8 @@ class HomePage extends StatelessWidget {
   Container _bannerApp(BuildContext context){
     return Container(
       // IMAGE BANNER
-      width: MediaQuery.of(context).size.height,
-      height: MediaQuery.of(context).size.height * 0.18, // 18% of screen height
+      width: MediaQuery.of(context).size.height * 1.8,
+      height: MediaQuery.of(context).size.height * 0.19, // 18% of screen height
       margin: EdgeInsets.only(top: 10, left: 5, right: 5),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(15), // Radius adjusment Match the other one below \/
