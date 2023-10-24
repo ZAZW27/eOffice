@@ -8,15 +8,6 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: appBar(),
-      body: GridView.count(
-        crossAxisCount: 2, // 2 columns
-        children: <Widget>[
-          DashboardBox(1),
-          DashboardBox(2),
-          DashboardBox(3),
-          DashboardBox(4),
-        ],
-      ),
     );
   }
 
@@ -47,57 +38,6 @@ class HomePage extends StatelessWidget {
             color: Colors.blue.shade300.withOpacity(0.7),
             borderRadius: BorderRadius.circular(29)
           ),  
-        ),
-      ),
-    );
-  }
-}
-
-class DashboardBox extends StatelessWidget {
-  final int boxNumber;
-
-  DashboardBox(this.boxNumber);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.all(5.0), // Adjust margin as needed
-      decoration: BoxDecoration(
-        color: Colors.white,
-        border: Border.all(color: Colors.black),
-        borderRadius: BorderRadius.circular(10.0),
-      ),
-      child: GridView.count(
-        crossAxisCount: 2, // 2 columns
-        children: <Widget>[
-          GridItem(boxNumber, 1),
-          GridItem(boxNumber, 2),
-          GridItem(boxNumber, 3),
-          GridItem(boxNumber, 4),
-        ],
-      ),
-    );
-  }
-}
-
-class GridItem extends StatelessWidget {
-  final int boxNumber;
-  final int itemNumber;
-
-  GridItem(this.boxNumber, this.itemNumber);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.all(10.0), // Adjust margin as needed
-      decoration: BoxDecoration(
-        color: Colors.blue, // Customize the color
-        borderRadius: BorderRadius.circular(10.0),
-      ),
-      child: Center(
-        child: Text(
-          'Box $boxNumber - Item $itemNumber',
-          style: TextStyle(fontSize: 18, color: Colors.white),
         ),
       ),
     );
