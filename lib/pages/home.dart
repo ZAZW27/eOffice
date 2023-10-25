@@ -108,7 +108,7 @@ class HomePage extends StatelessWidget {
                                         decoration: BoxDecoration(
                                           
                                           gradient: const LinearGradient(
-                                            colors: [Color.fromARGB(255, 132, 192, 253), Color.fromARGB(255, 23, 146, 246)], // Define your gradient colors
+                                            colors: [Color.fromARGB(255, 132, 192, 253), Color.fromARGB(255, 66, 162, 241)], // Define your gradient colors
                                             begin: Alignment.topCenter, // Adjust the starting point
                                             end: Alignment.bottomCenter, // Adjust the ending point
                                           ),
@@ -215,7 +215,7 @@ class HomePage extends StatelessWidget {
                                         height: 80,
                                         decoration: BoxDecoration(
                                           gradient: const LinearGradient(
-                                            colors: [Color.fromARGB(255, 136, 255, 176), Color.fromARGB(255, 12, 224, 83)], // Define your gradient colors
+                                            colors: [Color.fromARGB(255, 136, 255, 176), Color.fromARGB(255, 65, 243, 124)], // Define your gradient colors
                                             begin: Alignment.topCenter, // Adjust the starting point
                                             end: Alignment.bottomCenter, // Adjust the ending point
                                           ),
@@ -333,7 +333,7 @@ class HomePage extends StatelessWidget {
                                         decoration: BoxDecoration(
                                           
                                           gradient: const LinearGradient(
-                                            colors: [Color.fromARGB(255, 255, 142, 142), Color.fromARGB(255, 247, 77, 77)], // Define your gradient colors
+                                            colors: [Color.fromARGB(255, 255, 142, 142), Color.fromARGB(255, 245, 108, 108)], // Define your gradient colors
                                             begin: Alignment.topCenter, // Adjust the starting point
                                             end: Alignment.bottomCenter, // Adjust the ending point
                                           ),
@@ -442,7 +442,7 @@ class HomePage extends StatelessWidget {
                                         decoration: BoxDecoration(
                                           
                                           gradient: const LinearGradient(
-                                            colors: [Color.fromARGB(255, 248, 228, 149), Color.fromARGB(255, 228, 217, 1)], // Define your gradient colors
+                                            colors: [Color.fromARGB(255, 248, 228, 149), Color.fromARGB(255, 252, 243, 69)], // Define your gradient colors
                                             begin: Alignment.topCenter, // Adjust the starting point
                                             end: Alignment.bottomCenter, // Adjust the ending point
                                           ),
@@ -610,13 +610,14 @@ class HomePage extends StatelessWidget {
       title: const Text(
         'Dashboard eOffice',
         style: TextStyle(
-          color: Colors.white,
-          fontSize: 13,
-          fontWeight: FontWeight.w500
+          color: Colors.black,
+          fontSize: 15,
+          fontWeight: FontWeight.w700
         ),
       ),
       // adjust the style to the app bar 
-      backgroundColor: Colors.blue.shade500.withOpacity(0.7),
+      elevation: 0.0,
+      backgroundColor: Color.fromARGB(255, 255, 255, 255).withOpacity(0.7),
       centerTitle: true,
       // add the arrow icons to the app bar
       leading: GestureDetector(
@@ -624,12 +625,11 @@ class HomePage extends StatelessWidget {
         child: Container(
           margin: const EdgeInsets.all(10),
           decoration: BoxDecoration(
-            color: Colors.blue.shade300.withOpacity(0.7),
+            color: Color.fromARGB(255, 202, 215, 225).withOpacity(0.7),
             borderRadius: BorderRadius.circular(29)
           ),
           child: SvgPicture.asset(
             'assets/icons/left-arrow.svg', 
-            color: Colors.white,
           ),  
         ),
       ),
