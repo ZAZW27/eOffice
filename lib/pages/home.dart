@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -14,65 +16,76 @@ class HomePage extends StatelessWidget {
     double contentHeight = ((curHeigth * 1.2) - screenHeight);
 
     return Scaffold(
-    appBar: appBar(),
+      appBar: appBar(),
       body: Column(
         children: [
           _bannerApp(context),
-          SingleChildScrollView(
-            child: LayoutBuilder(
-              builder: (context, constraints) {
-                return Container(
-                  height: 400,
-                  // CONTETN FOT ALL OF THEM ASSIGNED AS ORANGE COLOR (while making it)
+          _mainContent(contentWidth),
+        ],
+      ),
+    );
+  }
+
+  SingleChildScrollView _mainContent(double contentWidth) {
+    return SingleChildScrollView(
+          child: LayoutBuilder(
+            builder: (context, constraints) {
+              return Container(
+                height: 400,
+                // CONTETN FOT ALL OF THEM ASSIGNED AS ORANGE COLOR (while making it)
+                child: Container(
+                  margin: EdgeInsets.only(top: 10,),
+                  width: contentWidth,
                   child: Container(
-                    margin: EdgeInsets.only(top: 10,),
-                    width: contentWidth,
-                    child: Container(
-                      child: Flex(
-                        direction: Axis.vertical,
-                        // mainAxisAlignment: MainAxisAlignment.start, 
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          // CONTAINER UNTUK TEXT "STATISTIK SURAT"
-                          Container(
-                            width: contentWidth,
-                            margin: EdgeInsets.only(left: 5, right: 5),
-                            
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  "Statistik Surat",
-                                  style: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w600, 
-                                  ),
+                    decoration: BoxDecoration(
+                      color: Colors.white
+                    ),
+                    child: Flex(
+                      direction: Axis.vertical,
+                      // mainAxisAlignment: MainAxisAlignment.start, 
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        // CONTAINER UNTUK TEXT "STATISTIK SURAT"
+                        Container(
+                          width: contentWidth,
+                          margin: EdgeInsets.only(left: 5, right: 5),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Statistik Surat",
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w600, 
                                 ),
-                                SizedBox(height: 2),
-                                Text(
-                                  "Statistika menunjukkan data surat masuk yang belum dicbaca atau ditandatangani secara elektronik ",
-                                  style: TextStyle(
-                                    color: Colors.black38,
-                                    fontSize: 10, 
-                                    fontStyle: FontStyle.italic,
-                                    height: 1
-                                  ),
-                                )
-                              ],
-                            ),
+                              ),
+                              SizedBox(height: 2),
+                              Text(
+                                "Statistika menunjukkan data surat masuk yang belum dicbaca atau ditandatangani secara elektronik ",
+                                style: TextStyle(
+                                  color: Colors.black38,
+                                  fontSize: 13, 
+                                  fontStyle: FontStyle.italic,
+                                  height: 1
+                                ),
+                              )
+                            ],
                           ),
-                          SizedBox(height: 10,),
-                          // EXPANDED UNTUK KEEMPAT TOMBOL SURAT
-                          
-                          Expanded(
-                            flex: 1,
-                            child: Row(
-                              children: <Widget>[
-                                // EXPANDED 1
-                                Expanded(
-                                  flex: 1,
+                        ),
+                        SizedBox(height: 10,),
+                        // EXPANDED UNTUK KEEMPAT TOMBOL SURAT
+                        Expanded(
+                          flex: 1,
+                          child: Row(
+                            children: <Widget>[
+                              // EXPANDED 1
+                              Expanded(
+                                flex: 1,
+                                child: GestureDetector(
+                                  // On tap function
+                                  onTap: (){}, 
                                   child: Container(
                                     height: 140,
                                     margin: EdgeInsets.only(left: 10, right: 3, ),
@@ -80,13 +93,13 @@ class HomePage extends StatelessWidget {
                                       color: Color.fromARGB(255, 0, 87, 226),
                                       boxShadow: [
                                         BoxShadow(
-                                          color: const Color.fromARGB(98, 158, 158, 158), // Shadow color
-                                          offset: Offset(0, 2), // Offset of the shadow
-                                          blurRadius: 4, // Spread of the shadow
+                                          color: Color.fromARGB(80, 71, 56, 129), // Shadow color
+                                          offset: Offset(1, 3), // Offset of the shadow
+                                          blurRadius: 2, // Spread of the shadow
                                           spreadRadius: 0, // Amount of expansion/contraction
                                         )
                                       ],
-                                      borderRadius: BorderRadius.circular(15)                                      
+                                      borderRadius: BorderRadius.circular(5)                                      
                                     ),
                                     // GAMBARAN DAN TEXT 
                                     child: Column(
@@ -99,17 +112,22 @@ class HomePage extends StatelessWidget {
                                             height: 80,
                                             
                                             decoration: BoxDecoration(
-                                              color: Color.fromARGB(255, 98, 175, 253), 
-                                              borderRadius: BorderRadius.circular(15), 
+                                              
+                                              gradient: LinearGradient(
+                                                colors: [Color.fromARGB(255, 132, 192, 253), Color.fromARGB(255, 23, 146, 246)], // Define your gradient colors
+                                                begin: Alignment.topCenter, // Adjust the starting point
+                                                end: Alignment.bottomCenter, // Adjust the ending point
+                                              ),
+                                              borderRadius: BorderRadius.circular(7), 
                                               boxShadow: [
                                                 BoxShadow(
-                                                  color: Color.fromARGB(255, 8, 38, 86), // Shadow color
+                                                  color: Color.fromARGB(195, 8, 38, 86), // Shadow color
                                                   offset: Offset(0, 2), // Offset of the shadow
-                                                  blurRadius: 4, // Spread of the shadow
-                                                  spreadRadius: -5.0, // Amount of expansion/contraction
+                                                  blurRadius: 7, // Spread of the shadow
+                                                  spreadRadius: -3.0, // Amount of expansion/contraction
                                                 )
                                               ], 
-
+                                
                                             ),
                                             child: Row(
                                               mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -119,9 +137,16 @@ class HomePage extends StatelessWidget {
                                                   right: 1,
                                                   child: Text('193',
                                                     style: TextStyle(
-                                                      color: Colors.white,
+                                                      color: Color.fromARGB(255, 255, 255, 255),
                                                       fontWeight: FontWeight.w600, 
                                                       fontSize: 20,
+                                                      shadows: [
+                                                        Shadow(
+                                                          color: Color.fromARGB(255, 86, 103, 199), // Shadow color
+                                                          offset: Offset(3, 1), // Shadow offset (horizontal, vertical)
+                                                          blurRadius: 1, // Shadow blur radius
+                                                        ),
+                                                      ],
                                                     ),
                                                   ),
                                                 ),
@@ -130,7 +155,15 @@ class HomePage extends StatelessWidget {
                                                   height: 60,
                                                   decoration: BoxDecoration(
                                                     color: Colors.white, 
-                                                    shape: BoxShape.circle
+                                                    shape: BoxShape.circle,
+                                                    boxShadow: [
+                                                      BoxShadow(
+                                                        color: Color.fromARGB(118, 25, 89, 190), // Shadow color
+                                                        offset: Offset(0, 2), // Offset of the shadow
+                                                        blurRadius: 4, // Spread of the shadow
+                                                        spreadRadius: -1, // Amount of expansion/contraction
+                                                      )
+                                                    ],
                                                   ),
                                                   child: Padding(
                                                     padding: const EdgeInsets.all(2.0),
@@ -156,63 +189,354 @@ class HomePage extends StatelessWidget {
                                     ),
                                   ),
                                 ),
-                                // EXPANDED 2
-                                Expanded(
-                                  flex: 1,
+                              ),
+                              // EXPANDED 2
+                              Expanded(
+                                flex: 1,
+                                child: GestureDetector(
+                                  // On tap function
+                                  onTap: (){}, 
                                   child: Container(
-                                    height: 100,
+                                    height: 140,
+                                    margin: EdgeInsets.only(left: 3, right: 10 ),
+                                    decoration: BoxDecoration(
+                                      color: Color.fromARGB(255, 8, 206, 1),
+                                      boxShadow: [
+                                        BoxShadow(
+                                          color: Color.fromARGB(80, 71, 56, 129), // Shadow color
+                                          offset: Offset(1, 3), // Offset of the shadow
+                                          blurRadius: 2, // Spread of the shadow
+                                          spreadRadius: 0, // Amount of expansion/contraction
+                                        )
+                                      ],
+                                      borderRadius: BorderRadius.circular(5)                                      
+                                    ),
+                                    // GAMBARAN DAN TEXT 
+                                    child: Column(
+                                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                      children: [
+                                        // CONTAINER GAMBAR
+                                        Padding(
+                                          padding: const EdgeInsets.only(left: 10, right: 10),
+                                          child: Container(
+                                            height: 80,
+                                            decoration: BoxDecoration(
+                                              gradient: LinearGradient(
+                                                colors: [Color.fromARGB(255, 136, 255, 176), Color.fromARGB(255, 12, 224, 83)], // Define your gradient colors
+                                                begin: Alignment.topCenter, // Adjust the starting point
+                                                end: Alignment.bottomCenter, // Adjust the ending point
+                                              ),
+                                              
+                                              borderRadius: BorderRadius.circular(7), 
+                                              boxShadow: [
+                                                BoxShadow(
+                                                  color: Color.fromARGB(195, 8, 38, 86), // Shadow color
+                                                  offset: Offset(0, 2), // Offset of the shadow
+                                                  blurRadius: 7, // Spread of the shadow
+                                                  spreadRadius: -3.0, // Amount of expansion/contraction
+                                                )
+                                              ], 
+                                            ),
+                                            child: Row(
+                                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                              children: [
+                                                Positioned(
+                                                  top: 2,
+                                                  right: 1,
+                                                  child: Text('39',
+                                                    style: TextStyle(
+                                                      color: Color.fromARGB(255, 255, 255, 255),
+                                                      fontWeight: FontWeight.w600, 
+                                                      fontSize: 20,
+                                                      shadows: [
+                                                        Shadow(
+                                                          color: Color.fromARGB(255, 65, 187, 69), // Shadow color
+                                                          offset: Offset(3, 1), // Shadow offset (horizontal, vertical)
+                                                          blurRadius: 1, // Shadow blur radius
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                ),
+                                                Container(
+                                                  width: 60,
+                                                  height: 60,
+                                                  decoration: BoxDecoration(
+                                                    color: Colors.white, 
+                                                    shape: BoxShape.circle,
+                                                    boxShadow: [
+                                                      BoxShadow(
+                                                        color: Color.fromARGB(118, 25, 89, 190), // Shadow color
+                                                        offset: Offset(0, 2), // Offset of the shadow
+                                                        blurRadius: 4, // Spread of the shadow
+                                                        spreadRadius: -1, // Amount of expansion/contraction
+                                                      )
+                                                    ],
+                                                  ),
+                                                  child: Padding(
+                                                    padding: const EdgeInsets.all(2.0),
+                                                    child: SvgPicture.asset(
+                                                      'assets/icons/surat-keluar.svg'
+                                                    ),
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                        Center(child: Text(
+                                          "Surat keluar",
+                                          style: TextStyle(
+                                            fontSize: 18,
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.w600, 
+                                            
+                                          ),  
+                                        )),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        SizedBox(height: 10,),
+                        Expanded(
+                          flex: 1,
+                          child: Row(
+                            children: <Widget>[
+                              // EXPANDED 3
+                              Expanded(
+                                flex: 1,
+                                child: GestureDetector(
+                                  // On tap function
+                                  onTap: (){}, 
+                                  child: Container(
+                                    height: 140,
                                     margin: EdgeInsets.only(left: 10, right: 3, ),
                                     decoration: BoxDecoration(
-                                      color: const Color.fromARGB(255, 243, 114, 33),
+                                      color: Color.fromARGB(255, 244, 5, 5),
+                                      boxShadow: [
+                                        BoxShadow(
+                                          color: Color.fromARGB(80, 71, 56, 129), // Shadow color
+                                          offset: Offset(1, 3), // Offset of the shadow
+                                          blurRadius: 2, // Spread of the shadow
+                                          spreadRadius: 0, // Amount of expansion/contraction
+                                        )
+                                      ],
+                                      borderRadius: BorderRadius.circular(5)                                      
                                     ),
-                                    child: Text('Hieght saat ini $contentHeight'),
+                                    // GAMBARAN DAN TEXT 
+                                    child: Column(
+                                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                      children: [
+                                        // CONTAINER GAMBAR
+                                        Padding(
+                                          padding: const EdgeInsets.only(left: 10, right: 10),
+                                          child: Container(
+                                            height: 80,
+                                            
+                                            decoration: BoxDecoration(
+                                              
+                                              gradient: LinearGradient(
+                                                colors: [Color.fromARGB(255, 255, 142, 142), Color.fromARGB(255, 247, 77, 77)], // Define your gradient colors
+                                                begin: Alignment.topCenter, // Adjust the starting point
+                                                end: Alignment.bottomCenter, // Adjust the ending point
+                                              ),
+                                              borderRadius: BorderRadius.circular(7), 
+                                              boxShadow: [
+                                                BoxShadow(
+                                                  color: Color.fromARGB(195, 8, 38, 86), // Shadow color
+                                                  offset: Offset(0, 2), // Offset of the shadow
+                                                  blurRadius: 7, // Spread of the shadow
+                                                  spreadRadius: -3.0, // Amount of expansion/contraction
+                                                )
+                                              ], 
+                                
+                                            ),
+                                            child: Row(
+                                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                              children: [
+                                                Positioned(
+                                                  top: 2,
+                                                  right: 1,
+                                                  child: Text('193',
+                                                    style: TextStyle(
+                                                      color: Color.fromARGB(255, 255, 255, 255),
+                                                      fontWeight: FontWeight.w600, 
+                                                      fontSize: 20,
+                                                      shadows: [
+                                                        Shadow(
+                                                          color: Color.fromARGB(255, 175, 54, 54), // Shadow color
+                                                          offset: Offset(3, 1), // Shadow offset (horizontal, vertical)
+                                                          blurRadius: 1, // Shadow blur radius
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                ),
+                                                Container(
+                                                  width: 60,
+                                                  height: 60,
+                                                  decoration: BoxDecoration(
+                                                    color: Colors.white, 
+                                                    shape: BoxShape.circle,
+                                                    boxShadow: [
+                                                      BoxShadow(
+                                                        color: Color.fromARGB(118, 25, 89, 190), // Shadow color
+                                                        offset: Offset(0, 2), // Offset of the shadow
+                                                        blurRadius: 4, // Spread of the shadow
+                                                        spreadRadius: -1, // Amount of expansion/contraction
+                                                      )
+                                                    ],
+                                                  ),
+                                                  child: Padding(
+                                                    padding: const EdgeInsets.all(2.0),
+                                                    child: SvgPicture.asset(
+                                                      'assets/icons/surat-belum-ditandatangani.svg'
+                                                    ),
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                        Center(child: Text(
+                                          "Belum TTD",
+                                          style: TextStyle(
+                                            fontSize: 18,
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.w600, 
+                                            
+                                          ),  
+                                        )),
+                                      ],
+                                    ),
                                   ),
                                 ),
-                              ],
-                            ),
-                          ),
-                          SizedBox(height: 10,),
-                          Expanded(
-                            // flex: 1,
-                            child: Row(
-                              children: <Widget>[
-                                // EXPANDED 3
-                                Expanded(
-                                  flex: 1,
+                              ),
+                              // EXPANDED 4
+                              Expanded(
+                                flex: 1,
+                                child: GestureDetector(
+                                  // On tap function
+                                  onTap: (){}, 
                                   child: Container(
-                                    height: 170,
-                                    margin: EdgeInsets.only(left: 10, right: 3, ),
+                                    height: 140,
+                                    margin: EdgeInsets.only(left: 3, right: 10 ),
                                     decoration: BoxDecoration(
-                                      color: const Color.fromARGB(255, 243, 114, 33),
+                                      color: Color.fromARGB(255, 235, 200, 3),
+                                      boxShadow: [
+                                        BoxShadow(
+                                          color: Color.fromARGB(80, 71, 56, 129), // Shadow color
+                                          offset: Offset(1, 3), // Offset of the shadow
+                                          blurRadius: 2, // Spread of the shadow
+                                          spreadRadius: 0, // Amount of expansion/contraction
+                                        )
+                                      ],
+                                      borderRadius: BorderRadius.circular(5)                                      
                                     ),
-                                    child: Text('Hieght saat ini $screenHeight'),
+                                    // GAMBARAN DAN TEXT 
+                                    child: Column(
+                                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                      children: [
+                                        // CONTAINER GAMBAR
+                                        Padding(
+                                          padding: const EdgeInsets.only(left: 10, right: 10),
+                                          child: Container(
+                                            height: 80,
+                                            
+                                            decoration: BoxDecoration(
+                                              
+                                              gradient: LinearGradient(
+                                                colors: [Color.fromARGB(255, 248, 228, 149), Color.fromARGB(255, 228, 217, 1)], // Define your gradient colors
+                                                begin: Alignment.topCenter, // Adjust the starting point
+                                                end: Alignment.bottomCenter, // Adjust the ending point
+                                              ),
+                                              borderRadius: BorderRadius.circular(7), 
+                                              boxShadow: [
+                                                BoxShadow(
+                                                  color: Color.fromARGB(195, 8, 38, 86), // Shadow color
+                                                  offset: Offset(0, 2), // Offset of the shadow
+                                                  blurRadius: 7, // Spread of the shadow
+                                                  spreadRadius: -3.0, // Amount of expansion/contraction
+                                                )
+                                              ], 
+                                
+                                            ),
+                                            child: Row(
+                                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                              children: [
+                                                Positioned(
+                                                  top: 2,
+                                                  right: 1,
+                                                  child: Text('39',
+                                                    style: TextStyle(
+                                                      color: Color.fromARGB(255, 255, 255, 255),
+                                                      fontWeight: FontWeight.w600, 
+                                                      fontSize: 20,
+                                                      shadows: [
+                                                        Shadow(
+                                                          color: Color.fromARGB(255, 187, 167, 65), // Shadow color
+                                                          offset: Offset(3, 1), // Shadow offset (horizontal, vertical)
+                                                          blurRadius: 1, // Shadow blur radius
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                ),
+                                                Container(
+                                                  width: 60,
+                                                  height: 60,
+                                                  decoration: BoxDecoration(
+                                                    color: Colors.white, 
+                                                    shape: BoxShape.circle,
+                                                    boxShadow: [
+                                                      BoxShadow(
+                                                        color: Color.fromARGB(118, 25, 89, 190), // Shadow color
+                                                        offset: Offset(0, 2), // Offset of the shadow
+                                                        blurRadius: 4, // Spread of the shadow
+                                                        spreadRadius: -1, // Amount of expansion/contraction
+                                                      )
+                                                    ],
+                                                  ),
+                                                  child: Padding(
+                                                    padding: const EdgeInsets.all(2.0),
+                                                    child: SvgPicture.asset(
+                                                      'assets/icons/surat-belum-dibaca.svg'
+                                                    ),
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                        Center(child: Text(
+                                          "Belum dibaca",
+                                          style: TextStyle(
+                                            fontSize: 18,
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.w600, 
+                                            
+                                          ),  
+                                        )),
+                                      ],
+                                    ),
                                   ),
                                 ),
-                                // EXPANDED 4
-                                Expanded(
-                                  flex: 1,
-                                  child: Container(
-                                    margin: EdgeInsets.only(left: 3, right: 10, ),
-                                    decoration: BoxDecoration(
-                                      color: Colors.blue,
-                                    ),
-                                    child: Text('percobaan menggunakna container'),
-                                  ),
-                                ),
-                              ],
-                            ),
+                              ),
+                            ],
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
                   ),
-                );
-              }
-            ),
+                ),
+              );
+            }
           ),
-        ],
-      ),
-    );
+        );
   }
 
   /* =============================================================================
@@ -242,6 +566,7 @@ class HomePage extends StatelessWidget {
                 end: Alignment.topCenter,
                 colors: [
                   Colors.black, // Starting color (bottom)
+                  Colors.transparent, // Ending color (top)
                   Colors.transparent, // Ending color (top)
                 ],
               ),
