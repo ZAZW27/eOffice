@@ -121,7 +121,6 @@ class HomePage extends StatelessWidget {
                                               spreadRadius: -3.0, // Amount of expansion/contraction
                                             )
                                           ], 
-                            
                                         ),
                                         child: Row(
                                           mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -347,7 +346,6 @@ class HomePage extends StatelessWidget {
                                               spreadRadius: -3.0, // Amount of expansion/contraction
                                             )
                                           ], 
-                            
                                         ),
                                         child: Row(
                                           mainAxisAlignment: MainAxisAlignment.spaceAround,
