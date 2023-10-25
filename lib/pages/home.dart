@@ -7,53 +7,84 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final curWidth = MediaQuery.of(context).size.width;
-    final cruHeight = MediaQuery.of(context).size.height;
+    final cruHeigth = MediaQuery.of(context).size.height;
+    
+    final contentWidth = MediaQuery.of(context).size.height * 1.5;
+
     return Scaffold(
     appBar: appBar(),
       body: Column(
         children: [
           _bannerApp(context),
           Expanded(
-            child: GridView.count(
-              crossAxisCount: 2, // 2 columns
-              children: <Widget>[
-                // CONTAINERS FOR GRID: 1 (top left)
-                Container(
-                  margin: EdgeInsets.all(5.0),
-                  decoration: BoxDecoration(
-                    color: Colors.blue,
-                  ),
-                  child: Text('Widht saat ini $curWidth'),
+            child: Container(
+              width: contentWidth,
+              decoration: BoxDecoration(
+                color: Colors.orange[100]
+              ),
+              child: Container(
+                child: Flex(
+                  direction: Axis.vertical,
+                  children: <Widget>[
+                    Expanded(
+                      flex: 1,
+                      child: Row(
+                        children: <Widget>[
+                          Expanded(
+                            flex: 1,
+                            child: Container(
+                              margin: EdgeInsets.all(5.0),
+                              decoration: BoxDecoration(
+                                color: const Color.fromARGB(255, 243, 114, 33),
+                              ),
+                              child: Text('Widht saat ini $curWidth'),
+                            ),
+                          ),
+                          Expanded(
+                            flex: 1,
+                            child: Container(
+                              margin: EdgeInsets.all(5.0),
+                              decoration: BoxDecoration(
+                                color: Colors.blue,
+                              ),
+                              child: Text('Height saat ini $cruHeigth'),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Expanded(
+                      flex: 1,
+                      child: Row(
+                        children: <Widget>[
+                          Expanded(
+                            flex: 1,
+                            child: Container(
+                              margin: EdgeInsets.all(5.0),
+                              decoration: BoxDecoration(
+                                color: const Color.fromARGB(255, 204, 218, 230),
+                              ),
+                              child: Text('percobaan menggunakna container'),
+                            ),
+                          ),
+                          Expanded(
+                            flex: 1,
+                            child: Container(
+                              margin: EdgeInsets.all(5.0),
+                              decoration: BoxDecoration(
+                                color: Colors.blue,
+                              ),
+                              child: Text('percobaan menggunakna container'),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
                 ),
-                // CONTAINERS FOR GRID: 2 (top right)
-                Container(
-                  margin: EdgeInsets.all(5.0),
-                  decoration: BoxDecoration(
-                    color: Colors.blue,
-                  ),
-                  child: Text('Height saat ini $cruHeight'),
-                ),
-                // CONTAINERS FOR GRID: 3 (bottom left)
-                Container(
-                  margin: EdgeInsets.all(5.0),
-                  decoration: BoxDecoration(
-                    color: const Color.fromARGB(255, 204, 218, 230),
-                  ),
-                  child: Text('percobaan menggunakna container'),
-                ),
-                // CONTAINERS FOR GRID: 4 (bottom right)
-                Container(
-                  margin: EdgeInsets.all(5.0),
-                  decoration: BoxDecoration(
-                    color: Colors.blue,
-                  ),
-                  child: Text('percobaan menggunakna container'),
-                ),
-              ],
+              ),
             ),
-          )
-
-
+          ),
         ],
       ),
     );
@@ -65,7 +96,7 @@ class HomePage extends StatelessWidget {
   Container _bannerApp(BuildContext context){
     return Container(
       // IMAGE BANNER
-      width: MediaQuery.of(context).size.height * 1.8,
+      width: MediaQuery.of(context).size.width,
       height: MediaQuery.of(context).size.height * 0.19, // 18% of screen height
       margin: EdgeInsets.only(top: 10, left: 5, right: 5),
       decoration: BoxDecoration(
