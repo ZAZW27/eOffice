@@ -7,82 +7,207 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final curWidth = MediaQuery.of(context).size.width;
-    final cruHeigth = MediaQuery.of(context).size.height;
+    final curHeigth = MediaQuery.of(context).size.height;
     
     final contentWidth = MediaQuery.of(context).size.height * 1.5;
+    double screenHeight = MediaQuery.of(context).size.height * 0.82;
+    double contentHeight = ((curHeigth * 1.2) - screenHeight);
 
     return Scaffold(
     appBar: appBar(),
       body: Column(
         children: [
           _bannerApp(context),
-          Expanded(
-            child: Container(
-              width: contentWidth,
-              decoration: BoxDecoration(
-                color: Colors.orange[100]
-              ),
-              child: Container(
-                child: Flex(
-                  direction: Axis.vertical,
-                  children: <Widget>[
-                    Expanded(
-                      flex: 1,
-                      child: Row(
+          SingleChildScrollView(
+            child: LayoutBuilder(
+              builder: (context, constraints) {
+                return Container(
+                  height: 400,
+                  // CONTETN FOT ALL OF THEM ASSIGNED AS ORANGE COLOR (while making it)
+                  child: Container(
+                    margin: EdgeInsets.only(top: 10,),
+                    width: contentWidth,
+                    child: Container(
+                      child: Flex(
+                        direction: Axis.vertical,
+                        // mainAxisAlignment: MainAxisAlignment.start, 
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
-                          Expanded(
-                            flex: 1,
-                            child: Container(
-                              margin: EdgeInsets.all(5.0),
-                              decoration: BoxDecoration(
-                                color: const Color.fromARGB(255, 243, 114, 33),
-                              ),
-                              child: Text('Widht saat ini $curWidth'),
+                          // CONTAINER UNTUK TEXT "STATISTIK SURAT"
+                          Container(
+                            width: contentWidth,
+                            margin: EdgeInsets.only(left: 5, right: 5),
+                            
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  "Statistik Surat",
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w600, 
+                                  ),
+                                ),
+                                SizedBox(height: 2),
+                                Text(
+                                  "Statistika menunjukkan data surat masuk yang belum dicbaca atau ditandatangani secara elektronik ",
+                                  style: TextStyle(
+                                    color: Colors.black38,
+                                    fontSize: 10, 
+                                    fontStyle: FontStyle.italic,
+                                    height: 1
+                                  ),
+                                )
+                              ],
                             ),
                           ),
+                          SizedBox(height: 10,),
+                          // EXPANDED UNTUK KEEMPAT TOMBOL SURAT
+                          
                           Expanded(
                             flex: 1,
-                            child: Container(
-                              margin: EdgeInsets.all(5.0),
-                              decoration: BoxDecoration(
-                                color: Colors.blue,
-                              ),
-                              child: Text('Height saat ini $cruHeigth'),
+                            child: Row(
+                              children: <Widget>[
+                                // EXPANDED 1
+                                Expanded(
+                                  flex: 1,
+                                  child: Container(
+                                    height: 140,
+                                    margin: EdgeInsets.only(left: 10, right: 3, ),
+                                    decoration: BoxDecoration(
+                                      color: Color.fromARGB(255, 0, 87, 226),
+                                      boxShadow: [
+                                        BoxShadow(
+                                          color: const Color.fromARGB(98, 158, 158, 158), // Shadow color
+                                          offset: Offset(0, 2), // Offset of the shadow
+                                          blurRadius: 4, // Spread of the shadow
+                                          spreadRadius: 0, // Amount of expansion/contraction
+                                        )
+                                      ],
+                                      borderRadius: BorderRadius.circular(15)                                      
+                                    ),
+                                    // GAMBARAN DAN TEXT 
+                                    child: Column(
+                                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                      children: [
+                                        // CONTAINER GAMBAR
+                                        Padding(
+                                          padding: const EdgeInsets.only(left: 10, right: 10),
+                                          child: Container(
+                                            height: 80,
+                                            
+                                            decoration: BoxDecoration(
+                                              color: Color.fromARGB(255, 98, 175, 253), 
+                                              borderRadius: BorderRadius.circular(15), 
+                                              boxShadow: [
+                                                BoxShadow(
+                                                  color: Color.fromARGB(255, 8, 38, 86), // Shadow color
+                                                  offset: Offset(0, 2), // Offset of the shadow
+                                                  blurRadius: 4, // Spread of the shadow
+                                                  spreadRadius: -5.0, // Amount of expansion/contraction
+                                                )
+                                              ], 
+
+                                            ),
+                                            child: Row(
+                                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                              children: [
+                                                Positioned(
+                                                  top: 2,
+                                                  right: 1,
+                                                  child: Text('193',
+                                                    style: TextStyle(
+                                                      color: Colors.white,
+                                                      fontWeight: FontWeight.w600, 
+                                                      fontSize: 20,
+                                                    ),
+                                                  ),
+                                                ),
+                                                Container(
+                                                  width: 60,
+                                                  height: 60,
+                                                  decoration: BoxDecoration(
+                                                    color: Colors.white, 
+                                                    shape: BoxShape.circle
+                                                  ),
+                                                  child: Padding(
+                                                    padding: const EdgeInsets.all(2.0),
+                                                    child: SvgPicture.asset(
+                                                      'assets/icons/surat-masuk.svg'
+                                                    ),
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                        Center(child: Text(
+                                          "Surat masuk",
+                                          style: TextStyle(
+                                            fontSize: 18,
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.w600, 
+                                            
+                                          ),  
+                                        )),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                                // EXPANDED 2
+                                Expanded(
+                                  flex: 1,
+                                  child: Container(
+                                    height: 100,
+                                    margin: EdgeInsets.only(left: 10, right: 3, ),
+                                    decoration: BoxDecoration(
+                                      color: const Color.fromARGB(255, 243, 114, 33),
+                                    ),
+                                    child: Text('Hieght saat ini $contentHeight'),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          SizedBox(height: 10,),
+                          Expanded(
+                            // flex: 1,
+                            child: Row(
+                              children: <Widget>[
+                                // EXPANDED 3
+                                Expanded(
+                                  flex: 1,
+                                  child: Container(
+                                    height: 170,
+                                    margin: EdgeInsets.only(left: 10, right: 3, ),
+                                    decoration: BoxDecoration(
+                                      color: const Color.fromARGB(255, 243, 114, 33),
+                                    ),
+                                    child: Text('Hieght saat ini $screenHeight'),
+                                  ),
+                                ),
+                                // EXPANDED 4
+                                Expanded(
+                                  flex: 1,
+                                  child: Container(
+                                    margin: EdgeInsets.only(left: 3, right: 10, ),
+                                    decoration: BoxDecoration(
+                                      color: Colors.blue,
+                                    ),
+                                    child: Text('percobaan menggunakna container'),
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
                         ],
                       ),
                     ),
-                    Expanded(
-                      flex: 1,
-                      child: Row(
-                        children: <Widget>[
-                          Expanded(
-                            flex: 1,
-                            child: Container(
-                              margin: EdgeInsets.all(5.0),
-                              decoration: BoxDecoration(
-                                color: const Color.fromARGB(255, 204, 218, 230),
-                              ),
-                              child: Text('percobaan menggunakna container'),
-                            ),
-                          ),
-                          Expanded(
-                            flex: 1,
-                            child: Container(
-                              margin: EdgeInsets.all(5.0),
-                              decoration: BoxDecoration(
-                                color: Colors.blue,
-                              ),
-                              child: Text('percobaan menggunakna container'),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+                  ),
+                );
+              }
             ),
           ),
         ],
