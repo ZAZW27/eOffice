@@ -8,97 +8,95 @@ class DataSuratPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBar(),
-      body: ListView(
-        children: _dataSurat,
-      ),
-    );
-  }
-
-  List<Widget> get _dataSurat {
-    return const <Widget>[
-        DataSuratMasukColumn(), // Gunakan widget DataSuratMasukColumn di sini
-        DataSurat(
-          initial: "DB",
-          title: "Surat Pengantar",
-          subtitle: "surat pengantar",
-          pengirim: "DIDIK BUDIANTO",
-          tanggal: "24 Oktober 2023 08:29:25",
-          tautan: "000/1948/E/BKPSDM",
-          status: "Belum Disposisi",
-          disposisi: "Biasa",
-        ),
-        DataSurat(
-          initial: "AS",
-          title: "Surat Undangan",
-          subtitle: "Undangan",
-          pengirim: "ACHMAD SAFEI",
-          tanggal: "16 Oktober 2023 20:37:01",
-          tautan: "005/0647/E/Bappeda Litbang",
-          status: "Belum Disposisi",
-          disposisi: "Biasa",
-        ),
-        DataSurat(
-          initial: "DB",
-          title: "Surat Biasa",
-          subtitle: "Himbauan Penelitian",
-          pengirim: "DIDIK BUDIANTO",
-          tanggal: "16 Oktober 2023 06:14:08",
-          tautan: "339/1528/E/DPMPTSP",
-          status: "Belum Disposisi",
-          disposisi: "Biasa",
-        ),
-        DataSurat(
-          initial: "DB",
-          title: "Surat Undangan",
-          subtitle: "Undangan Senam Gebungan, Germas dan Bazar TPID",
-          pengirim: "DIDIK BUDIANTO",
-          tanggal: "12 Oktober 2023 07:45:57",
-          tautan: "005/01009/Kesra",
-          status: "Belum Disposisi",
-          disposisi: "Biasa",
-        ),
-        DataSurat(
-          initial: "DB",
-          title: "Surat Undangan",
-          subtitle:
-              "Rapat Penafsiran Nilai TKDN dan Money P3DN di Lingkungan Pemerintah Kota Balikpapan",
-          pengirim: "DIDIK BUDIANTO",
-          tanggal: "12 Oktober 2023 07:45:19",
-          tautan: "027/0660_/PBJ",
-          status: "Belum Disposisi",
-          disposisi: "Biasa",
-        ),
-        DataSurat(
-          initial: "AD",
-          title: "Surat Cuti",
-          subtitle: "CUTI TAHUNAN",
-          pengirim: "ADAMIN",
-          tanggal: "9 Oktober 2023 08:19:05",
-          tautan: "851/0542/E/Diskominfo",
-          status: "Belum Disposisi",
-          disposisi: "Biasa",
-        ),
-      ];
-  }
-
-  AppBar appBar() {
-    return AppBar(
-      title: const Text(
-        "Data Surat",
+      appBar: AppBar(
+        title: const Text(
+        'Data Surat',
         style: TextStyle(
-            color: Colors.black, fontWeight: FontWeight.w900, fontSize: 30),
+          color: Colors.black,
+          fontSize: 15,
+          fontWeight: FontWeight.w700
+        ),
       ),
+      // adjust the style to the app bar 
+      elevation: 0.0,
+      backgroundColor: const Color.fromARGB(100, 255, 255, 255).withOpacity(0.7),
       centerTitle: true,
-      backgroundColor: Colors.white,
+      // add the arrow icons to the app bar
       leading: IconButton(
         icon: const Icon(
           Icons.arrow_back,
           color: Colors.black,
         ),
         onPressed: () {
-          
+          Navigator.of(context).pop();
         },
+      ),
+      ),
+      body: ListView(
+        children: const <Widget>[
+          DataSuratMasukColumn(), // Gunakan widget DataSuratMasukColumn di sini
+          DataSurat(
+            initial: "DB",
+            title: "Surat Pengantar",
+            subtitle: "surat pengantar",
+            pengirim: "DIDIK BUDIANTO",
+            tanggal: "24 Oktober 2023 08:29:25",
+            tautan: "000/1948/E/BKPSDM",
+            status: "Belum Disposisi",
+            disposisi: "Biasa",
+          ),
+          DataSurat(
+            initial: "AS",
+            title: "Surat Undangan",
+            subtitle: "Undangan",
+            pengirim: "ACHMAD SAFEI",
+            tanggal: "16 Oktober 2023 20:37:01",
+            tautan: "005/0647/E/Bappeda Litbang",
+            status: "Belum Disposisi",
+            disposisi: "Biasa",
+          ),
+          DataSurat(
+            initial: "DB",
+            title: "Surat Biasa",
+            subtitle: "Himbauan Penelitian",
+            pengirim: "DIDIK BUDIANTO",
+            tanggal: "16 Oktober 2023 06:14:08",
+            tautan: "339/1528/E/DPMPTSP",
+            status: "Belum Disposisi",
+            disposisi: "Biasa",
+          ),
+          DataSurat(
+            initial: "DB",
+            title: "Surat Undangan",
+            subtitle: "Undangan Senam Gebungan, Germas dan Bazar TPID",
+            pengirim: "DIDIK BUDIANTO",
+            tanggal: "12 Oktober 2023 07:45:57",
+            tautan: "005/01009/Kesra",
+            status: "Belum Disposisi",
+            disposisi: "Biasa",
+          ),
+          DataSurat(
+            initial: "DB",
+            title: "Surat Undangan",
+            subtitle:
+                "Rapat Penafsiran Nilai TKDN dan Money P3DN di Lingkungan Pemerintah Kota Balikpapan",
+            pengirim: "DIDIK BUDIANTO",
+            tanggal: "12 Oktober 2023 07:45:19",
+            tautan: "027/0660_/PBJ",
+            status: "Belum Disposisi",
+            disposisi: "Biasa",
+          ),
+          DataSurat(
+            initial: "AD",
+            title: "Surat Cuti",
+            subtitle: "CUTI TAHUNAN",
+            pengirim: "ADAMIN",
+            tanggal: "9 Oktober 2023 08:19:05",
+            tautan: "851/0542/E/Diskominfo",
+            status: "Belum Disposisi",
+            disposisi: "Biasa",
+          ),
+        ],
       ),
     );
   }
