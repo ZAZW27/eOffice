@@ -1,16 +1,17 @@
 import 'dart:ui';
 
+import 'package:eoffice/pages/data_surat.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+class Dashboard extends StatefulWidget {
+  const Dashboard({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<Dashboard> createState() => _DashboardState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _DashboardState extends State<Dashboard> {
   @override
   Widget build(BuildContext context) {    
     final contentWidth = MediaQuery.of(context).size.height * 1.5;
@@ -86,7 +87,9 @@ class _HomePageState extends State<HomePage> {
                             flex: 1,
                             child: InkWell(
                               // On tap function
-                              onTap: (){}, 
+                              onTap: () {
+                                Navigator.of(context).push(MaterialPageRoute(builder: (context) => const DataSuratPage()));
+                              },
                               child: Container(
                                 height: 140,
                                 margin: const EdgeInsets.only(left: 10, right: 3, ),
@@ -111,9 +114,7 @@ class _HomePageState extends State<HomePage> {
                                       padding: const EdgeInsets.only(left: 10, right: 10),
                                       child: Container(
                                         height: 80,
-                                        
                                         decoration: BoxDecoration(
-                                          
                                           gradient: const LinearGradient(
                                             colors: [Color.fromARGB(255, 132, 192, 253), Color.fromARGB(255, 66, 162, 241)], // Define your gradient colors
                                             begin: Alignment.topCenter, // Adjust the starting point
@@ -132,20 +133,18 @@ class _HomePageState extends State<HomePage> {
                                         child: Row(
                                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                                           children: [
-                                            Container(
-                                              child: Text('193',
-                                                style: TextStyle(
-                                                  color: Color.fromARGB(255, 255, 255, 255),
-                                                  fontWeight: FontWeight.w600, 
-                                                  fontSize: 20,
-                                                  shadows: [
-                                                    Shadow(
-                                                      color: Color.fromARGB(255, 86, 103, 199), // Shadow color
-                                                      offset: Offset(3, 1), // Shadow offset (horizontal, vertical)
-                                                      blurRadius: 1, // Shadow blur radius
-                                                    ),
-                                                  ],
-                                                ),
+                                            const Text('193',
+                                              style: TextStyle(
+                                                color: Color.fromARGB(255, 255, 255, 255),
+                                                fontWeight: FontWeight.w600, 
+                                                fontSize: 20,
+                                                shadows: [
+                                                  Shadow(
+                                                    color: Color.fromARGB(255, 86, 103, 199), // Shadow color
+                                                    offset: Offset(3, 1), // Shadow offset (horizontal, vertical)
+                                                    blurRadius: 1, // Shadow blur radius
+                                                  ),
+                                                ],
                                               ),
                                             ),
                                             Container(
@@ -196,13 +195,13 @@ class _HomePageState extends State<HomePage> {
                               onTap: () {
                               },
                               child: AnimatedContainer(
-                                duration: Duration(milliseconds: 100),
+                                duration: const Duration(milliseconds: 100),
                                 child: Container(
                                   height: 140,
                                   margin: const EdgeInsets.only(left: 3, right: 10 ),
                                   decoration: BoxDecoration(
                                     color: const Color.fromARGB(255, 8, 206, 1),
-                                    boxShadow: [
+                                    boxShadow: const [
                                       BoxShadow(
                                         color: Color.fromARGB(80, 71, 56, 129), // Shadow color
                                         offset: Offset(1, 3), // Offset of the shadow
@@ -229,7 +228,7 @@ class _HomePageState extends State<HomePage> {
                                             ),
                                             
                                             borderRadius: BorderRadius.circular(7), 
-                                            boxShadow: [
+                                            boxShadow: const [
                                               BoxShadow(
                                                 color: Color.fromARGB(195, 8, 38, 86), // Shadow color
                                                 offset: Offset(0, 2), // Offset of the shadow
@@ -241,20 +240,18 @@ class _HomePageState extends State<HomePage> {
                                           child: Row(
                                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                                             children: [
-                                              Container(
-                                                child: Text('39',
-                                                  style: TextStyle(
-                                                    color: Color.fromARGB(255, 255, 255, 255),
-                                                    fontWeight: FontWeight.w600, 
-                                                    fontSize: 20,
-                                                    shadows: [
-                                                      Shadow(
-                                                        color: Color.fromARGB(255, 65, 187, 69), // Shadow color
-                                                        offset: Offset(3, 1), // Shadow offset (horizontal, vertical)
-                                                        blurRadius: 1, // Shadow blur radius
-                                                      ),
-                                                    ],
-                                                  ),
+                                              const Text('39',
+                                                style: TextStyle(
+                                                  color: Color.fromARGB(255, 255, 255, 255),
+                                                  fontWeight: FontWeight.w600, 
+                                                  fontSize: 20,
+                                                  shadows: [
+                                                    Shadow(
+                                                      color: Color.fromARGB(255, 65, 187, 69), // Shadow color
+                                                      offset: Offset(3, 1), // Shadow offset (horizontal, vertical)
+                                                      blurRadius: 1, // Shadow blur radius
+                                                    ),
+                                                  ],
                                                 ),
                                               ),
                                               Container(
@@ -273,7 +270,7 @@ class _HomePageState extends State<HomePage> {
                                                   ],
                                                 ),
                                                 child: Padding(
-                                                  padding: EdgeInsets.all(0),
+                                                  padding: const EdgeInsets.all(0),
                                                   child: SvgPicture.asset(
                                                     'assets/icons/surat-keluar.svg'
                                                   ),
@@ -334,11 +331,11 @@ class _HomePageState extends State<HomePage> {
                                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                                   children: [
                                     Padding(
-                                      padding: EdgeInsets.only(left: 10, right: 10), // Decrease padding on tap
+                                      padding: const EdgeInsets.only(left: 10, right: 10), // Decrease padding on tap
                                       child: Container(
                                         height: 80,
                                         decoration: BoxDecoration(
-                                          gradient: LinearGradient(
+                                          gradient: const LinearGradient(
                                             colors: [Color.fromARGB(255, 255, 142, 142), Color.fromARGB(255, 245, 108, 108)],
                                             begin: Alignment.topCenter,
                                             end: Alignment.bottomCenter,
@@ -356,20 +353,18 @@ class _HomePageState extends State<HomePage> {
                                         child: Row(
                                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                                           children: [
-                                            Container(
-                                              child: Text('193',
-                                                style: TextStyle(
-                                                  color: Color.fromARGB(255, 255, 255, 255),
-                                                  fontWeight: FontWeight.w600,
-                                                  fontSize: 20,
-                                                  shadows: [
-                                                    Shadow(
-                                                      color: Color.fromARGB(255, 175, 54, 54),
-                                                      offset: Offset(3, 1),
-                                                      blurRadius: 1,
-                                                    ),
-                                                  ],
-                                                ),
+                                            const Text('193',
+                                              style: TextStyle(
+                                                color: Color.fromARGB(255, 255, 255, 255),
+                                                fontWeight: FontWeight.w600,
+                                                fontSize: 20,
+                                                shadows: [
+                                                  Shadow(
+                                                    color: Color.fromARGB(255, 175, 54, 54),
+                                                    offset: Offset(3, 1),
+                                                    blurRadius: 1,
+                                                  ),
+                                                ],
                                               ),
                                             ),
                                             Container(
@@ -463,20 +458,18 @@ class _HomePageState extends State<HomePage> {
                                         child: Row(
                                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                                           children: [
-                                            Container(
-                                              child: Text('39',
-                                                style: TextStyle(
-                                                  color: Color.fromARGB(255, 255, 255, 255),
-                                                  fontWeight: FontWeight.w600, 
-                                                  fontSize: 20,
-                                                  shadows: [
-                                                    Shadow(
-                                                      color: Color.fromARGB(255, 187, 167, 65), // Shadow color
-                                                      offset: Offset(3, 1), // Shadow offset (horizontal, vertical)
-                                                      blurRadius: 1, // Shadow blur radius
-                                                    ),
-                                                  ],
-                                                ),
+                                            const Text('39',
+                                              style: TextStyle(
+                                                color: Color.fromARGB(255, 255, 255, 255),
+                                                fontWeight: FontWeight.w600, 
+                                                fontSize: 20,
+                                                shadows: [
+                                                  Shadow(
+                                                    color: Color.fromARGB(255, 187, 167, 65), // Shadow color
+                                                    offset: Offset(3, 1), // Shadow offset (horizontal, vertical)
+                                                    blurRadius: 1, // Shadow blur radius
+                                                  ),
+                                                ],
                                               ),
                                             ),
                                             Container(
@@ -618,21 +611,17 @@ class _HomePageState extends State<HomePage> {
       ),
       // adjust the style to the app bar 
       elevation: 0.0,
-      backgroundColor: Color.fromARGB(255, 255, 255, 255).withOpacity(0.7),
+      backgroundColor: const Color.fromARGB(100, 255, 255, 255).withOpacity(0.7),
       centerTitle: true,
       // add the arrow icons to the app bar
-      leading: InkWell(
-        onTap: (){},
-        child: Container(
-          margin: const EdgeInsets.all(10),
-          decoration: BoxDecoration(
-            color: Color.fromARGB(255, 202, 215, 225).withOpacity(0.7),
-            borderRadius: BorderRadius.circular(29)
-          ),
-          child: SvgPicture.asset(
-            'assets/icons/left-arrow.svg', 
-          ),  
+      leading: IconButton(
+        icon: const Icon(
+          Icons.arrow_back,
+          color: Colors.black,
         ),
+        onPressed: () {
+          // Tambahkan kode untuk menangani ketika tombol panah kembali ditekan.
+        },
       ),
     );
   }
