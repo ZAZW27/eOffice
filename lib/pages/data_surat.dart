@@ -10,21 +10,27 @@ class DataSuratPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          "Data Surat",
-          style: TextStyle(
-              color: Colors.black, fontWeight: FontWeight.w900, fontSize: 30),
+        'Data Surat',
+        style: TextStyle(
+          color: Colors.black,
+          fontSize: 15,
+          fontWeight: FontWeight.w700
         ),
-        centerTitle: true,
-        backgroundColor: Colors.white,
-        leading: IconButton(
-          icon: const Icon(
-            Icons.arrow_back,
-            color: Colors.black,
-          ),
-          onPressed: () {
-            // Tambahkan kode untuk menangani ketika tombol panah kembali ditekan.
-          },
+      ),
+      // adjust the style to the app bar 
+      elevation: 0.0,
+      backgroundColor: const Color.fromARGB(100, 255, 255, 255).withOpacity(0.7),
+      centerTitle: true,
+      // add the arrow icons to the app bar
+      leading: IconButton(
+        icon: const Icon(
+          Icons.arrow_back,
+          color: Colors.black,
         ),
+        onPressed: () {
+          Navigator.of(context).pop();
+        },
+      ),
       ),
       body: ListView(
         children: const <Widget>[
