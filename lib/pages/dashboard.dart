@@ -620,7 +620,7 @@ class _DashboardState extends State<Dashboard> {
           color: Colors.black,
         ),
         onPressed: () {
-          // Tambahkan kode untuk menangani ketika tombol panah kembali ditekan.
+          Navigator.of(context).pop();
         },
       ),
     );
