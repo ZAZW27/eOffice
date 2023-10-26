@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:eoffice/pages/informasi.dart';
 import 'package:eoffice/pages/riwayat.dart';
 import 'package:flutter/material.dart';
 
@@ -236,7 +237,7 @@ class _DataSuratState extends State<DataSurat> {
                 setState(() {
                   isTapped = !isTapped;
                 });
-                Navigator.of(context).push(MaterialPageRoute(builder: (context) => const Riwayat()));
+                Navigator.of(context).push(MaterialPageRoute(builder: (context) => const Informasi()));
               },
               //contoh aku ambil
               onTapDown: (details) {
