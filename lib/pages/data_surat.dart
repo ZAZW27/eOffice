@@ -1,37 +1,20 @@
 import 'dart:ui';
 
+import 'package:eoffice/pages/riwayat.dart';
 import 'package:flutter/material.dart';
 
-class DataSuratPage extends StatelessWidget {
+class DataSuratPage extends StatefulWidget {
   const DataSuratPage({super.key});
 
   @override
+  State<DataSuratPage> createState() => _DataSuratPageState();
+}
+
+class _DataSuratPageState extends State<DataSuratPage> {
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-        'Data Surat',
-        style: TextStyle(
-          color: Colors.black,
-          fontSize: 15,
-          fontWeight: FontWeight.w700
-        ),
-      ),
-      // adjust the style to the app bar 
-      elevation: 0.0,
-      backgroundColor: const Color.fromARGB(100, 255, 255, 255).withOpacity(0.7),
-      centerTitle: true,
-      // add the arrow icons to the app bar
-      leading: IconButton(
-        icon: const Icon(
-          Icons.arrow_back,
-          color: Colors.black,
-        ),
-        onPressed: () {
-          Navigator.of(context).pop();
-        },
-      ),
-      ),
+      appBar: appBar(context),
       body: ListView(
         children: const <Widget>[
           DataSuratMasukColumn(), // Gunakan widget DataSuratMasukColumn di sini
@@ -97,6 +80,33 @@ class DataSuratPage extends StatelessWidget {
             disposisi: "Biasa",
           ),
         ],
+      ),
+    );
+  }
+
+  AppBar appBar(BuildContext context) {
+    return AppBar(
+      title: const Text(
+        'Data Surat',
+        style: TextStyle(
+          color: Colors.black,
+          fontSize: 15,
+          fontWeight: FontWeight.w700
+        ),
+      ),
+      // adjust the style to the app bar 
+      elevation: 0.0,
+      backgroundColor: const Color.fromARGB(100, 255, 255, 255).withOpacity(0.7),
+      centerTitle: true,
+      // add the arrow icons to the app bar
+      leading: IconButton(
+        icon: const Icon(
+          Icons.arrow_back,
+          color: Colors.black,
+        ),
+        onPressed: () {
+          Navigator.of(context).pop();
+        },
       ),
     );
   }
@@ -226,7 +236,9 @@ class _DataSuratState extends State<DataSurat> {
                 setState(() {
                   isTapped = !isTapped;
                 });
+                Navigator.of(context).push(MaterialPageRoute(builder: (context) => const Riwayat()));
               },
+              //contoh aku ambil
               onTapDown: (details) {
                 setState(() {
                   isTapped = true;

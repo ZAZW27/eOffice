@@ -12,6 +12,8 @@ class Dashboard extends StatefulWidget {
 }
 
 class _DashboardState extends State<Dashboard> {
+  bool isTapped = false;
+
   @override
   Widget build(BuildContext context) {    
     final contentWidth = MediaQuery.of(context).size.height * 1.5;
@@ -88,7 +90,15 @@ class _DashboardState extends State<Dashboard> {
                             child: InkWell(
                               // On tap function
                               onTap: () {
+                                setState(() {
+                                  isTapped = !isTapped;
+                                });
                                 Navigator.of(context).push(MaterialPageRoute(builder: (context) => const DataSuratPage()));
+                              },
+                              onTapDown: (details) {
+                                setState(() {
+                                  isTapped = true;
+                                });
                               },
                               child: Container(
                                 height: 140,
@@ -620,7 +630,7 @@ class _DashboardState extends State<Dashboard> {
           color: Colors.black,
         ),
         onPressed: () {
-          Navigator.of(context).pop();
+          // Navigator.of(context).pop();
         },
       ),
     );
