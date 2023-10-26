@@ -10,27 +10,25 @@ class DataSuratPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-        'Data Surat',
-        style: TextStyle(
-          color: Colors.black,
-          fontSize: 15,
-          fontWeight: FontWeight.w700
+          'Data Surat',
+          style: TextStyle(
+              color: Colors.black, fontSize: 15, fontWeight: FontWeight.w700),
         ),
-      ),
-      // adjust the style to the app bar 
-      elevation: 0.0,
-      backgroundColor: const Color.fromARGB(100, 255, 255, 255).withOpacity(0.7),
-      centerTitle: true,
-      // add the arrow icons to the app bar
-      leading: IconButton(
-        icon: const Icon(
-          Icons.arrow_back,
-          color: Colors.black,
+        // adjust the style to the app bar
+        elevation: 0.0,
+        backgroundColor:
+            const Color.fromARGB(100, 255, 255, 255).withOpacity(0.7),
+        centerTitle: true,
+        // add the arrow icons to the app bar
+        leading: IconButton(
+          icon: const Icon(
+            Icons.arrow_back,
+            color: Colors.black,
+          ),
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
         ),
-        onPressed: () {
-          Navigator.of(context).pop();
-        },
-      ),
       ),
       body: ListView(
         children: const <Widget>[
@@ -114,39 +112,72 @@ class _DataSuratMasukColumnState extends State<DataSuratMasukColumn> {
 
   @override
   Widget build(BuildContext context) {
+    final screenHeight = MediaQuery.of(context).size.height;
+    final screenWidth = MediaQuery.of(context).size.width;
+
     return Padding(
       padding: const EdgeInsets.all(20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          const SizedBox(height: 20), // Spasi atas
-          const Text(
-            "Data Surat Masuk",
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              fontSize: 20, // Ukuran teks
-              fontWeight: FontWeight.bold, // Tebal
-              color: Colors.blue,
-            ),
+          Stack(
+            children: [
+              ClipRRect(
+                borderRadius: BorderRadius.circular(15.0),
+                child: Container(
+                  width: screenWidth,
+                  height: screenHeight * 0.25,
+                  decoration: const BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage('assets/images/WavyBackground.jpg'),
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
+              ),
+              Positioned(
+                top: screenHeight *
+                    0.100, // Atur tinggi teks agar berada di tengah gambar
+                left: 0,
+                right: 0,
+                child: Center(
+                  child: Column(
+                    children: [
+                      const Text(
+                        "Data Surat Masuk",
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                      ),
+                      Text(
+                        "Menurut Data, ada $jumlahSuratMasuk Surat yang Masuk",
+                        style: const TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.normal,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
           ),
-          Text(
-            "Menurut Data, ada $jumlahSuratMasuk Surat yang Masuk",
-            textAlign: TextAlign.center,
-            style: const TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.normal,
-            ),
+          SizedBox(
+            height: screenHeight * 0.05,
           ),
-          const SizedBox(height: 20), // Spasi antara teks dan kotak pencarian
           Row(
             children: [
               Expanded(
                 child: TextField(
                   decoration: InputDecoration(
                     hintText: "Cari Surat",
-                    prefixIcon: const Icon(Icons.search),
+                    prefixIcon: const Icon(Icons.search, color: Colors.blue),
                     border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(20)),
+                      borderRadius: BorderRadius.circular(screenWidth * 0.04),
+                    ),
                   ),
                 ),
               ),
@@ -154,11 +185,13 @@ class _DataSuratMasukColumnState extends State<DataSuratMasukColumn> {
                 onPressed: () {
                   // Aksi ketika tombol "Cari" ditekan
                 },
-                child: const Text("Cari"),
+                child: const Text(
+                  "Cari",
+                  style: TextStyle(color: Colors.blue),
+                ),
               ),
             ],
           ),
-          // Tambahkan konten lainnya di bawah teks "Data Surat Masuk"
         ],
       ),
     );
@@ -175,7 +208,8 @@ class DataSurat extends StatefulWidget {
   final String status;
   final String disposisi;
 
-  const DataSurat({super.key, 
+  const DataSurat({
+    super.key,
     required this.initial,
     required this.title,
     required this.subtitle,
@@ -218,7 +252,8 @@ class _DataSuratState extends State<DataSurat> {
                       ),
                     )
                   ])),
-          const SizedBox(width: 10.0), // Spasi antara lingkaran dan persegi panjang
+          const SizedBox(
+              width: 10.0), // Spasi antara lingkaran dan persegi panjang
           // Kolom kedua dengan persegi panjang
           Expanded(
             child: GestureDetector(
