@@ -25,30 +25,38 @@ class _InformasiState extends State<Informasi> {
                 //   color: const Color.fromARGB(255, 14, 12, 12),
                 // ),
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     CircleAvatar(
                         // Gambar profil pengguna (jika ada)
                         // Misalnya, backgroundImage: AssetImage('gambar_profil.jpg'),
                     ),
-                    SizedBox(width: 10),
-                    Text(
-                      "Badan Kepegawaian dan Pengembangan",
-                      style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
-                    ),
-                    Text(
-                      "Sumber Daya Manusia",
-                      style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
-                    ),
-                    SizedBox(height: 5),
-                    Text(
-                      "DIDIK BUDIANTO",
-                      style: TextStyle(fontSize: 12),
-                    ),
-                    SizedBox(height: 5),
-                    Text(
-                      "198701312011011007",
-                      style: TextStyle(fontSize: 12),
+                    Container(
+                      child:  Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          SizedBox(width: 10),
+                          Text(
+                            "Badan Kepegawaian dan Pengembangan",
+                            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                          ),
+                          Text(
+                            "Sumber Daya Manusia",
+                            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                          ),
+                          SizedBox(height: 5),
+                          Text(
+                            "DIDIK BUDIANTO",
+                            style: TextStyle(fontSize: 12),
+                          ),
+                          SizedBox(height: 5),
+                          Text(
+                            "198701312011011007",
+                            style: TextStyle(fontSize: 12),
+                          ),
+                        ],
+                      ),
                     ),
                   ],
                 ),
