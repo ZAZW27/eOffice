@@ -1,6 +1,9 @@
 import 'dart:ui';
 
 import 'package:eoffice/pages/data_surat.dart';
+import 'package:eoffice/pages/informasi.dart';
+import 'package:eoffice/pages/riwayat.dart';
+import 'package:eoffice/pages/surat_pengaturan.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -197,7 +200,6 @@ class _DashboardState extends State<Dashboard> {
                                         fontSize: 18,
                                         color: Colors.white,
                                         fontWeight: FontWeight.w600, 
-                                        
                                       ),  
                                     )),
                                   ],
@@ -214,6 +216,7 @@ class _DashboardState extends State<Dashboard> {
                                 setState(() {
                                   isTappedTwo = !isTappedTwo;
                                 });
+                                Navigator.of(context).push(MaterialPageRoute(builder: (context) => const Riwayat()));
                               },
                               onTapDown: (details) {
                                 setState(() {
@@ -338,6 +341,7 @@ class _DashboardState extends State<Dashboard> {
                                 setState(() {
                                   isTappedThree = !isTappedThree;
                                 });
+                                Navigator.of(context).push(MaterialPageRoute(builder: (context) => const SuratPengaturan()));
                               },
                               onTapDown: (details) {
                                 setState(() {

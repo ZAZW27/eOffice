@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:eoffice/pages/surat_pengaturan.dart';
 import 'package:flutter/material.dart';
 
 class Riwayat extends StatefulWidget {
@@ -16,7 +17,7 @@ class _RiwayatState extends State<Riwayat> {
       appBar: appBar(context),
       body: ListView(
         children: const <Widget>[
-          DataSuratMasukColumn(), // Gunakan widget DataSuratMasukColumn di sini
+          headerSuratPengaturan(), // Gunakan widget DataSuratMasukColumn di sini
           DataSurat(
             initial: "AD",
             dari: "PURNOMO M - 1968100611990031004",
@@ -180,13 +181,13 @@ class _DataSuratState extends State<DataSurat> {
   @override
   Widget build(BuildContext context) {
     return AnimatedContainer(
-      margin: EdgeInsets.only(left: 7, right: 7),
-      duration: Duration(milliseconds: 200),
+      margin: const EdgeInsets.only(left: 7, right: 7),
+      duration: const Duration(milliseconds: 200),
       decoration: BoxDecoration(
-        color: isTapped ? Color.fromARGB(255, 243, 243, 245) : Color.fromARGB(0, 255, 255, 255),
+        color: isTapped ? const Color.fromARGB(255, 243, 243, 245) : const Color.fromARGB(0, 255, 255, 255),
         border: Border(
           bottom: BorderSide(
-            color: isTapped ? const Color.fromARGB(255, 15, 79, 131) : Color.fromARGB(255, 223, 221, 221),
+            color: isTapped ? const Color.fromARGB(255, 15, 79, 131) : const Color.fromARGB(255, 223, 221, 221),
             width: isTapped ? 2 : 1.5,
           ),
         ),
@@ -236,7 +237,7 @@ class _DataSuratState extends State<DataSurat> {
                 child: AnimatedContainer(
                   duration: const Duration(milliseconds: 100),
                   padding: const EdgeInsets.only(left: 10, top: 10, bottom: 10),
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     // color: const Color.fromARGB(19, 0, 0, 0)
                   ),
                   child: Column(
@@ -246,7 +247,7 @@ class _DataSuratState extends State<DataSurat> {
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
+                          const Text(
                             "Dari:",
                             style: TextStyle(
                               fontSize: 16,
@@ -268,7 +269,7 @@ class _DataSuratState extends State<DataSurat> {
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
+                          const Text(
                             "Kepada:",
                             style: TextStyle(
                               fontSize: 16,
@@ -298,7 +299,7 @@ class _DataSuratState extends State<DataSurat> {
                             padding: const EdgeInsets.all(5.0),
                             margin: const EdgeInsets.only(bottom: 5),
                             decoration: BoxDecoration(
-                              color: Color.fromARGB(255, 77, 190, 82),
+                              color: const Color.fromARGB(255, 77, 190, 82),
                               borderRadius: BorderRadius.circular(20),
                             ),
                             child: Padding(
@@ -323,7 +324,7 @@ class _DataSuratState extends State<DataSurat> {
                           Container(
                             padding: const EdgeInsets.all(5.0),
                             decoration: BoxDecoration(
-                              color: Color.fromARGB(255, 77, 190, 82),
+                              color: const Color.fromARGB(255, 77, 190, 82),
                               borderRadius: BorderRadius.circular(20),
                             ),
                             child: Padding(
