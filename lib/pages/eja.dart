@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(const Informasi());
+void main() => runApp(const eja());
 
-class Informasi extends StatefulWidget {
+class eja extends StatefulWidget {
   // ignore: use_key_in_widget_constructors
-  const Informasi({Key? key});
+  const eja({Key? key});
 
   @override
   // ignore: library_private_types_in_public_api
-  _InformasiState createState() => _InformasiState();
+  _ejaState createState() => _ejaState();
 }
 
-class _InformasiState extends State<Informasi> {
+class _ejaState extends State<eja> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -22,6 +22,7 @@ class _InformasiState extends State<Informasi> {
           leading: IconButton(
             icon: const Icon(Icons.arrow_back),
             onPressed: () {
+              Navigator.of(context).pop();
               // Aksi yang ingin Anda lakukan saat tombol kembali ditekan
               // Misalnya, Navigator.pop(context); untuk kembali ke layar sebelumnya
             },
@@ -71,7 +72,7 @@ class _InformasiState extends State<Informasi> {
                 children: [
                   OutlinedButton(
                     onPressed: () {
-                      // Aksi yang ingin Anda lakukan saat tombol Informasi ditekan
+                      // Aksi yang ingin Anda lakukan saat tombol eja ditekan
                     },
                     style: OutlinedButton.styleFrom(
                       foregroundColor: Colors.black, minimumSize: const Size(40, 40),
@@ -79,7 +80,7 @@ class _InformasiState extends State<Informasi> {
                         borderRadius: BorderRadius.circular(10.0),
                       ),
                     ),
-                    child: const Text("Informasi", style: TextStyle(color: Colors.black),),
+                    child: const Text("eja", style: TextStyle(color: Colors.black),),
                   ),
                   OutlinedButton(
                     onPressed: () {
@@ -180,7 +181,7 @@ class _InformasiState extends State<Informasi> {
                 crossAxisAlignment: CrossAxisAlignment.start, // Mengejarkan paragraf secara vertikal dari kiri
                 children: [
                   Text(
-                    "Perihal",
+                    "hai",
                     style: TextStyle(fontWeight: FontWeight.bold),
                   ),
                   Text(

@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:eoffice/pages/eja.dart';
 import 'package:eoffice/pages/informasi.dart';
 import 'package:eoffice/pages/riwayat.dart';
 import 'package:flutter/material.dart';
@@ -212,23 +213,25 @@ class _DataSuratState extends State<DataSurat> {
         children: <Widget>[
           // Kolom pertama dengan lingkaran
           Container(
-              width: 60.0, // Lebar lingkaran
-              height: 60.0, // Tinggi lingkaran
-              decoration: const BoxDecoration(
-                color: Colors.blue, // Warna lingkaran
-                shape: BoxShape.circle, // Bentuk lingkaran
-              ),
-              child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Text(
-                      widget.initial,
-                      style: const TextStyle(
-                        fontSize: 28.0,
-                        color: Colors.white,
-                      ),
-                    )
-                  ])),
+            width: 60.0, // Lebar lingkaran
+            height: 60.0, // Tinggi lingkaran
+            decoration: const BoxDecoration(
+              color: Colors.blue, // Warna lingkaran
+              shape: BoxShape.circle, // Bentuk lingkaran
+            ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text(
+                  widget.initial,
+                  style: const TextStyle(
+                    fontSize: 28.0,
+                    color: Colors.white,
+                  ),
+                )
+              ]
+            )
+          ),
           const SizedBox(width: 10.0), // Spasi antara lingkaran dan persegi panjang
           // Kolom kedua dengan persegi panjang
           Expanded(
