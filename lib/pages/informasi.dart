@@ -1,3 +1,4 @@
+import 'package:eoffice/pages/catatan.dart';
 import 'package:eoffice/pages/disposisi.dart';
 import 'package:eoffice/pages/riwayat.dart';
 import 'package:flutter/material.dart';
@@ -505,7 +506,7 @@ class _InformasiState extends State<Informasi> {
             padding: const EdgeInsets.only(right: 2, left: 2),
             child: OutlinedButton(
               onPressed: () {
-                // Action to perform when the "Catatan" button is pressed
+                Navigator.of(context).push(MaterialPageRoute(builder: (context) => const CatatanSection()));
               },
               style: OutlinedButton.styleFrom(
                 foregroundColor: Colors.blue,

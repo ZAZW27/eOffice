@@ -1,5 +1,6 @@
 // ignore_for_file: camel_case_types
 
+import 'package:eoffice/pages/catatan.dart';
 import 'package:eoffice/pages/informasi.dart';
 import 'package:eoffice/pages/riwayat.dart';
 import 'package:flutter/material.dart';
@@ -14,7 +15,7 @@ class DisposisiSection extends StatelessWidget {
       body: ListView(
         children: <Widget>[
           const headerSuratPengaturan(),
-          DisposisiColumn(), // Gunakan widget DataSuratMasukColumn di sini
+          const DisposisiColumn(), // Gunakan widget DataSuratMasukColumn di sini
           Disposisi(
             initial: "AD",
             dari: "ADAMIN",
@@ -400,7 +401,7 @@ class _headerSuratPengaturanState extends State<headerSuratPengaturan> {
             padding: const EdgeInsets.only(right: 2, left: 2),
             child: OutlinedButton(
               onPressed: () {
-                
+                Navigator.of(context).push(MaterialPageRoute(builder: (context) => const CatatanSection()));
               },
               style: OutlinedButton.styleFrom(
                 foregroundColor: Colors.blue,

@@ -2,6 +2,7 @@
 
 // ignore: unnecessary_import
 import 'dart:ui';
+import 'package:eoffice/pages/catatan.dart';
 import 'package:eoffice/pages/disposisi.dart';
 import 'package:eoffice/pages/informasi.dart';
 import 'package:flutter/material.dart';
@@ -500,7 +501,7 @@ class _headerSuratPengaturanState extends State<headerSuratPengaturan> {
             padding: const EdgeInsets.only(right: 2, left: 2),
             child: OutlinedButton(
               onPressed: () {
-                // Action to perform when the "Catatan" button is pressed
+                Navigator.of(context).push(MaterialPageRoute(builder: (context) => const CatatanSection()));
               },
               style: OutlinedButton.styleFrom(
                 foregroundColor: Colors.blue,

@@ -1,3 +1,5 @@
+// ignore_for_file: unnecessary_import
+
 import 'dart:ui';
 
 import 'package:eoffice/pages/data_surat.dart';
@@ -106,7 +108,7 @@ class _DashboardState extends State<Dashboard> {
                                 });
                               },
                               child: AnimatedContainer(
-                                duration: Duration(milliseconds: 100),
+                                duration: const Duration(milliseconds: 100),
                                 height: isTappedOne ? 138:140,
                                 margin: const EdgeInsets.only(left: 10, right: 3, ),
                                 decoration: BoxDecoration(
@@ -127,10 +129,10 @@ class _DashboardState extends State<Dashboard> {
                                   children: [
                                     // CONTAINER GAMBAR
                                     AnimatedContainer(
-                                      duration: Duration(milliseconds: 50),
-                                      padding: isTappedOne ? EdgeInsets.only(left: 8, right: 8):const EdgeInsets.only(left: 10, right: 10),
+                                      duration: const Duration(milliseconds: 50),
+                                      padding: isTappedOne ? const EdgeInsets.only(left: 8, right: 8):const EdgeInsets.only(left: 10, right: 10),
                                       child: AnimatedContainer(
-                                        duration: Duration(milliseconds: 100),
+                                        duration: const Duration(milliseconds: 100),
                                         height: isTappedOne ? 81:80,
                                         decoration: BoxDecoration(
                                           gradient: const LinearGradient(
@@ -181,8 +183,8 @@ class _DashboardState extends State<Dashboard> {
                                                 ],
                                               ),
                                               child: AnimatedContainer(
-                                                duration: Duration(milliseconds: 100),
-                                                padding: isTappedOne ? EdgeInsets.all(0):const EdgeInsets.all(4),
+                                                duration: const Duration(milliseconds: 100),
+                                                padding: isTappedOne ? const EdgeInsets.all(0):const EdgeInsets.all(4),
                                                 child: SvgPicture.asset(
                                                   'assets/icons/surat-masuk.svg'
                                                 ),
@@ -214,7 +216,7 @@ class _DashboardState extends State<Dashboard> {
                                 setState(() {
                                   isTappedTwo = !isTappedTwo;
                                 });
-                                Navigator.of(context).push(MaterialPageRoute(builder: (context) => DisposisiSection()));
+                                Navigator.of(context).push(MaterialPageRoute(builder: (context) => const DisposisiSection()));
                               },
                               onTapDown: (details) {
                                 setState(() {
@@ -243,10 +245,10 @@ class _DashboardState extends State<Dashboard> {
                                   children: [
                                     // CONTAINER GAMBAR
                                     AnimatedContainer(
-                                      duration: Duration(milliseconds: 50),
-                                      padding: isTappedTwo ? EdgeInsets.only(left: 8, right: 8):const EdgeInsets.only(left: 10, right: 10),
+                                      duration: const Duration(milliseconds: 50),
+                                      padding: isTappedTwo ? const EdgeInsets.only(left: 8, right: 8):const EdgeInsets.only(left: 10, right: 10),
                                       child: AnimatedContainer(
-                                        duration: Duration(milliseconds: 100),
+                                        duration: const Duration(milliseconds: 100),
                                         height: isTappedTwo ? 81:80,
                                         decoration: BoxDecoration(
                                           gradient: const LinearGradient(
@@ -298,8 +300,8 @@ class _DashboardState extends State<Dashboard> {
                                                 ],
                                               ),
                                               child: AnimatedContainer(
-                                                duration: Duration(milliseconds: 100),
-                                                padding: isTappedTwo ? EdgeInsets.all(0):const EdgeInsets.all(4),
+                                                duration: const Duration(milliseconds: 100),
+                                                padding: isTappedTwo ? const EdgeInsets.all(0):const EdgeInsets.all(4),
                                                 child: SvgPicture.asset(
                                                   'assets/icons/surat-keluar.svg'
                                                 ),
@@ -347,7 +349,7 @@ class _DashboardState extends State<Dashboard> {
                               },
                               
                               child: AnimatedContainer(
-                                duration: Duration(milliseconds: 100),
+                                duration: const Duration(milliseconds: 100),
                                 height: isTappedThree ? 138: 140,
                                 margin: const EdgeInsets.only(left: 10, right: 3),
                                 decoration: BoxDecoration(
@@ -366,8 +368,8 @@ class _DashboardState extends State<Dashboard> {
                                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                                   children: [
                                     AnimatedContainer(
-                                      duration: Duration(milliseconds: 50),
-                                      padding: isTappedThree ? EdgeInsets.only(left: 8, right: 8): const EdgeInsets.only(left: 10, right: 10), // Decrease padding on tap
+                                      duration: const Duration(milliseconds: 50),
+                                      padding: isTappedThree ? const EdgeInsets.only(left: 8, right: 8): const EdgeInsets.only(left: 10, right: 10), // Decrease padding on tap
                                       child: Container(
                                         height: isTappedThree ? 81:80,
                                         decoration: BoxDecoration(
@@ -420,7 +422,7 @@ class _DashboardState extends State<Dashboard> {
                                               ),
                                               child: AnimatedContainer(
                                                 duration: const Duration(milliseconds: 100),
-                                                padding: isTappedThree ? EdgeInsets.all(0):const EdgeInsets.all(4),
+                                                padding: isTappedThree ? const EdgeInsets.all(0):const EdgeInsets.all(4),
                                                 child: SvgPicture.asset(
                                                   'assets/icons/surat-belum-ditandatangani.svg',
                                                 ),
@@ -459,7 +461,7 @@ class _DashboardState extends State<Dashboard> {
                                 });
                               },
                               child: AnimatedContainer(
-                                duration: Duration(milliseconds: 100),
+                                duration: const Duration(milliseconds: 100),
                                 height: isTappedFour ? 138 : 140,
                                 margin: const EdgeInsets.only(left: 3, right: 10 ),
                                 decoration: BoxDecoration(
@@ -480,10 +482,10 @@ class _DashboardState extends State<Dashboard> {
                                   children: [
                                     // CONTAINER GAMBAR
                                     AnimatedContainer(
-                                      duration: Duration(milliseconds: 50),
-                                      padding: isTappedFour ? EdgeInsets.only(left: 8, right: 8):const EdgeInsets.only(left: 10, right: 10),
+                                      duration: const Duration(milliseconds: 50),
+                                      padding: isTappedFour ? const EdgeInsets.only(left: 8, right: 8):const EdgeInsets.only(left: 10, right: 10),
                                       child: AnimatedContainer(
-                                        duration: Duration(milliseconds: 100),
+                                        duration: const Duration(milliseconds: 100),
                                         height: isTappedFour? 81:80,
                                         decoration: BoxDecoration(
                                           gradient: const LinearGradient(
@@ -535,8 +537,8 @@ class _DashboardState extends State<Dashboard> {
                                                 ],
                                               ),
                                               child: AnimatedContainer(
-                                                duration: Duration(milliseconds: 100),
-                                                padding: isTappedFour ? EdgeInsets.all(0):const EdgeInsets.all(4),
+                                                duration: const Duration(milliseconds: 100),
+                                                padding: isTappedFour ? const EdgeInsets.all(0):const EdgeInsets.all(4),
                                                 child: SvgPicture.asset(
                                                   'assets/icons/surat-belum-dibaca.svg'
                                                 ),
