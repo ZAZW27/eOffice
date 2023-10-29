@@ -1,6 +1,6 @@
 import 'dart:ui';
-
-import 'package:eoffice/pages/surat_pengaturan.dart';
+import 'package:eoffice/pages/disposisi.dart';
+import 'package:eoffice/pages/informasi.dart';
 import 'package:flutter/material.dart';
 
 class Riwayat extends StatefulWidget {
@@ -17,7 +17,7 @@ class _RiwayatState extends State<Riwayat> {
       appBar: appBar(context),
       body: ListView(
         children: const <Widget>[
-          headerSuratPengaturan(), // Gunakan widget DataSuratMasukColumn di sini
+          headerSuratPengaturan(),
           DataSurat(
             initial: "AD",
             dari: "PURNOMO M - 1968100611990031004",
@@ -66,7 +66,7 @@ class _RiwayatState extends State<Riwayat> {
   AppBar appBar(BuildContext context) {
     return AppBar(
       title: const Text(
-        'Riwayat',
+        'Data Surat',
         style: TextStyle(
           color: Colors.black,
           fontSize: 15,
@@ -358,3 +358,160 @@ class _DataSuratState extends State<DataSurat> {
     );
   }
 }
+class headerSuratPengaturan extends StatefulWidget {
+  const headerSuratPengaturan({super.key});
+
+  @override
+  State<headerSuratPengaturan> createState() => _headerSuratPengaturanState();
+}
+
+class _headerSuratPengaturanState extends State<headerSuratPengaturan> {
+  int jumlahSuratMasuk = 6;
+
+  @override
+  Widget build(BuildContext context) {
+    final contentWidth =  MediaQuery.of(context).size.width * 0.98;
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          _infoBanner(contentWidth), // Consists of profile pic, and surat info
+          const SizedBox(height:20), 
+          _navBar(), // consists of navigation button to navigate through out the pages
+        ],
+      ),
+    );
+  }
+  Center _infoBanner(double contentWidth) {
+    return Center(
+      child: Container(
+        width: contentWidth * 0.9,
+        // decoration: BoxDecoration(color: Colors.black),
+        child: const Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            CircleAvatar(
+              radius: 50,
+              child: Text(
+                "DB",
+                style: TextStyle(
+                  fontSize: 40,
+                  color: Colors.white,
+                ),
+              ),
+                // Gambar profil pengguna (jika ada)
+                // Misalnya, backgroundImage: AssetImage('gambar_profil.jpg'),
+            ),
+            SizedBox(height: 10,),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SizedBox(width: 10),
+                Text(
+                  textAlign: TextAlign.center, // Center-align the text
+                  "Badan Kepegawaian dan Pengembangan",
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                ),
+                Text(
+                  textAlign: TextAlign.center, // Center-align the text
+                  "Sumber Daya Manusia",
+                  style: TextStyle(fontWeight: FontWeight.w600, fontSize: 16, ),
+                ),
+                SizedBox(height: 5),
+                Text(
+                  textAlign: TextAlign.center, // Center-align the text
+                  "DIDIK BUDIANTO",
+                  style: TextStyle(fontSize: 12),
+                ),
+                SizedBox(height: 5),
+                Text(
+                  textAlign: TextAlign.center, // Center-align the text
+                  "198701312011011007",
+                  style: TextStyle(fontSize: 12),
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  SingleChildScrollView _navBar() {
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal, // Enable horizontal scrolling
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(right: 2),
+            child: OutlinedButton(
+              onPressed: () {
+                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Informasi()));
+                // Action to perform when the "SuratPengaturan" button is pressed
+              },
+              style: OutlinedButton.styleFrom(
+                foregroundColor: Colors.blue,
+                minimumSize: const Size(40, 40),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10.0),
+                ),
+              ),
+              child: const Text("Informasi", style: TextStyle(color: Colors.black),),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(right: 2, left: 2),
+            child: OutlinedButton(
+              onPressed: () {
+                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => DisposisiSection()));
+              },
+              style: OutlinedButton.styleFrom(
+                foregroundColor: Colors.blue,
+                minimumSize: const Size(40, 40),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10.0),
+                ),
+              ),
+              child: const Text("Disposisi", style: TextStyle(color: Colors.black),),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(right: 2, left: 2),
+            child: OutlinedButton(
+              onPressed: () {
+                // Action to perform when the "Riwayat" button is pressed
+              },
+              style: OutlinedButton.styleFrom(
+                backgroundColor: const Color.fromARGB(255, 1, 141, 255).withOpacity(1), 
+                foregroundColor: Colors.white,
+                minimumSize: const Size(40, 40),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10.0),
+                ),
+              ),
+              child: const Text("Riwayat", style: TextStyle(color: Colors.white),),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(right: 2, left: 2),
+            child: OutlinedButton(
+              onPressed: () {
+                // Action to perform when the "Catatan" button is pressed
+              },
+              style: OutlinedButton.styleFrom(
+                foregroundColor: Colors.blue,
+                minimumSize: const Size(40, 40),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10.0),
+                ),
+              ),
+              child: const Text("Catatan", style: TextStyle(color: Colors.black),),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+

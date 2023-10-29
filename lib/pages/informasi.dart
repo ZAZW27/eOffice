@@ -1,3 +1,5 @@
+import 'package:eoffice/pages/disposisi.dart';
+import 'package:eoffice/pages/riwayat.dart';
 import 'package:flutter/material.dart';
 
 class Informasi extends StatefulWidget {
@@ -450,68 +452,69 @@ class _InformasiState extends State<Informasi> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          OutlinedButton(
-            onPressed: () {
-              // Action to perform when the "Informasi" button is pressed
-            },
-            style: OutlinedButton.styleFrom(
-              foregroundColor: Colors.black,
-              minimumSize: const Size(40, 40),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10.0),
+          Padding(
+            padding: const EdgeInsets.only(right: 2),
+            child: OutlinedButton(
+              onPressed: () {
+                // Action to perform when the "SuratPengaturan" button is pressed
+              },
+              style: OutlinedButton.styleFrom(
+                backgroundColor: const Color.fromARGB(255, 1, 141, 255).withOpacity(1), 
+                foregroundColor: Colors.white,
+                minimumSize: const Size(40, 40),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10.0),
+                ),
               ),
-            ),
-            child: const Text(
-              "Informasi",
-              style: TextStyle(color: Colors.black),
+              child: const Text("Informasi", style: TextStyle(color: Colors.white),),
             ),
           ),
-          OutlinedButton(
-            onPressed: () {
-              // Action to perform when the "Disposisi" button is pressed
-            },
-            style: OutlinedButton.styleFrom(
-              foregroundColor: Colors.blue,
-              minimumSize: const Size(40, 40),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10.0),
+          Padding(
+            padding: const EdgeInsets.only(right: 2, left: 2),
+            child: OutlinedButton(
+              onPressed: () {
+                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => DisposisiSection()));
+              },
+              style: OutlinedButton.styleFrom(
+                foregroundColor: Colors.blue,
+                minimumSize: const Size(40, 40),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10.0),
+                ),
               ),
-            ),
-            child: const Text(
-              "Disposisi",
-              style: TextStyle(color: Colors.black),
+              child: const Text("Disposisi", style: TextStyle(color: Colors.black),),
             ),
           ),
-          OutlinedButton(
-            onPressed: () {
-              // Action to perform when the "Riwayat" button is pressed
-            },
-            style: OutlinedButton.styleFrom(
-              foregroundColor: Colors.blue,
-              minimumSize: const Size(40, 40),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10.0),
+          Padding(
+            padding: const EdgeInsets.only(right: 2, left: 2),
+            child: OutlinedButton(
+              onPressed: () {
+                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const Riwayat()));
+              },
+              style: OutlinedButton.styleFrom(
+                foregroundColor: Colors.blue,
+                minimumSize: const Size(40, 40),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10.0),
+                ),
               ),
-            ),
-            child: const Text(
-              "Riwayat",
-              style: TextStyle(color: Colors.black),
+              child: const Text("Riwayat", style: TextStyle(color: Colors.black),),
             ),
           ),
-          OutlinedButton(
-            onPressed: () {
-              // Action to perform when the "Catatan" button is pressed
-            },
-            style: OutlinedButton.styleFrom(
-              foregroundColor: Colors.blue,
-              minimumSize: const Size(40, 40),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10.0),
+          Padding(
+            padding: const EdgeInsets.only(right: 2, left: 2),
+            child: OutlinedButton(
+              onPressed: () {
+                // Action to perform when the "Catatan" button is pressed
+              },
+              style: OutlinedButton.styleFrom(
+                foregroundColor: Colors.blue,
+                minimumSize: const Size(40, 40),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10.0),
+                ),
               ),
-            ),
-            child: const Text(
-              "Catatan",
-              style: TextStyle(color: Colors.black),
+              child: const Text("Catatan", style: TextStyle(color: Colors.black),),
             ),
           ),
         ],
@@ -522,7 +525,7 @@ class _InformasiState extends State<Informasi> {
   AppBar appBar(BuildContext context) {
     return AppBar(
       title: const Text(
-        'Surat Pengaturan',
+        'Data Surat',
         style: TextStyle(
             color: Colors.black, fontSize: 15, fontWeight: FontWeight.w700),
       ),
