@@ -1,4 +1,5 @@
 import 'package:eoffice/pages/dashboard.dart';
+import 'package:eoffice/splash.dart';
 // import 'package:eoffice/pages/data_surat.dart';
 import 'package:flutter/material.dart';
 
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(fontFamily: 'Poppins'),
-      home: Dashboard(),
+      home: SplashScreen(),
     );
   }
 }
