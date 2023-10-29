@@ -1,3 +1,5 @@
+// ignore_for_file: unused_import, use_build_context_synchronously
+
 import 'dart:ffi';
 import 'dart:ui';
 
@@ -20,15 +22,15 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   _navToDashboard()async{
-    await Future.delayed(Duration(milliseconds: 1500), (){});
-    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Dashboard()));
+    await Future.delayed(const Duration(milliseconds: 1500), (){});
+    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const Dashboard()));
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
@@ -38,25 +40,23 @@ class _SplashScreenState extends State<SplashScreen> {
         ),
         child: BackdropFilter(
           filter: ImageFilter.blur(sigmaX: 0, sigmaY: 0),
-          child: Center(
-            child: Container(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  CircleAvatar(
-                    radius: 60,
-                    backgroundColor: Colors.white,
-                  ), 
-                  SizedBox(height: 15,),
-                  Text(
-                    "E-Office", 
-                    style: TextStyle(
-                      fontSize: 30, 
-                      fontWeight: FontWeight.bold
-                    ),
+          child: const Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                CircleAvatar(
+                  radius: 60,
+                  backgroundColor: Colors.white,
+                ), 
+                SizedBox(height: 15,),
+                Text(
+                  "E-Office", 
+                  style: TextStyle(
+                    fontSize: 30, 
+                    fontWeight: FontWeight.bold
                   ),
-                ],
-              )
+                ),
+              ],
             ),
           ),
         ),

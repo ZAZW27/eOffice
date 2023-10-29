@@ -1,3 +1,6 @@
+// ignore_for_file: camel_case_types
+
+// ignore: unnecessary_import
 import 'dart:ui';
 import 'package:eoffice/pages/disposisi.dart';
 import 'package:eoffice/pages/informasi.dart';
@@ -383,7 +386,7 @@ class _headerSuratPengaturanState extends State<headerSuratPengaturan> {
   }
   Center _infoBanner(double contentWidth) {
     return Center(
-      child: Container(
+      child: SizedBox(
         width: contentWidth * 0.9,
         // decoration: BoxDecoration(color: Colors.black),
         child: const Column(
@@ -447,7 +450,7 @@ class _headerSuratPengaturanState extends State<headerSuratPengaturan> {
             padding: const EdgeInsets.only(right: 2),
             child: OutlinedButton(
               onPressed: () {
-                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Informasi()));
+                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const Informasi()));
                 // Action to perform when the "SuratPengaturan" button is pressed
               },
               style: OutlinedButton.styleFrom(
@@ -464,7 +467,7 @@ class _headerSuratPengaturanState extends State<headerSuratPengaturan> {
             padding: const EdgeInsets.only(right: 2, left: 2),
             child: OutlinedButton(
               onPressed: () {
-                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => DisposisiSection()));
+                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const DisposisiSection()));
               },
               style: OutlinedButton.styleFrom(
                 foregroundColor: Colors.blue,

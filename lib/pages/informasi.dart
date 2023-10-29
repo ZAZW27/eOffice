@@ -311,7 +311,7 @@ class _InformasiState extends State<Informasi> {
           SizedBox(
             width: MediaQuery.of(context).size.width,
             child: DecoratedBox(
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 border: Border(
                   top: BorderSide(
                       width: 2.0,
@@ -324,14 +324,14 @@ class _InformasiState extends State<Informasi> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
+                    const Text(
                       "Dokumen Lampiran",
                       textAlign: TextAlign.start,
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    Text(
+                    const Text(
                       "Daftar Dokumen Digital Surat yang diupload oleh Pembuat Surat",
                       style: TextStyle(fontSize: 14),
                     ),
@@ -387,7 +387,7 @@ class _InformasiState extends State<Informasi> {
 
   Center _infoBanner(double contentWidth) {
     return Center(
-      child: Container(
+      child: SizedBox(
         width: contentWidth * 0.9,
         // decoration: BoxDecoration(color: Colors.black),
         child: const Column(
@@ -473,7 +473,7 @@ class _InformasiState extends State<Informasi> {
             padding: const EdgeInsets.only(right: 2, left: 2),
             child: OutlinedButton(
               onPressed: () {
-                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => DisposisiSection()));
+                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const DisposisiSection()));
               },
               style: OutlinedButton.styleFrom(
                 foregroundColor: Colors.blue,

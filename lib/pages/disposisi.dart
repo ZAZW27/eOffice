@@ -1,15 +1,19 @@
+// ignore_for_file: camel_case_types
+
 import 'package:eoffice/pages/informasi.dart';
 import 'package:eoffice/pages/riwayat.dart';
 import 'package:flutter/material.dart';
 
 class DisposisiSection extends StatelessWidget {
+  const DisposisiSection({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: appBar(context),
       body: ListView(
         children: <Widget>[
-          headerSuratPengaturan(),
+          const headerSuratPengaturan(),
           DisposisiColumn(), // Gunakan widget DataSuratMasukColumn di sini
           Disposisi(
             initial: "AD",
@@ -71,6 +75,8 @@ class DisposisiSection extends StatelessWidget {
 }
 
 class DisposisiColumn extends StatefulWidget {
+  const DisposisiColumn({super.key});
+
   @override
   State<DisposisiColumn> createState() => _DisposisiColumnState();
 }
@@ -78,8 +84,8 @@ class DisposisiColumn extends StatefulWidget {
 class _DisposisiColumnState extends State<DisposisiColumn> {
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(20),
+    return const Padding(
+      padding: EdgeInsets.all(20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
@@ -115,7 +121,8 @@ class Disposisi extends StatefulWidget {
   final String perihal;
   final String tanggal;
 
-  Disposisi({
+  // ignore: prefer_const_constructors_in_immutables
+  Disposisi({super.key, 
     required this.initial,
     required this.dari,
     required this.perihal,
@@ -132,10 +139,10 @@ class _DisposisiState extends State<Disposisi> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(20.0), // Berikan padding keseluruhan
+      padding: const EdgeInsets.all(20.0), // Berikan padding keseluruhan
       child: Row(
         children: <Widget>[
-          SizedBox(width: 10.0), // Spasi antara lingkaran dan persegi panjang
+          const SizedBox(width: 10.0), // Spasi antara lingkaran dan persegi panjang
           // Kolom kedua dengan persegi panjang
           Expanded(
             child: GestureDetector(
@@ -150,8 +157,8 @@ class _DisposisiState extends State<Disposisi> {
                 });
               },
               child: AnimatedContainer(
-                duration: Duration(milliseconds: 100),
-                padding: EdgeInsets.all(15),
+                duration: const Duration(milliseconds: 100),
+                padding: const EdgeInsets.all(15),
                 decoration: BoxDecoration(
                   color: isTapped ? Colors.grey[100] : Colors.white,
                   border: Border.all(
@@ -166,7 +173,7 @@ class _DisposisiState extends State<Disposisi> {
                     Container(
                       width: 60.0,
                       height: 60.0,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         color: Colors.blue,
                         shape: BoxShape.circle,
                       ),
@@ -175,7 +182,7 @@ class _DisposisiState extends State<Disposisi> {
                         children: <Widget>[
                           Text(
                             widget.initial,
-                            style: TextStyle(
+                            style: const TextStyle(
                               fontSize: 28.0,
                               color: Colors.white,
                             ),
@@ -183,12 +190,12 @@ class _DisposisiState extends State<Disposisi> {
                         ],
                       ),
                     ),
-                    SizedBox(width: 10.0),
+                    const SizedBox(width: 10.0),
                     Flexible(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
-                          Text(
+                          const Text(
                             "Dari:",
                             style: TextStyle(
                               fontSize: 18.0,
@@ -196,17 +203,17 @@ class _DisposisiState extends State<Disposisi> {
                               color: Colors.black,
                             ),
                           ),
-                          SizedBox(height: 5.0),
+                          const SizedBox(height: 5.0),
                           Text(
                             widget.dari,
-                            style: TextStyle(
+                            style: const TextStyle(
                               fontSize: 14.0,
                               fontWeight: FontWeight.normal,
                               color: Colors.black,
                             ),
                           ),
-                          SizedBox(height: 20.0),
-                          Text(
+                          const SizedBox(height: 20.0),
+                          const Text(
                             "Perihal:",
                             style: TextStyle(
                               fontSize: 18.0,
@@ -214,16 +221,16 @@ class _DisposisiState extends State<Disposisi> {
                               color: Colors.black,
                             ),
                           ),
-                          SizedBox(height: 5.0),
+                          const SizedBox(height: 5.0),
                           Text(
                             widget.perihal,
-                            style: TextStyle(
+                            style: const TextStyle(
                               fontSize: 14.0,
                               fontWeight: FontWeight.w600,
                             ),
                           ),
-                          SizedBox(height: 20.0),
-                          Text(
+                          const SizedBox(height: 20.0),
+                          const Text(
                             "Tanggal:",
                             style: TextStyle(
                               fontSize: 18.0,
@@ -231,15 +238,15 @@ class _DisposisiState extends State<Disposisi> {
                               color: Colors.black,
                             ),
                           ),
-                          SizedBox(height: 5.0),
+                          const SizedBox(height: 5.0),
                           Text(
                             widget.tanggal,
-                            style: TextStyle(
+                            style: const TextStyle(
                               fontSize: 14.0,
                               fontWeight: FontWeight.w600,
                             ),
                           ),
-                          SizedBox(height: 10.0),
+                          const SizedBox(height: 10.0),
                         ],
                       ),
                     ),
@@ -279,7 +286,7 @@ class _headerSuratPengaturanState extends State<headerSuratPengaturan> {
   }
   Center _infoBanner(double contentWidth) {
     return Center(
-      child: Container(
+      child: SizedBox(
         width: contentWidth * 0.9,
         // decoration: BoxDecoration(color: Colors.black),
         child: const Column(
@@ -343,7 +350,7 @@ class _headerSuratPengaturanState extends State<headerSuratPengaturan> {
             padding: const EdgeInsets.only(right: 2),
             child: OutlinedButton(
               onPressed: () {
-                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Informasi()));
+                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const Informasi()));
                 // Action to perform when the "SuratPengaturan" button is pressed
               },
               style: OutlinedButton.styleFrom(
@@ -377,7 +384,7 @@ class _headerSuratPengaturanState extends State<headerSuratPengaturan> {
             padding: const EdgeInsets.only(right: 2, left: 2),
             child: OutlinedButton(
               onPressed: () {
-                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Riwayat()));
+                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const Riwayat()));
               },
               style: OutlinedButton.styleFrom(
                 foregroundColor: Colors.blue,
