@@ -12,7 +12,7 @@ class DisposisiSection extends StatelessWidget {
       appBar: appBar(context),
       body: Column(
         children: [
-          const HeaderSuratPengaturan(), // Perhatikan perubahan ini
+          const headerSuratPengaturan(), // Perhatikan perubahan ini
           const DisposisiColumn(),
           Expanded(
             child: ListView.separated(
@@ -199,37 +199,33 @@ class _DisposisiState extends State<Disposisi> {
   }
 }
 
-class HeaderSuratPengaturan extends StatefulWidget {
-  // Perhatikan perubahan ini
-  const HeaderSuratPengaturan({super.key});
+class headerSuratPengaturan extends StatefulWidget {
+  const headerSuratPengaturan({super.key});
 
   @override
-  State<HeaderSuratPengaturan> createState() =>
-      _HeaderSuratPengaturanState(); // Perhatikan perubahan ini
+  State<headerSuratPengaturan> createState() => _headerSuratPengaturanState();
 }
 
-class _HeaderSuratPengaturanState extends State<HeaderSuratPengaturan> {
-  // Perhatikan perubahan ini
+class _headerSuratPengaturanState extends State<headerSuratPengaturan> {
   int jumlahSuratMasuk = 6;
 
   @override
   Widget build(BuildContext context) {
-    final contentWidth = MediaQuery.of(context).size.width * 0.98;
+    final contentWidth =  MediaQuery.of(context).size.width * 0.98;
     return SingleChildScrollView(
       child: Column(
         children: [
-          _infoBanner(contentWidth),
-          const SizedBox(height: 20),
-          _navBar(),
+          _infoBanner(contentWidth), // Consists of profile pic, and surat info
+          _navBar(), // consists of navigation button to navigate through out the pages
         ],
       ),
     );
   }
-
   Center _infoBanner(double contentWidth) {
     return Center(
       child: SizedBox(
-        width: contentWidth * 0.9,
+        width: contentWidth,
+        // decoration: BoxDecoration(color: Colors.black),
         child: const Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
@@ -238,41 +234,37 @@ class _HeaderSuratPengaturanState extends State<HeaderSuratPengaturan> {
               child: Text(
                 "DB",
                 style: TextStyle(
-                  fontSize: 24,
+                  fontSize: 20,
                   color: Colors.white,
                 ),
               ),
-            ),
-            SizedBox(
-              height: 10,
+              // Gambar profil pengguna (jika ada)
+              // Misalnya, backgroundImage: AssetImage('gambar_profil.jpg'),
             ),
             Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                SizedBox(width: 10),
                 Text(
-                  textAlign: TextAlign.center,
+                  textAlign: TextAlign.center, // Center-align the text
                   "Badan Kepegawaian dan Pengembangan",
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
                 ),
                 Text(
-                  textAlign: TextAlign.center,
+                  textAlign: TextAlign.center, // Center-align the text
                   "Sumber Daya Manusia",
                   style: TextStyle(
                     fontWeight: FontWeight.w600,
-                    fontSize: 16,
+                    fontSize: 13.7,
                   ),
                 ),
-                SizedBox(height: 5),
                 Text(
-                  textAlign: TextAlign.center,
+                  textAlign: TextAlign.center, // Center-align the text
                   "DIDIK BUDIANTO",
                   style: TextStyle(fontSize: 12),
                 ),
-                // SizedBox(height: 5),
                 Text(
-                  textAlign: TextAlign.center,
+                  textAlign: TextAlign.center, // Center-align the text
                   "198701312011011007",
                   style: TextStyle(fontSize: 12),
                 ),
@@ -286,7 +278,7 @@ class _HeaderSuratPengaturanState extends State<HeaderSuratPengaturan> {
 
   SingleChildScrollView _navBar() {
     return SingleChildScrollView(
-      scrollDirection: Axis.horizontal,
+      scrollDirection: Axis.horizontal, // Enable horizontal scrolling
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -294,8 +286,21 @@ class _HeaderSuratPengaturanState extends State<HeaderSuratPengaturan> {
             padding: const EdgeInsets.only(right: 2),
             child: OutlinedButton(
               onPressed: () {
-                Navigator.pushReplacement(context,
-                    MaterialPageRoute(builder: (context) => const Informasi()));
+                Navigator.pushReplacement(context, PageRouteBuilder(
+                  pageBuilder: (context, animation, secondaryAnimation) => const Informasi(),
+                  transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                    const begin = Offset(0.0, 0.0);
+                    const end = Offset.zero;
+                    const curve = Curves.easeInOut;
+                    var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+                    var offsetAnimation = animation.drive(tween);
+                    return SlideTransition(
+                      position: offsetAnimation,
+                      child: child,
+                    );
+                  },
+                  transitionDuration: Duration(milliseconds: 10),
+                ));
               },
               style: OutlinedButton.styleFrom(
                 foregroundColor: Colors.blue,
@@ -304,37 +309,46 @@ class _HeaderSuratPengaturanState extends State<HeaderSuratPengaturan> {
                   borderRadius: BorderRadius.circular(10.0),
                 ),
               ),
-              child: const Text(
-                "Informasi",
-                style: TextStyle(color: Colors.black),
-              ),
+              child: const Text("Informasi", style: TextStyle(color: Colors.black),),
             ),
           ),
           Padding(
             padding: const EdgeInsets.only(right: 2, left: 2),
             child: OutlinedButton(
-              onPressed: () {},
+              onPressed: () {
+                // Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const DisposisiSection()));
+              },
               style: OutlinedButton.styleFrom(
-                backgroundColor:
-                    const Color.fromARGB(255, 1, 141, 255).withOpacity(1),
+                backgroundColor: const Color.fromARGB(255, 1, 141, 255).withOpacity(1), 
                 foregroundColor: Colors.white,
                 minimumSize: const Size(40, 40),
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10),
+                  borderRadius: BorderRadius.circular(10.0),
                 ),
               ),
-              child: const Text(
-                "Disposisi",
-                style: TextStyle(color: Colors.white),
-              ),
+              child: const Text("Disposisi", style: TextStyle(color: Colors.white),),
             ),
           ),
           Padding(
             padding: const EdgeInsets.only(right: 2, left: 2),
             child: OutlinedButton(
               onPressed: () {
-                Navigator.pushReplacement(context,
-                    MaterialPageRoute(builder: (context) => const Riwayat()));
+                Navigator.pushReplacement(context, PageRouteBuilder(
+                  pageBuilder: (context, animation, secondaryAnimation) => const Riwayat(),
+                  transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                    const begin = Offset(0.0, 0.0);
+                    const end = Offset.zero;
+                    const curve = Curves.easeInOut;
+                    var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+                    var offsetAnimation = animation.drive(tween);
+
+                    return SlideTransition(
+                      position: offsetAnimation,
+                      child: child,
+                    );
+                  },
+                  transitionDuration: Duration(milliseconds: 10),
+                ));
               },
               style: OutlinedButton.styleFrom(
                 foregroundColor: Colors.blue,
@@ -343,18 +357,14 @@ class _HeaderSuratPengaturanState extends State<HeaderSuratPengaturan> {
                   borderRadius: BorderRadius.circular(10.0),
                 ),
               ),
-              child: const Text(
-                "Riwayat",
-                style: TextStyle(color: Colors.black),
-              ),
+              child: const Text("Riwayat", style: TextStyle(color: Colors.black),),
             ),
           ),
           Padding(
             padding: const EdgeInsets.only(right: 2, left: 2),
             child: OutlinedButton(
               onPressed: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => const CatatanSection()));
+                Navigator.of(context).push(MaterialPageRoute(builder: (context) => const CatatanSection()));
               },
               style: OutlinedButton.styleFrom(
                 foregroundColor: Colors.blue,
@@ -363,10 +373,7 @@ class _HeaderSuratPengaturanState extends State<HeaderSuratPengaturan> {
                   borderRadius: BorderRadius.circular(10.0),
                 ),
               ),
-              child: const Text(
-                "Catatan",
-                style: TextStyle(color: Colors.black),
-              ),
+              child: const Text("Catatan", style: TextStyle(color: Colors.black),),
             ),
           ),
         ],
@@ -374,6 +381,8 @@ class _HeaderSuratPengaturanState extends State<HeaderSuratPengaturan> {
     );
   }
 }
+
+
 
 class DisposisiModel {
   final String initial;

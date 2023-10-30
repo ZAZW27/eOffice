@@ -459,7 +459,22 @@ class _InformasiState extends State<Informasi> {
             padding: const EdgeInsets.only(right: 2, left: 2),
             child: OutlinedButton(
               onPressed: () {
-                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const DisposisiSection()));
+                Navigator.pushReplacement(context, PageRouteBuilder(
+                  pageBuilder: (context, animation, secondaryAnimation) => const DisposisiSection(),
+                  transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                    const begin = Offset(0.0, 0.0);
+                    const end = Offset.zero;
+                    const curve = Curves.easeInOut;
+                    var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+                    var offsetAnimation = animation.drive(tween);
+
+                    return SlideTransition(
+                      position: offsetAnimation,
+                      child: child,
+                    );
+                  },
+                  transitionDuration: Duration(milliseconds: 10),
+                ));
               },
               style: OutlinedButton.styleFrom(
                 foregroundColor: Colors.blue,
