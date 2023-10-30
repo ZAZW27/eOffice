@@ -1,5 +1,4 @@
 import 'package:eoffice/pages/informasi.dart';
-
 import 'package:flutter/material.dart';
 
 class DataSuratPage extends StatefulWidget {
@@ -17,14 +16,15 @@ class _DataSuratPageState extends State<DataSuratPage> {
         title: const Text(
           'Data Surat',
           style: TextStyle(
-              color: Colors.black, fontSize: 15, fontWeight: FontWeight.w700),
+            color: Colors.black,
+            fontSize: 15,
+            fontWeight: FontWeight.w700,
+          ),
         ),
-      // adjust the style to the app bar 
         elevation: 0.0,
-        backgroundColor: 
-          const Color.fromARGB(100, 255, 255, 255).withOpacity(0.7),
+        backgroundColor:
+            const Color.fromARGB(100, 255, 255, 255).withOpacity(0.7),
         centerTitle: true,
-        // add the arrow icons to the app bar
         leading: IconButton(
           icon: const Icon(
             Icons.arrow_back,
@@ -35,98 +35,120 @@ class _DataSuratPageState extends State<DataSuratPage> {
           },
         ),
       ),
-      body: ListView(
-        children: const <Widget>[
-          DataSuratMasukColumn(), // Gunakan widget DataSuratMasukColumn di sini
-          DataSurat(
-            initial: "DB",
-            title: "Surat Pengantar",
-            subtitle: "surat pengantar",
-            pengirim: "DIDIK BUDIANTO",
-            tanggal: "24 Oktober 2023 08:29:25",
-            tautan: "000/1948/E/BKPSDM",
-            status: "Belum Disposisi",
-            disposisi: "Biasa",
-          ),
-          DataSurat(
-            initial: "AS",
-            title: "Surat Undangan",
-            subtitle: "Undangan",
-            pengirim: "ACHMAD SAFEI",
-            tanggal: "16 Oktober 2023 20:37:01",
-            tautan: "005/0647/E/Bappeda Litbang",
-            status: "Belum Disposisi",
-            disposisi: "Biasa",
-          ),
-          DataSurat(
-            initial: "DB",
-            title: "Surat Biasa",
-            subtitle: "Himbauan Penelitian",
-            pengirim: "DIDIK BUDIANTO",
-            tanggal: "16 Oktober 2023 06:14:08",
-            tautan: "339/1528/E/DPMPTSP",
-            status: "Belum Disposisi",
-            disposisi: "Biasa",
-          ),
-          DataSurat(
-            initial: "DB",
-            title: "Surat Undangan",
-            subtitle: "Undangan Senam Gebungan, Germas dan Bazar TPID",
-            pengirim: "DIDIK BUDIANTO",
-            tanggal: "12 Oktober 2023 07:45:57",
-            tautan: "005/01009/Kesra",
-            status: "Belum Disposisi",
-            disposisi: "Biasa",
-          ),
-          DataSurat(
-            initial: "DB",
-            title: "Surat Undangan",
-            subtitle:
-                "Rapat Penafsiran Nilai TKDN dan Money P3DN di Lingkungan Pemerintah Kota Balikpapan",
-            pengirim: "DIDIK BUDIANTO",
-            tanggal: "12 Oktober 2023 07:45:19",
-            tautan: "027/0660_/PBJ",
-            status: "Belum Disposisi",
-            disposisi: "Biasa",
-          ),
-          DataSurat(
-            initial: "AD",
-            title: "Surat Cuti",
-            subtitle: "CUTI TAHUNAN",
-            pengirim: "ADAMIN",
-            tanggal: "9 Oktober 2023 08:19:05",
-            tautan: "851/0542/E/Diskominfo",
-            status: "Belum Disposisi",
-            disposisi: "Biasa",
+      body: Column(
+        children: <Widget>[
+          const DataSuratMasukColumn(),
+          Expanded(
+            child: ListView.builder(
+              itemCount: dataSuratList.length,
+              itemBuilder: (BuildContext context, int index) {
+                final surat = dataSuratList[index];
+                return Column(
+                  children: <Widget>[
+                    ListTile(
+                      onTap: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => const Informasi()));
+                      },
+                      leading: CircleAvatar(
+                        backgroundColor: Colors.blue,
+                        child: Text(
+                          surat.initial,
+                          style: const TextStyle(
+                            fontSize: 20.0,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                      title: Text(
+                        surat.title,
+                        style: const TextStyle(
+                          fontSize: 14.0,
+                          fontWeight: FontWeight.w800,
+                          color: Colors.blue,
+                        ),
+                      ),
+                      subtitle: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            surat.subtitle,
+                            style: const TextStyle(
+                              fontSize: 12.0,
+                              fontWeight: FontWeight.w600,
+                              color: Colors.black,
+                            ),
+                          ),
+                          Text(
+                            surat.pengirim,
+                            style: const TextStyle(
+                              fontSize: 10,
+                              color: Colors.black,
+                            ),
+                          ),
+                          Text(
+                            surat.tanggal,
+                            style: const TextStyle(
+                              fontSize: 10,
+                              color: Colors.black,
+                            ),
+                          ),
+                          GestureDetector(
+                            child: Text(
+                              surat.tautan,
+                              style: const TextStyle(
+                                  color: Colors.blue, fontSize: 10),
+                            ),
+                            onTap: () {
+                              // Tambahkan aksi ketika tautan ditekan
+                            },
+                          ),
+                          Wrap(
+                            children: <Widget>[
+                              Container(
+                                padding: const EdgeInsets.all(5.0),
+                                margin: const EdgeInsets.only(bottom: 5),
+                                decoration: BoxDecoration(
+                                  color: Colors.grey[300],
+                                  borderRadius: BorderRadius.circular(5.0),
+                                ),
+                                child: Text(surat.status,
+                                    style: const TextStyle(
+                                      fontSize: 10,
+                                      color: Colors.black,
+                                    )),
+                              ),
+                              const SizedBox(width: 5.0),
+                              Container(
+                                padding: const EdgeInsets.all(5.0),
+                                decoration: BoxDecoration(
+                                  color: Colors.blue,
+                                  borderRadius: BorderRadius.circular(5.0),
+                                ),
+                                child: Text(
+                                  surat.disposisi,
+                                  style: const TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 10,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                    if (index < dataSuratList.length - 1)
+                      const Divider(
+                        color: Colors.black,
+                        height: 1.0,
+                      ),
+                  ],
+                );
+              },
+            ),
           ),
         ],
-      ),
-    );
-  }
-
-  AppBar appBar(BuildContext context) {
-    return AppBar(
-      title: const Text(
-        'Data Surat',
-        style: TextStyle(
-          color: Colors.black,
-          fontSize: 15,
-          fontWeight: FontWeight.w700
-        ),
-      ),
-      // adjust the style to the app bar 
-      elevation: 0.0,
-      backgroundColor: const Color.fromARGB(100, 255, 255, 255).withOpacity(0.7),
-      centerTitle: true,
-      // add the arrow icons to the app bar
-      leading: IconButton(
-        icon: const Icon(
-          Icons.arrow_back,
-          color: Colors.black,
-        ),
-        onPressed: () {
-          Navigator.of(context).pop();
-        },
       ),
     );
   }
@@ -168,8 +190,7 @@ class _DataSuratMasukColumnState extends State<DataSuratMasukColumn> {
                 ),
               ),
               Positioned(
-                top: screenHeight *
-                    0.100, // Atur tinggi teks agar berada di tengah gambar
+                top: screenHeight * 0.100,
                 left: 0,
                 right: 0,
                 child: Center(
@@ -178,18 +199,20 @@ class _DataSuratMasukColumnState extends State<DataSuratMasukColumn> {
                       const Text(
                         "Data Surat Masuk",
                         style: TextStyle(
-                          fontSize: 20,
+                          fontSize: 16,
                           fontWeight: FontWeight.bold,
                           color: Colors.white,
                         ),
+                        textAlign: TextAlign.center,
                       ),
                       Text(
                         "Menurut Data, ada $jumlahSuratMasuk Surat yang Masuk",
                         style: const TextStyle(
-                          fontSize: 16,
+                          fontSize: 14,
                           fontWeight: FontWeight.normal,
                           color: Colors.white,
                         ),
+                        textAlign: TextAlign.center,
                       ),
                     ],
                   ),
@@ -197,16 +220,19 @@ class _DataSuratMasukColumnState extends State<DataSuratMasukColumn> {
               ),
             ],
           ),
-          SizedBox(
+          const SizedBox(
             height: 8,
           ),
           Row(
             children: [
               Expanded(
                 child: TextField(
+                  style: const TextStyle(
+                    fontSize: 12, // Ubah ukuran teks di sini
+                  ),
                   decoration: InputDecoration(
                     hintText: "Cari Surat",
-                    prefixIcon: const Icon(Icons.search, color: Colors.blue),
+                    prefixIcon: const Icon(Icons.search, color: Colors.black),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(screenWidth * 0.04),
                     ),
@@ -219,7 +245,10 @@ class _DataSuratMasukColumnState extends State<DataSuratMasukColumn> {
                 },
                 child: const Text(
                   "Cari",
-                  style: TextStyle(color: Colors.blue),
+                  style: TextStyle(
+                    fontSize: 12, // Ubah ukuran teks di sini
+                    color: Colors.blue,
+                  ),
                 ),
               ),
             ],
@@ -261,155 +290,100 @@ class _DataSuratState extends State<DataSurat> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(20.0), // Berikan padding keseluruhan
-      child: Row(
-        children: <Widget>[
-          // Kolom pertama dengan lingkaran
-          Container(
-            width: 60.0, // Lebar lingkaran
-            height: 60.0, // Tinggi lingkaran
-            decoration: const BoxDecoration(
-              color: Colors.blue, // Warna lingkaran
-              shape: BoxShape.circle, // Bentuk lingkaran
-            ),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Text(
-                  widget.initial,
-                  style: const TextStyle(
-                    fontSize: 28.0,
-                    color: Colors.white,
-                  ),
-                )
-              ]
-            )
+    return ListTile(
+      onTap: () {
+        Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (context) => const Informasi(),
           ),
-          const SizedBox(width: 10.0), // Spasi antara lingkaran dan persegi panjang
-
-          // Kolom kedua dengan persegi panjang
-          Expanded(
-            child: GestureDetector(
-              onTap: () {
-                setState(() {
-                  isTapped = !isTapped;
-                });
-                Navigator.of(context).push(PageRouteBuilder(
-                  pageBuilder: (context, animation, secondaryAnimation) => const Informasi(),
-                  transitionsBuilder: (context, animation, secondaryAnimation, child) {
-                    const begin = Offset(0.0, -1.0);
-                    const end = Offset.zero;
-                    const curve = Curves.easeInOut;
-                    var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
-                    var offsetAnimation = animation.drive(tween);
-
-                    return SlideTransition(
-                      position: offsetAnimation,
-                      child: child,
-                    );
-                  },
-                  transitionDuration: Duration(milliseconds: 150),
-                ));
-              },
-              //contoh aku ambil
-              onTapDown: (details) {
-                setState(() {
-                  isTapped = true;
-                });
-              },
-              child: AnimatedContainer(
-                duration: const Duration(milliseconds: 100),
-                padding: const EdgeInsets.all(15),
-                decoration: BoxDecoration(
-                  color: isTapped ? Colors.grey[100] : Colors.white,
-                  border: Border.all(
-                    color: isTapped ? Colors.blue : Colors.black,
-                    width: isTapped ? 2 : 1,
-                  ),
-                  borderRadius: BorderRadius.circular(10.0),
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Text(
-                      widget.title,
-                      style: TextStyle(
-                        fontSize: 14.0,
-                        fontWeight: FontWeight.w800,
-                        color: isTapped ? Colors.blue : Colors.black,
-                      ),
-                    ),
-                    Text(
-                      widget.subtitle,
-                      style: const TextStyle(
-                        fontSize: 12.0,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                    // const SizedBox(height: 10.0),
-                    Text(
-                      widget.pengirim,
-                      style: TextStyle(
-                        fontSize: 10
-                      ),
-                    ),
-                    Text(
-                      widget.tanggal,
-                      style: TextStyle(
-                        fontSize: 10
-                      ),
-                    ),
-                    // const SizedBox(height: 10.0),
-                    GestureDetector(
-                      child: Text(
-                        widget.tautan,
-                        style: const TextStyle(
-                          color: Colors.blue,
-                          fontSize: 10
-                        ),
-                      ),
-                      onTap: () {
-                        // Tambahkan aksi ketika tautan ditekan
-                      },
-                    ),
-                    const SizedBox(height: 10.0),
-                    Wrap(
-                      children: <Widget>[
-                        Container(
-                          padding: const EdgeInsets.all(5.0),
-                          margin: const EdgeInsets.only(bottom: 5),
-                          decoration: BoxDecoration(
-                            color: Colors.grey[300],
-                            borderRadius: BorderRadius.circular(5.0),
-                          ),
-                          child: Text(
-                            widget.status,
-                          ),
-                        ),
-                        const SizedBox(width: 5.0),
-                        Container(
-                          padding: const EdgeInsets.all(5.0),
-                          decoration: BoxDecoration(
-                            color: Colors.blue,
-                            borderRadius: BorderRadius.circular(5.0),
-                          ),
-                          child: Text(
-                            widget.disposisi,
-                            style: const TextStyle(
-                              color: Colors.white,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ),
-        ],
-      ),
+        );
+      },
     );
   }
 }
+
+class DataSuratModel {
+  final String initial;
+  final String title;
+  final String subtitle;
+  final String pengirim;
+  final String tanggal;
+  final String tautan;
+  final String status;
+  final String disposisi;
+
+  DataSuratModel({
+    required this.initial,
+    required this.title,
+    required this.subtitle,
+    required this.pengirim,
+    required this.tanggal,
+    required this.tautan,
+    required this.status,
+    required this.disposisi,
+  });
+}
+
+final List<DataSuratModel> dataSuratList = [
+  DataSuratModel(
+    initial: "DB",
+    title: "Surat Pengantar",
+    subtitle: "surat pengantar",
+    pengirim: "DIDIK BUDIANTO",
+    tanggal: "24 Oktober 2023 08:29:25",
+    tautan: "000/1948/E/BKPSDM",
+    status: "Belum Disposisi",
+    disposisi: "Biasa",
+  ),
+  DataSuratModel(
+    initial: "AS",
+    title: "Surat Undangan",
+    subtitle: "Undangan",
+    pengirim: "ACHMAD SAFEI",
+    tanggal: "16 Oktober 2023 20:37:01",
+    tautan: "005/0647/E/Bappeda Litbang",
+    status: "Belum Disposisi",
+    disposisi: "Biasa",
+  ),
+  DataSuratModel(
+    initial: "DB",
+    title: "Surat Biasa",
+    subtitle: "Himbauan Penelitian",
+    pengirim: "DIDIK BUDIANTO",
+    tanggal: "16 Oktober 2023 06:14:08",
+    tautan: "339/1528/E/DPMPTSP",
+    status: "Belum Disposisi",
+    disposisi: "Biasa",
+  ),
+  DataSuratModel(
+    initial: "DB",
+    title: "Surat Undangan",
+    subtitle: "Undangan Senam Gebungan, Germas dan Bazar TPID",
+    pengirim: "DIDIK BUDIANTO",
+    tanggal: "12 Oktober 2023 07:45:57",
+    tautan: "005/01009/Kesra",
+    status: "Belum Disposisi",
+    disposisi: "Biasa",
+  ),
+  DataSuratModel(
+    initial: "DB",
+    title: "Surat Undangan",
+    subtitle:
+        "Rapat Penafsiran Nilai TKDN dan Money P3DN di Lingkungan Pemerintah Kota Balikpapan",
+    pengirim: "DIDIK BUDIANTO",
+    tanggal: "12 Oktober 2023 07:45:19",
+    tautan: "027/0660_/PBJ",
+    status: "Belum Disposisi",
+    disposisi: "Biasa",
+  ),
+  DataSuratModel(
+    initial: "AD",
+    title: "Surat Cuti",
+    subtitle: "CUTI TAHUNAN",
+    pengirim: "ADAMIN",
+    tanggal: "9 Oktober 2023 08:19:05",
+    tautan: "851/0542/E/Diskominfo",
+    status: "Belum Disposisi",
+    disposisi: "Biasa",
+  ),
+];
