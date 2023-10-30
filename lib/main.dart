@@ -22,12 +22,11 @@ class MyApp extends StatelessWidget {
       // home: AnimatedSplashScreen(
       //   backgroundColor: Colors.blue.shade50,
       //   duration: 700,
-      //   splash: 
-      //   'images/splash.png', 
-      //   nextScreen: const Dashboard(), 
+      //   splash:
+      //   'images/splash.png',
+      //   nextScreen: const Dashboard(),
       //   splashTransition: SplashTransition.slideTransition,
-        
-        
+
       // )
     );
   }
