@@ -1,4 +1,5 @@
 import 'package:eoffice/pages/catatan.dart';
+import 'package:eoffice/pages/data_surat.dart';
 import 'package:eoffice/pages/disposisi.dart';
 import 'package:eoffice/pages/riwayat.dart';
 import 'package:flutter/material.dart';
@@ -20,7 +21,6 @@ class _InformasiState extends State<Informasi> {
           child: Column(
         children: [
           _infoBanner(contentWidth),
-          const SizedBox(height: 5),
           _navBar(),
           infoPage(contentWidth, context),
         ],
@@ -475,7 +475,22 @@ class _InformasiState extends State<Informasi> {
             padding: const EdgeInsets.only(right: 2, left: 2),
             child: OutlinedButton(
               onPressed: () {
-                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const Riwayat()));
+                Navigator.pushReplacement(context, PageRouteBuilder(
+                  pageBuilder: (context, animation, secondaryAnimation) => const Riwayat(),
+                  transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                    const begin = Offset(0.0, 0.0);
+                    const end = Offset.zero;
+                    const curve = Curves.easeInOut;
+                    var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+                    var offsetAnimation = animation.drive(tween);
+
+                    return SlideTransition(
+                      position: offsetAnimation,
+                      child: child,
+                    );
+                  },
+                  transitionDuration: Duration(milliseconds: 10),
+                ));
               },
               style: OutlinedButton.styleFrom(
                 foregroundColor: Colors.blue,

@@ -1,5 +1,3 @@
-// ignore_for_file: unused_import, use_build_context_synchronously
-
 import 'dart:ffi';
 import 'dart:ui';
 
@@ -16,7 +14,7 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-  bool _isLoading = true;
+  bool _isLoading = false; // Initialize to false
 
   @override
   void initState() {
@@ -27,44 +25,45 @@ class _SplashScreenState extends State<SplashScreen> {
   _initializeAppData() async {
     // Simulate data initialization with a delay
     await Future.delayed(const Duration(milliseconds: 300)); // Adjust the duration as needed
-    // Data initialization is complete, navigate to the dashboard
+    // Data initialization is complete
     setState(() {
-      _isLoading = false;
+      _isLoading = true; // Set to true when dashboard data is ready
     });
 
-    // Delayed navigation to give time for the logo and text to show
-    Future.delayed(const Duration(milliseconds: 2000), () {
-      _navToDashboard();
-    });
+    // Wait for 1 second after dashboard data is ready and then navigate
+    if (_isLoading) {
+      Future.delayed(const Duration(milliseconds: 1300), () {
+        _navToDashboard();
+      });
+    }
   }
 
   _navToDashboard() {
-    if (!_isLoading) {
-      Navigator.pushReplacement(
-        context,
-        PageRouteBuilder(
-          pageBuilder: (context, animation, secondaryAnimation) => const Dashboard(),
-          transitionsBuilder: (context, animation, secondaryAnimation, child) {
-            const begin = Offset(1.0, 0.0);
-            const end = Offset.zero;
-            const curve = Curves.easeOutSine;
-            var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
-            var offsetAnimation = animation.drive(tween);
+    Navigator.pushReplacement(
+      context,
+      PageRouteBuilder(
+        pageBuilder: (context, animation, secondaryAnimation) => const Dashboard(),
+        transitionsBuilder: (context, animation, secondaryAnimation, child) {
+          const begin = Offset(1.0, 0.0);
+          const end = Offset.zero;
+          const curve = Curves.easeOutSine;
+          var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+          var offsetAnimation = animation.drive(tween);
 
-            return SlideTransition(
-              position: offsetAnimation,
-              child: child,
-            );
-          },
-        ),
-      );
-    }
+          return SlideTransition(
+            position: offsetAnimation,
+            child: child,
+          );
+        },
+      ),
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
+      body: AnimatedContainer(
+        duration: const Duration(seconds: 1),
         decoration: BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.topLeft,
@@ -77,14 +76,15 @@ class _SplashScreenState extends State<SplashScreen> {
           child: Center(
             child: AnimatedOpacity(
               duration: const Duration(seconds: 1),
-              opacity: _isLoading ? 0.0 : 1.0,
+              opacity: _isLoading ? 1.0 : 0.0, // Show when data is loaded
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   CircleAvatar(
-                    radius: 60,
+                    radius: 60, // Radius of the white circle
                     backgroundColor: Colors.white,
-                    backgroundImage: AssetImage('images/splash.png'),
+                    // backgroundImage: AssetImage('images/splash.png'),
+                    child: Image.asset('images/splash.png'),
                   ),
                   SizedBox(height: 15),
                   Text(
@@ -92,6 +92,14 @@ class _SplashScreenState extends State<SplashScreen> {
                     style: TextStyle(
                       fontSize: 30,
                       fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                      shadows: [
+                        Shadow(
+                          color: Colors.black.withOpacity(0.4), // Shadow color
+                          offset: Offset(1, 2), // Shadow offset
+                          blurRadius: 4, // Shadow blur radius
+                        ),
+                      ],
                     ),
                   ),
                 ],

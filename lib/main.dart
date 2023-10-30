@@ -19,16 +19,6 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(fontFamily: 'Poppins'),
       home: const SplashScreen(),
-      // home: AnimatedSplashScreen(
-      //   backgroundColor: Colors.blue.shade50,
-      //   duration: 700,
-      //   splash: 
-      //   'images/splash.png', 
-      //   nextScreen: const Dashboard(), 
-      //   splashTransition: SplashTransition.slideTransition,
-        
-        
-      // )
     );
   }
 }

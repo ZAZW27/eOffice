@@ -4,6 +4,7 @@ import 'dart:ui';
 
 import 'package:eoffice/pages/data_surat.dart';
 import 'package:eoffice/pages/disposisi.dart';
+import 'package:eoffice/pages/informasi.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -100,7 +101,22 @@ class _DashboardState extends State<Dashboard> {
                                 setState(() {
                                   isTappedOne = !isTappedOne;
                                 });
-                                Navigator.of(context).push(MaterialPageRoute(builder: (context) => const DataSuratPage()));
+                                Navigator.of(context).push(PageRouteBuilder(
+                                  pageBuilder: (context, animation, secondaryAnimation) => const DataSuratPage(),
+                                  transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                                    const begin = Offset(0.0, 1.0);
+                                    const end = Offset.zero;
+                                    const curve = Curves.easeInOut;
+                                    var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+                                    var offsetAnimation = animation.drive(tween);
+
+                                    return SlideTransition(
+                                      position: offsetAnimation,
+                                      child: child,
+                                    );
+                                  },
+                                  transitionDuration: Duration(milliseconds: 200),
+                                ));
                               },
                               onTapDown: (details) {
                                 setState(() {
