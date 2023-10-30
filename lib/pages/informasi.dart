@@ -461,7 +461,7 @@ class _InformasiState extends State<Informasi> {
                 Navigator.pushReplacement(context, PageRouteBuilder(
                   pageBuilder: (context, animation, secondaryAnimation) => const DisposisiSection(),
                   transitionsBuilder: (context, animation, secondaryAnimation, child) {
-                    const begin = Offset(0.0, 0.0);
+                    const begin = Offset(0.0, -1.0);
                     const end = Offset.zero;
                     const curve = Curves.easeInOut;
                     var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
@@ -492,7 +492,7 @@ class _InformasiState extends State<Informasi> {
                 Navigator.pushReplacement(context, PageRouteBuilder(
                   pageBuilder: (context, animation, secondaryAnimation) => const Riwayat(),
                   transitionsBuilder: (context, animation, secondaryAnimation, child) {
-                    const begin = Offset(0.0, 0.0);
+                    const begin = Offset(0.0, -1.0);
                     const end = Offset.zero;
                     const curve = Curves.easeInOut;
                     var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));

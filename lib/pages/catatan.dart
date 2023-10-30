@@ -175,10 +175,11 @@ class _CatatanInputState extends State<CatatanInput> {
           Expanded(
             child: TextField(
               controller: _catatanController,
-              maxLines: 3, // Jumlah maksimal baris dalam textarea
+              maxLines: 3,
+              style: TextStyle(fontSize: 11), // Adjust the font size as needed
               decoration: InputDecoration(
                 hintText: 'Tambahkan catatan...',
-                hintStyle: const TextStyle(fontSize: 14),
+                hintStyle: const TextStyle(fontSize: 11),
                 focusedBorder: OutlineInputBorder(
                   borderSide: const BorderSide(color: Colors.blue, width: 2),
                   borderRadius: BorderRadius.circular(10),
@@ -188,7 +189,7 @@ class _CatatanInputState extends State<CatatanInput> {
                   borderRadius: BorderRadius.circular(10),
                 ),
               ),
-            ),
+            )
           ),
           const SizedBox(width: 10.0),
           ElevatedButton(
