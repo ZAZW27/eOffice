@@ -152,13 +152,9 @@ class _DisposisiState extends State<Disposisi> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(
-          left: 10.0, right: 10), // Berikan padding keseluruhan
+      padding: const EdgeInsets.only(left: 5, right: 5), // Berikan padding keseluruhan
       child: Row(
-        children: <Widget>[
-          const SizedBox(
-              width: 10.0), // Spasi antara lingkaran dan persegi panjang
-          // Kolom kedua dengan persegi panjang
+        children: <Widget>[ 
           Expanded(
             child: GestureDetector(
               onTap: () {
@@ -173,7 +169,7 @@ class _DisposisiState extends State<Disposisi> {
               },
               child: AnimatedContainer(
                 duration: const Duration(milliseconds: 100),
-                padding: const EdgeInsets.all(15),
+                padding: const EdgeInsets.only(right: 5, left: 5),
                 decoration: BoxDecoration(
                   color: isTapped ? Colors.grey[100] : Colors.white,
                 ),
@@ -197,58 +193,70 @@ class _DisposisiState extends State<Disposisi> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
-                          const Text(
-                            "Dari:",
-                            style: TextStyle(
-                              fontSize: 14.0,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.black,
-                            ),
+                          Wrap(
+                            direction: Axis.horizontal,
+                            alignment: WrapAlignment.start,
+                            crossAxisAlignment: WrapCrossAlignment.center,
+                            children: [
+                              const Text(
+                                "Dari: ",
+                                style: TextStyle(
+                                  fontSize: 12.5,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.black,
+                                ),
+                              ),
+                              // const SizedBox(height: 5.0),
+                              Text(
+                                widget.dari,
+                                style: const TextStyle(
+                                  fontSize: 12.0,
+                                  fontWeight: FontWeight.w500,
+                                  color: Colors.black,
+                                ),
+                              ),
+                            ],
                           ),
-                          // const SizedBox(height: 5.0),
-                          Text(
-                            widget.dari,
-                            style: const TextStyle(
-                              fontSize: 12.0,
-                              fontWeight: FontWeight.w500,
-                              color: Colors.black,
-                            ),
+                          Wrap(
+                            direction: Axis.horizontal,
+                            alignment: WrapAlignment.start,
+                            crossAxisAlignment: WrapCrossAlignment.center,
+                            children: [
+                              const Text(
+                                "Perihal:",
+                                style: TextStyle(
+                                  fontSize: 12.0,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.black,
+                                ),
+                              ),
+                              // const SizedBox(height: 5.0),
+                              Text(
+                                widget.perihal,
+                                style: const TextStyle(
+                                  fontSize: 11.0,
+                                  fontWeight: FontWeight.w500,
+                                  height: 1.3, 
+                                  
+                                ),
+                              ),
+                            ],
                           ),
-                          const SizedBox(height: 5.0),
-                          const Text(
-                            "Perihal:",
-                            style: TextStyle(
-                              fontSize: 14.0,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.black,
-                            ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.only(top: 5),
+                                child: Text(
+                                  widget.tanggal,
+                                  style: const TextStyle(
+                                    fontSize: 11.0,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
-                          // const SizedBox(height: 5.0),
-                          Text(
-                            widget.perihal,
-                            style: const TextStyle(
-                              fontSize: 12.0,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                          const SizedBox(height: 5.0),
-                          const Text(
-                            "Tanggal:",
-                            style: TextStyle(
-                              fontSize: 14.0,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.black,
-                            ),
-                          ),
-                          // const SizedBox(height: 5.0),
-                          Text(
-                            widget.tanggal,
-                            style: const TextStyle(
-                              fontSize: 12.0,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                          // const SizedBox(height: 10.0),
                         ],
                       ),
                     ),
