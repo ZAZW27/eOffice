@@ -1,9 +1,7 @@
-import 'dart:ffi';
 import 'dart:ui';
 
 import 'package:eoffice/pages/dashboard.dart';
 import 'package:flutter/material.dart';
-import 'package:page_transition/page_transition.dart';
 import 'dart:async';
 
 class SplashScreen extends StatefulWidget {
@@ -64,7 +62,7 @@ class _SplashScreenState extends State<SplashScreen> {
     return Scaffold(
       body: AnimatedContainer(
         duration: const Duration(seconds: 1),
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
@@ -86,7 +84,7 @@ class _SplashScreenState extends State<SplashScreen> {
                     // backgroundImage: AssetImage('images/splash.png'),
                     child: Image.asset('images/splash.png'),
                   ),
-                  SizedBox(height: 15),
+                  const SizedBox(height: 15),
                   Text(
                     "E-Office",
                     style: TextStyle(
@@ -96,7 +94,7 @@ class _SplashScreenState extends State<SplashScreen> {
                       shadows: [
                         Shadow(
                           color: Colors.black.withOpacity(0.4), // Shadow color
-                          offset: Offset(1, 2), // Shadow offset
+                          offset: const Offset(1, 2), // Shadow offset
                           blurRadius: 4, // Shadow blur radius
                         ),
                       ],

@@ -47,6 +47,7 @@ class _DataSuratPageState extends State<DataSuratPage> {
                         child: child,
                       );
                     },
+                    // ignore: prefer_const_constructors
                     transitionDuration: Duration(milliseconds: 200),
                   ));
                 },
@@ -255,6 +256,7 @@ class _DataSuratMasukColumnState extends State<DataSuratMasukColumn> {
 
   @override
   Widget build(BuildContext context) {
+    // ignore: unused_local_variable
     final screenHeight = MediaQuery.of(context).size.height;
     final screenWidth = MediaQuery.of(context).size.width;
 

@@ -1,3 +1,5 @@
+// ignore_for_file: camel_case_types, duplicate_ignore
+
 import 'package:eoffice/pages/catatan.dart';
 import 'package:eoffice/pages/informasi.dart';
 import 'package:eoffice/pages/riwayat.dart';
@@ -104,7 +106,7 @@ class Disposisi extends StatefulWidget {
   final String perihal;
   final String tanggal;
 
-  Disposisi({
+  const Disposisi({
     Key? key,
     required this.initial,
     required this.dari,
@@ -113,6 +115,7 @@ class Disposisi extends StatefulWidget {
   }) : super(key: key);
 
   @override
+  // ignore: library_private_types_in_public_api
   _DisposisiState createState() => _DisposisiState();
 }
 
@@ -199,6 +202,7 @@ class _DisposisiState extends State<Disposisi> {
   }
 }
 
+// ignore: camel_case_types
 class headerSuratPengaturan extends StatefulWidget {
   const headerSuratPengaturan({super.key});
 
@@ -299,7 +303,7 @@ class _headerSuratPengaturanState extends State<headerSuratPengaturan> {
                       child: child,
                     );
                   },
-                  transitionDuration: Duration(milliseconds: 10),
+                  transitionDuration: const Duration(milliseconds: 10),
                 ));
               },
               style: OutlinedButton.styleFrom(
@@ -347,7 +351,7 @@ class _headerSuratPengaturanState extends State<headerSuratPengaturan> {
                       child: child,
                     );
                   },
-                  transitionDuration: Duration(milliseconds: 10),
+                  transitionDuration: const Duration(milliseconds: 10),
                 ));
               },
               style: OutlinedButton.styleFrom(

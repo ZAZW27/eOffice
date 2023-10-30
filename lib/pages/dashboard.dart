@@ -3,8 +3,6 @@
 import 'dart:ui';
 
 import 'package:eoffice/pages/data_surat.dart';
-import 'package:eoffice/pages/disposisi.dart';
-import 'package:eoffice/pages/informasi.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -115,6 +113,7 @@ class _DashboardState extends State<Dashboard> {
                                       child: child,
                                     );
                                   },
+                                  // ignore: prefer_const_constructors
                                   transitionDuration: Duration(milliseconds: 200),
                                 ));
                               },

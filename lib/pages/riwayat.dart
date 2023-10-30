@@ -464,7 +464,7 @@ class _headerSuratPengaturanState extends State<headerSuratPengaturan> {
                       child: child,
                     );
                   },
-                  transitionDuration: Duration(milliseconds: 10),
+                  transitionDuration: const Duration(milliseconds: 10),
                 ));
               },
               style: OutlinedButton.styleFrom(
@@ -495,7 +495,7 @@ class _headerSuratPengaturanState extends State<headerSuratPengaturan> {
                       child: child,
                     );
                   },
-                  transitionDuration: Duration(milliseconds: 10),
+                  transitionDuration: const Duration(milliseconds: 10),
                 ));
               },
               style: OutlinedButton.styleFrom(

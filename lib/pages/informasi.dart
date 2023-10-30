@@ -1,5 +1,4 @@
 import 'package:eoffice/pages/catatan.dart';
-import 'package:eoffice/pages/data_surat.dart';
 import 'package:eoffice/pages/disposisi.dart';
 import 'package:eoffice/pages/riwayat.dart';
 import 'package:flutter/material.dart';
@@ -473,7 +472,7 @@ class _InformasiState extends State<Informasi> {
                       child: child,
                     );
                   },
-                  transitionDuration: Duration(milliseconds: 10),
+                  transitionDuration: const Duration(milliseconds: 10),
                 ));
               },
               style: OutlinedButton.styleFrom(
@@ -504,7 +503,7 @@ class _InformasiState extends State<Informasi> {
                       child: child,
                     );
                   },
-                  transitionDuration: Duration(milliseconds: 10),
+                  transitionDuration: const Duration(milliseconds: 10),
                 ));
               },
               style: OutlinedButton.styleFrom(
