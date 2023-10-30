@@ -1,4 +1,4 @@
-// ignore_for_file: camel_case_types, duplicate_ignore
+// ignore_for_file: camel_case_types
 
 import 'package:eoffice/pages/catatan.dart';
 import 'package:eoffice/pages/informasi.dart';
@@ -12,24 +12,36 @@ class DisposisiSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: appBar(context),
-      body: Column(
-        children: [
-          const headerSuratPengaturan(), // Perhatikan perubahan ini
-          const DisposisiColumn(),
-          Expanded(
-            child: ListView.separated(
-              itemCount: disposisiList.length,
-              separatorBuilder: (context, index) => const Divider(),
-              itemBuilder: (context, index) {
-                final disposisi = disposisiList[index];
-                return Disposisi(
-                  initial: disposisi.initial,
-                  dari: disposisi.dari,
-                  perihal: disposisi.perihal,
-                  tanggal: disposisi.tanggal,
-                );
-              },
-            ),
+      body: ListView(
+        children: <Widget>[
+          const headerSuratPengaturan(),
+          const DisposisiColumn(), // Gunakan widget DataSuratMasukColumn di sini
+          Disposisi(
+            initial: "AD",
+            dari: "ADAMIN",
+            perihal:
+                "Diminta kepada semua pegawai diskominfo untuk mendaftar sebagai peserta donor darah sesuai ketentuan umum dalam surat tersebut. Minta dikoordinir oleh kasubag umum",
+            tanggal: "2023-10-20 13:05:01",
+          ),
+          Disposisi(
+            initial: "RR",
+            dari: "RAIHANAH RAHMAH",
+            perihal:
+                "Diinformasikan kepada seluruh pegawai, bagi yang ingin donor dan memenuhi syarat langsung berkoordinasi dgn sebag umum",
+            tanggal: "2023-10-20 13:52:22",
+          ),
+          Disposisi(
+            initial: "AW",
+            dari: "ADITYA EKA WICAKSANA",
+            perihal: "-",
+            tanggal: "2023-10-20 15:58:43",
+          ),
+          Disposisi(
+            initial: "AR",
+            dari: "ABDUL RACHIM",
+            perihal:
+                "sesuaikan disposisi kadis untuk di infokan ke pegawai yang berminat dan sesuai syarat",
+            tanggal: "2023-10-21 14:44:12",
           ),
         ],
       ),
@@ -43,11 +55,12 @@ class DisposisiSection extends StatelessWidget {
         style: TextStyle(
             color: Colors.black, fontSize: 15, fontWeight: FontWeight.w700),
       ),
-      // adjust the style to the app bar 
+      // adjust the style to the app bar
       elevation: 0.0,
       backgroundColor:
           const Color.fromARGB(100, 255, 255, 255).withOpacity(0.7),
       centerTitle: true,
+      // add the arrow icons to the app bar
       leading: IconButton(
         icon: const Icon(
           Icons.arrow_back,
@@ -76,7 +89,7 @@ class _DisposisiColumnState extends State<DisposisiColumn> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          SizedBox(height: 20), // Spasi atas
+          SizedBox(height: 5), // Spasi atas
           Text(
             "Disposisi Surat",
             textAlign: TextAlign.center,
@@ -110,7 +123,7 @@ class Disposisi extends StatefulWidget {
 
   // ignore: prefer_const_constructors_in_immutables
   Disposisi({
-    super.key, 
+    super.key,
     required this.initial,
     required this.dari,
     required this.perihal,
@@ -118,8 +131,7 @@ class Disposisi extends StatefulWidget {
   });
 
   @override
-  // ignore: library_private_types_in_public_api
-  _DisposisiState createState() => _DisposisiState();
+  State<Disposisi> createState() => _DisposisiState();
 }
 
 class _DisposisiState extends State<Disposisi> {
@@ -132,7 +144,8 @@ class _DisposisiState extends State<Disposisi> {
           left: 10.0, right: 10, bottom: 5), // Berikan padding keseluruhan
       child: Row(
         children: <Widget>[
-          const SizedBox(width: 10.0), // Spasi antara lingkaran dan persegi panjang
+          const SizedBox(
+              width: 10.0), // Spasi antara lingkaran dan persegi panjang
           // Kolom kedua dengan persegi panjang
           Expanded(
             child: GestureDetector(
@@ -180,7 +193,7 @@ class _DisposisiState extends State<Disposisi> {
                           const Text(
                             "Dari:",
                             style: TextStyle(
-                              fontSize: 18.0,
+                              fontSize: 14.0,
                               fontWeight: FontWeight.bold,
                               color: Colors.black,
                             ),
@@ -243,7 +256,6 @@ class _DisposisiState extends State<Disposisi> {
   }
 }
 
-// ignore: camel_case_types
 class headerSuratPengaturan extends StatefulWidget {
   const headerSuratPengaturan({super.key});
 
@@ -256,18 +268,16 @@ class _headerSuratPengaturanState extends State<headerSuratPengaturan> {
 
   @override
   Widget build(BuildContext context) {
-    final contentWidth = MediaQuery.of(context).size.width * 0.98;
+    final contentWidth =  MediaQuery.of(context).size.width * 0.98;
     return SingleChildScrollView(
       child: Column(
         children: [
           _infoBanner(contentWidth), // Consists of profile pic, and surat info
-          const SizedBox(height:20), 
           _navBar(), // consists of navigation button to navigate through out the pages
         ],
       ),
     );
   }
-
   Center _infoBanner(double contentWidth) {
     return Center(
       child: SizedBox(
@@ -288,7 +298,6 @@ class _headerSuratPengaturanState extends State<headerSuratPengaturan> {
               // Gambar profil pengguna (jika ada)
               // Misalnya, backgroundImage: AssetImage('gambar_profil.jpg'),
             ),
-            SizedBox(height: 10,),
             Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
@@ -301,7 +310,10 @@ class _headerSuratPengaturanState extends State<headerSuratPengaturan> {
                 Text(
                   textAlign: TextAlign.center, // Center-align the text
                   "Sumber Daya Manusia",
-                  style: TextStyle(fontWeight: FontWeight.w600, fontSize: 16, ),
+                  style: TextStyle(
+                    fontWeight: FontWeight.w600,
+                    fontSize: 13.7,
+                  ),
                 ),
                 Text(
                   textAlign: TextAlign.center, // Center-align the text
@@ -345,7 +357,7 @@ class _headerSuratPengaturanState extends State<headerSuratPengaturan> {
                     );
                   },
                   transitionDuration: const Duration(milliseconds: 10),
-                ));              
+                ));
               },
               style: OutlinedButton.styleFrom(
                 foregroundColor: Colors.blue,
@@ -354,31 +366,39 @@ class _headerSuratPengaturanState extends State<headerSuratPengaturan> {
                   borderRadius: BorderRadius.circular(10.0),
                 ),
               ),
-              child: const Text(
-                "Informasi",
-                style: TextStyle(color: Colors.black),
-              ),
+              child: const Text("Informasi", style: TextStyle(color: Colors.black),),
             ),
           ),
           Padding(
             padding: const EdgeInsets.only(right: 2, left: 2),
             child: OutlinedButton(
               onPressed: () {
-                
+                // Navigator.pushReplacement(context, PageRouteBuilder(
+                //   pageBuilder: (context, animation, secondaryAnimation) => const DisposisiSection(),
+                //   transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                //     const begin = Offset(0.0, 0.0);
+                //     const end = Offset.zero;
+                //     const curve = Curves.easeInOut;
+                //     var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+                //     var offsetAnimation = animation.drive(tween);
+
+                //     return SlideTransition(
+                //       position: offsetAnimation,
+                //       child: child,
+                //     );
+                //   },
+                //   transitionDuration: const Duration(milliseconds: 10),
+                // ));
               },
               style: OutlinedButton.styleFrom(
-                backgroundColor:
-                    const Color.fromARGB(255, 1, 141, 255).withOpacity(1),
+                backgroundColor: const Color.fromARGB(255, 1, 141, 255).withOpacity(1), 
                 foregroundColor: Colors.white,
                 minimumSize: const Size(40, 40),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10.0),
                 ),
               ),
-              child: const Text(
-                "Disposisi",
-                style: TextStyle(color: Colors.white),
-              ),
+              child: const Text("Disposisi", style: TextStyle(color: Colors.white),),
             ),
           ),
           Padding(
@@ -393,14 +413,13 @@ class _headerSuratPengaturanState extends State<headerSuratPengaturan> {
                     const curve = Curves.easeInOut;
                     var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
                     var offsetAnimation = animation.drive(tween);
-
                     return SlideTransition(
                       position: offsetAnimation,
                       child: child,
                     );
                   },
                   transitionDuration: const Duration(milliseconds: 10),
-                ));              
+                ));
               },
               style: OutlinedButton.styleFrom(
                 foregroundColor: Colors.blue,
@@ -409,18 +428,14 @@ class _headerSuratPengaturanState extends State<headerSuratPengaturan> {
                   borderRadius: BorderRadius.circular(10.0),
                 ),
               ),
-              child: const Text(
-                "Riwayat",
-                style: TextStyle(color: Colors.black),
-              ),
+              child: const Text("Riwayat", style: TextStyle(color: Colors.black),),
             ),
           ),
           Padding(
             padding: const EdgeInsets.only(right: 2, left: 2),
             child: OutlinedButton(
               onPressed: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => const CatatanSection()));
+                Navigator.of(context).push(MaterialPageRoute(builder: (context) => const CatatanSection()));
               },
               style: OutlinedButton.styleFrom(
                 foregroundColor: Colors.blue,
@@ -429,10 +444,7 @@ class _headerSuratPengaturanState extends State<headerSuratPengaturan> {
                   borderRadius: BorderRadius.circular(10.0),
                 ),
               ),
-              child: const Text(
-                "Catatan",
-                style: TextStyle(color: Colors.black),
-              ),
+              child: const Text("Catatan", style: TextStyle(color: Colors.black),),
             ),
           ),
         ],
@@ -440,4 +452,3 @@ class _headerSuratPengaturanState extends State<headerSuratPengaturan> {
     );
   }
 }
-
