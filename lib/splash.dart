@@ -32,7 +32,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
     // Wait for 1 second after dashboard data is ready and then navigate
     if (_isLoading) {
-      Future.delayed(const Duration(milliseconds: 1300), () {
+      Future.delayed(const Duration(milliseconds: 1500), () {
         _navToDashboard();
       });
     }
