@@ -23,6 +23,10 @@ class DisposisiSection extends StatelessWidget {
                 "Diminta kepada semua pegawai diskominfo untuk mendaftar sebagai peserta donor darah sesuai ketentuan umum dalam surat tersebut. Minta dikoordinir oleh kasubag umum",
             tanggal: "2023-10-20 13:05:01",
           ),
+          const Divider(
+            thickness: 1.0,
+            color: Colors.black,
+          ),
           Disposisi(
             initial: "RR",
             dari: "RAIHANAH RAHMAH",
@@ -30,11 +34,19 @@ class DisposisiSection extends StatelessWidget {
                 "Diinformasikan kepada seluruh pegawai, bagi yang ingin donor dan memenuhi syarat langsung berkoordinasi dgn sebag umum",
             tanggal: "2023-10-20 13:52:22",
           ),
+          const Divider(
+            thickness: 1.0,
+            color: Colors.black,
+          ),
           Disposisi(
             initial: "AW",
             dari: "ADITYA EKA WICAKSANA",
             perihal: "-",
             tanggal: "2023-10-20 15:58:43",
+          ),
+          const Divider(
+            thickness: 1.0,
+            color: Colors.black,
           ),
           Disposisi(
             initial: "AR",
@@ -141,7 +153,7 @@ class _DisposisiState extends State<Disposisi> {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(
-          left: 10.0, right: 10, bottom: 5), // Berikan padding keseluruhan
+          left: 10.0, right: 10), // Berikan padding keseluruhan
       child: Row(
         children: <Widget>[
           const SizedBox(
@@ -164,11 +176,6 @@ class _DisposisiState extends State<Disposisi> {
                 padding: const EdgeInsets.all(15),
                 decoration: BoxDecoration(
                   color: isTapped ? Colors.grey[100] : Colors.white,
-                  border: Border.all(
-                    color: isTapped ? Colors.blue : Colors.black,
-                    width: isTapped ? 2 : 1,
-                  ),
-                  borderRadius: BorderRadius.circular(10.0),
                 ),
                 child: Row(
                   // Menggunakan Row untuk menyatukan lingkaran dan konten dalam satu baris
@@ -268,7 +275,7 @@ class _headerSuratPengaturanState extends State<headerSuratPengaturan> {
 
   @override
   Widget build(BuildContext context) {
-    final contentWidth =  MediaQuery.of(context).size.width * 0.98;
+    final contentWidth = MediaQuery.of(context).size.width * 0.98;
     return SingleChildScrollView(
       child: Column(
         children: [
@@ -278,6 +285,7 @@ class _headerSuratPengaturanState extends State<headerSuratPengaturan> {
       ),
     );
   }
+
   Center _infoBanner(double contentWidth) {
     return Center(
       child: SizedBox(
@@ -343,21 +351,26 @@ class _headerSuratPengaturanState extends State<headerSuratPengaturan> {
             padding: const EdgeInsets.only(right: 2),
             child: OutlinedButton(
               onPressed: () {
-                Navigator.pushReplacement(context, PageRouteBuilder(
-                  pageBuilder: (context, animation, secondaryAnimation) => const Informasi(),
-                  transitionsBuilder: (context, animation, secondaryAnimation, child) {
-                    const begin = Offset(0.0, 0.0);
-                    const end = Offset.zero;
-                    const curve = Curves.easeInOut;
-                    var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
-                    var offsetAnimation = animation.drive(tween);
-                    return SlideTransition(
-                      position: offsetAnimation,
-                      child: child,
-                    );
-                  },
-                  transitionDuration: const Duration(milliseconds: 10),
-                ));
+                Navigator.pushReplacement(
+                    context,
+                    PageRouteBuilder(
+                      pageBuilder: (context, animation, secondaryAnimation) =>
+                          const Informasi(),
+                      transitionsBuilder:
+                          (context, animation, secondaryAnimation, child) {
+                        const begin = Offset(0.0, 0.0);
+                        const end = Offset.zero;
+                        const curve = Curves.easeInOut;
+                        var tween = Tween(begin: begin, end: end)
+                            .chain(CurveTween(curve: curve));
+                        var offsetAnimation = animation.drive(tween);
+                        return SlideTransition(
+                          position: offsetAnimation,
+                          child: child,
+                        );
+                      },
+                      transitionDuration: const Duration(milliseconds: 10),
+                    ));
               },
               style: OutlinedButton.styleFrom(
                 foregroundColor: Colors.blue,
@@ -366,7 +379,10 @@ class _headerSuratPengaturanState extends State<headerSuratPengaturan> {
                   borderRadius: BorderRadius.circular(10.0),
                 ),
               ),
-              child: const Text("Informasi", style: TextStyle(color: Colors.black),),
+              child: const Text(
+                "Informasi",
+                style: TextStyle(color: Colors.black),
+              ),
             ),
           ),
           Padding(
@@ -391,35 +407,44 @@ class _headerSuratPengaturanState extends State<headerSuratPengaturan> {
                 // ));
               },
               style: OutlinedButton.styleFrom(
-                backgroundColor: const Color.fromARGB(255, 1, 141, 255).withOpacity(1), 
+                backgroundColor:
+                    const Color.fromARGB(255, 1, 141, 255).withOpacity(1),
                 foregroundColor: Colors.white,
                 minimumSize: const Size(40, 40),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10.0),
                 ),
               ),
-              child: const Text("Disposisi", style: TextStyle(color: Colors.white),),
+              child: const Text(
+                "Disposisi",
+                style: TextStyle(color: Colors.white),
+              ),
             ),
           ),
           Padding(
             padding: const EdgeInsets.only(right: 2, left: 2),
             child: OutlinedButton(
               onPressed: () {
-                Navigator.pushReplacement(context, PageRouteBuilder(
-                  pageBuilder: (context, animation, secondaryAnimation) => const Riwayat(),
-                  transitionsBuilder: (context, animation, secondaryAnimation, child) {
-                    const begin = Offset(0.0, 0.0);
-                    const end = Offset.zero;
-                    const curve = Curves.easeInOut;
-                    var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
-                    var offsetAnimation = animation.drive(tween);
-                    return SlideTransition(
-                      position: offsetAnimation,
-                      child: child,
-                    );
-                  },
-                  transitionDuration: const Duration(milliseconds: 10),
-                ));
+                Navigator.pushReplacement(
+                    context,
+                    PageRouteBuilder(
+                      pageBuilder: (context, animation, secondaryAnimation) =>
+                          const Riwayat(),
+                      transitionsBuilder:
+                          (context, animation, secondaryAnimation, child) {
+                        const begin = Offset(0.0, 0.0);
+                        const end = Offset.zero;
+                        const curve = Curves.easeInOut;
+                        var tween = Tween(begin: begin, end: end)
+                            .chain(CurveTween(curve: curve));
+                        var offsetAnimation = animation.drive(tween);
+                        return SlideTransition(
+                          position: offsetAnimation,
+                          child: child,
+                        );
+                      },
+                      transitionDuration: const Duration(milliseconds: 10),
+                    ));
               },
               style: OutlinedButton.styleFrom(
                 foregroundColor: Colors.blue,
@@ -428,14 +453,18 @@ class _headerSuratPengaturanState extends State<headerSuratPengaturan> {
                   borderRadius: BorderRadius.circular(10.0),
                 ),
               ),
-              child: const Text("Riwayat", style: TextStyle(color: Colors.black),),
+              child: const Text(
+                "Riwayat",
+                style: TextStyle(color: Colors.black),
+              ),
             ),
           ),
           Padding(
             padding: const EdgeInsets.only(right: 2, left: 2),
             child: OutlinedButton(
               onPressed: () {
-                Navigator.of(context).push(MaterialPageRoute(builder: (context) => const CatatanSection()));
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => const CatatanSection()));
               },
               style: OutlinedButton.styleFrom(
                 foregroundColor: Colors.blue,
@@ -444,7 +473,10 @@ class _headerSuratPengaturanState extends State<headerSuratPengaturan> {
                   borderRadius: BorderRadius.circular(10.0),
                 ),
               ),
-              child: const Text("Catatan", style: TextStyle(color: Colors.black),),
+              child: const Text(
+                "Catatan",
+                style: TextStyle(color: Colors.black),
+              ),
             ),
           ),
         ],
