@@ -198,7 +198,7 @@ class _DataSuratState extends State<DataSurat> {
         
       ),
       child: Padding(
-        padding: const EdgeInsets.only(right: 10, left: 10, bottom: 10), // Berikan padding keseluruhan
+        padding: const EdgeInsets.only(right: 10, left: 10, bottom: 3), // Berikan padding keseluruhan
         child: Row(
           children: <Widget>[
             // Kolom pertama dengan lingkaran
@@ -240,21 +240,22 @@ class _DataSuratState extends State<DataSurat> {
                 // CONTENT: information
                 child: AnimatedContainer(
                   duration: const Duration(milliseconds: 100),
-                  padding: const EdgeInsets.only(left: 10, top: 10, bottom: 10),
+                  padding: const EdgeInsets.only(left: 10, top: 10),
                   decoration: const BoxDecoration(
                     // color: const Color.fromARGB(19, 0, 0, 0)
                   ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                      Wrap(
+                        direction: Axis.horizontal,
+                        alignment: WrapAlignment.start,
+                        crossAxisAlignment: WrapCrossAlignment.center,
                         children: [
                           const Text(
-                            "Dari:",
+                            "Dari: ",
                             style: TextStyle(
-                              fontSize: 16,
+                              fontSize: 12.5,
                               fontWeight: FontWeight.w600,
                               color: Colors.black,
                             ),
@@ -262,21 +263,22 @@ class _DataSuratState extends State<DataSurat> {
                           Text(
                             widget.dari,
                             style: TextStyle(
-                              fontSize: 14.2,
+                              fontSize: 12,
                               fontWeight: FontWeight.w400,
                               color: isTapped ? Colors.blue : Colors.black,
                             ),
                           ),
                         ],
                       ),
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                      Wrap(
+                        direction: Axis.horizontal,
+                        alignment: WrapAlignment.start,
+                        crossAxisAlignment: WrapCrossAlignment.center,
                         children: [
                           const Text(
-                            "Kepada:",
+                            "Kepada: ",
                             style: TextStyle(
-                              fontSize: 16,
+                              fontSize: 11.5,
                               fontWeight: FontWeight.w600,
                               color: Colors.black,
                             ),
@@ -284,24 +286,24 @@ class _DataSuratState extends State<DataSurat> {
                           Text(
                             widget.kepada,
                             style: TextStyle(
-                              fontSize: 14.2,
+                              fontSize: 11.5,
                               fontWeight: FontWeight.w400,
                               color: isTapped ? Colors.blue : Colors.black,
                             ),
                           ),
                         ],
                       ),
-                      const SizedBox(height: 10.0),
                       Text(
                         widget.tanggal,
+                        style: const TextStyle(
+                          fontSize: 12.5
+                        ),
                       ),
                       
-                      const SizedBox(height: 10.0),
                       Wrap(
                         children: <Widget>[
                           Container(
                             padding: const EdgeInsets.all(5.0),
-                            margin: const EdgeInsets.only(bottom: 5),
                             decoration: BoxDecoration(
                               color: const Color.fromARGB(255, 77, 190, 82),
                               borderRadius: BorderRadius.circular(20),
@@ -379,7 +381,6 @@ class _headerSuratPengaturanState extends State<headerSuratPengaturan> {
       child: Column(
         children: [
           _infoBanner(contentWidth), // Consists of profile pic, and surat info
-          const SizedBox(height:20), 
           _navBar(), // consists of navigation button to navigate through out the pages
         ],
       ),
@@ -388,46 +389,45 @@ class _headerSuratPengaturanState extends State<headerSuratPengaturan> {
   Center _infoBanner(double contentWidth) {
     return Center(
       child: SizedBox(
-        width: contentWidth * 0.9,
+        width: contentWidth,
         // decoration: BoxDecoration(color: Colors.black),
         child: const Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             CircleAvatar(
-              radius: 50,
+              radius: 30,
               child: Text(
                 "DB",
                 style: TextStyle(
-                  fontSize: 40,
+                  fontSize: 20,
                   color: Colors.white,
                 ),
               ),
-                // Gambar profil pengguna (jika ada)
-                // Misalnya, backgroundImage: AssetImage('gambar_profil.jpg'),
+              // Gambar profil pengguna (jika ada)
+              // Misalnya, backgroundImage: AssetImage('gambar_profil.jpg'),
             ),
-            SizedBox(height: 10,),
             Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                SizedBox(width: 10),
                 Text(
                   textAlign: TextAlign.center, // Center-align the text
                   "Badan Kepegawaian dan Pengembangan",
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
                 ),
                 Text(
                   textAlign: TextAlign.center, // Center-align the text
                   "Sumber Daya Manusia",
-                  style: TextStyle(fontWeight: FontWeight.w600, fontSize: 16, ),
+                  style: TextStyle(
+                    fontWeight: FontWeight.w600,
+                    fontSize: 13.7,
+                  ),
                 ),
-                SizedBox(height: 5),
                 Text(
                   textAlign: TextAlign.center, // Center-align the text
                   "DIDIK BUDIANTO",
                   style: TextStyle(fontSize: 12),
                 ),
-                SizedBox(height: 5),
                 Text(
                   textAlign: TextAlign.center, // Center-align the text
                   "198701312011011007",
@@ -452,7 +452,6 @@ class _headerSuratPengaturanState extends State<headerSuratPengaturan> {
             child: OutlinedButton(
               onPressed: () {
                 Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const Informasi()));
-                // Action to perform when the "SuratPengaturan" button is pressed
               },
               style: OutlinedButton.styleFrom(
                 foregroundColor: Colors.blue,
@@ -484,7 +483,7 @@ class _headerSuratPengaturanState extends State<headerSuratPengaturan> {
             padding: const EdgeInsets.only(right: 2, left: 2),
             child: OutlinedButton(
               onPressed: () {
-                // Action to perform when the "Riwayat" button is pressed
+                // Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const Riwayat()));
               },
               style: OutlinedButton.styleFrom(
                 backgroundColor: const Color.fromARGB(255, 1, 141, 255).withOpacity(1), 

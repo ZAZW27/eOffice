@@ -20,7 +20,7 @@ class _InformasiState extends State<Informasi> {
           child: Column(
         children: [
           _infoBanner(contentWidth),
-          const SizedBox(height: 20),
+          const SizedBox(height: 5),
           _navBar(),
           infoPage(contentWidth, context),
         ],
@@ -31,10 +31,9 @@ class _InformasiState extends State<Informasi> {
   Container infoPage(double contentWidth, BuildContext context) {
     return Container(
       width: contentWidth,
-      margin: const EdgeInsets.only(left: 10, right: 10, top: 15),
+      margin: const EdgeInsets.only(left: 10, right: 10, top: 2),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment
-            .start, // Mengejarkan paragraf secara vertikal dari kiri
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           // DINAS / INSTANSI
           SizedBox(
@@ -43,14 +42,13 @@ class _InformasiState extends State<Informasi> {
               decoration: BoxDecoration(
                 border: Border(
                   bottom: BorderSide(
-                      width: 1.0,
-                      color: Color.fromARGB(
-                          255, 213, 212, 212)), // Define the underline style
+                    width: 1.0,
+                    color: Color.fromARGB(255, 213, 212, 212)
+                  ), // Define the underline style
                 ),
               ),
               child: Padding(
-                padding: EdgeInsets.only(
-                    bottom: 15.0, top: 5), // Add padding to the bottom
+                padding: EdgeInsets.only(bottom: 5), // Add padding to the bottom
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -77,14 +75,13 @@ class _InformasiState extends State<Informasi> {
               decoration: BoxDecoration(
                 border: Border(
                   bottom: BorderSide(
-                      width: 1.0,
-                      color: Color.fromARGB(
-                          255, 213, 212, 212)), // Define the underline style
+                    width: 1.0,
+                    color: Color.fromARGB(255, 213, 212, 212)
+                  ), // Define the underline style
                 ),
               ),
               child: Padding(
-                padding: EdgeInsets.only(
-                    bottom: 15.0, top: 5), // Add padding to the bottom
+                padding: EdgeInsets.only(bottom: 5), // Add padding to the bottom
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -117,8 +114,7 @@ class _InformasiState extends State<Informasi> {
                 ),
               ),
               child: Padding(
-                padding: EdgeInsets.only(
-                    bottom: 15.0, top: 5), // Add padding to the bottom
+                padding: EdgeInsets.only(bottom: 5), // Add padding to the bottom
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -151,8 +147,7 @@ class _InformasiState extends State<Informasi> {
                 ),
               ),
               child: Padding(
-                padding: EdgeInsets.only(
-                    bottom: 15.0, top: 5), // Add padding to the bottom
+                padding: EdgeInsets.only(bottom: 5), // Add padding to the bottom
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -185,8 +180,7 @@ class _InformasiState extends State<Informasi> {
                 ),
               ),
               child: Padding(
-                padding: EdgeInsets.only(
-                    bottom: 15.0, top: 5), // Add padding to the bottom
+                padding: EdgeInsets.only(bottom: 5), // Add padding to the bottom
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -219,8 +213,7 @@ class _InformasiState extends State<Informasi> {
                 ),
               ),
               child: Padding(
-                padding: EdgeInsets.only(
-                    bottom: 15.0, top: 5), // Add padding to the bottom
+                padding: EdgeInsets.only(bottom: 5), // Add padding to the bottom
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -253,8 +246,7 @@ class _InformasiState extends State<Informasi> {
                 ),
               ),
               child: Padding(
-                padding: EdgeInsets.only(
-                    bottom: 15.0, top: 5), // Add padding to the bottom
+                padding: EdgeInsets.only(bottom: 5), // Add padding to the bottom
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -287,8 +279,7 @@ class _InformasiState extends State<Informasi> {
                 ),
               ),
               child: Padding(
-                padding: EdgeInsets.only(
-                    bottom: 15.0, top: 5), // Add padding to the bottom
+                padding: EdgeInsets.only(bottom: 5), // Add padding to the bottom
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -389,51 +380,45 @@ class _InformasiState extends State<Informasi> {
   Center _infoBanner(double contentWidth) {
     return Center(
       child: SizedBox(
-        width: contentWidth * 0.9,
+        width: contentWidth,
         // decoration: BoxDecoration(color: Colors.black),
         child: const Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             CircleAvatar(
-              radius: 50,
+              radius: 30,
               child: Text(
                 "DB",
                 style: TextStyle(
-                  fontSize: 40,
+                  fontSize: 20,
                   color: Colors.white,
                 ),
               ),
               // Gambar profil pengguna (jika ada)
               // Misalnya, backgroundImage: AssetImage('gambar_profil.jpg'),
             ),
-            SizedBox(
-              height: 10,
-            ),
             Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                SizedBox(width: 10),
                 Text(
                   textAlign: TextAlign.center, // Center-align the text
                   "Badan Kepegawaian dan Pengembangan",
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
                 ),
                 Text(
                   textAlign: TextAlign.center, // Center-align the text
                   "Sumber Daya Manusia",
                   style: TextStyle(
                     fontWeight: FontWeight.w600,
-                    fontSize: 16,
+                    fontSize: 13.7,
                   ),
                 ),
-                SizedBox(height: 5),
                 Text(
                   textAlign: TextAlign.center, // Center-align the text
                   "DIDIK BUDIANTO",
                   style: TextStyle(fontSize: 12),
                 ),
-                SizedBox(height: 5),
                 Text(
                   textAlign: TextAlign.center, // Center-align the text
                   "198701312011011007",
