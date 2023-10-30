@@ -59,7 +59,7 @@ class _DashboardState extends State<Dashboard> {
                     // CONTAINER UNTUK TEXT "STATISTIK SURAT"
                     Container(
                       width: contentWidth,
-                      margin: const EdgeInsets.only(left: 5, right: 5),
+                      margin: const EdgeInsets.only(left: 10, right: 10),
                       child: const Column(
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -216,7 +216,6 @@ class _DashboardState extends State<Dashboard> {
                                 setState(() {
                                   isTappedTwo = !isTappedTwo;
                                 });
-                                Navigator.of(context).push(MaterialPageRoute(builder: (context) => const DisposisiSection()));
                               },
                               onTapDown: (details) {
                                 setState(() {
@@ -583,7 +582,7 @@ class _DashboardState extends State<Dashboard> {
       // IMAGE BANNER
       width: MediaQuery.of(context).size.width,
       height: MediaQuery.of(context).size.height * 0.19, // 18% of screen height
-      margin: const EdgeInsets.only(top: 10, left: 5, right: 5),
+      margin: const EdgeInsets.only(top: 10, left: 10, right: 10),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(15), // Radius adjusment Match the other one below \/
         image: const DecorationImage(

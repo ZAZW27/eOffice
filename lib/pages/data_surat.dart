@@ -198,7 +198,7 @@ class _DataSuratMasukColumnState extends State<DataSuratMasukColumn> {
             ],
           ),
           SizedBox(
-            height: screenHeight * 0.05,
+            height: 8,
           ),
           Row(
             children: [
@@ -320,7 +320,7 @@ class _DataSuratState extends State<DataSurat> {
                     Text(
                       widget.title,
                       style: TextStyle(
-                        fontSize: 22.0,
+                        fontSize: 14.0,
                         fontWeight: FontWeight.w800,
                         color: isTapped ? Colors.blue : Colors.black,
                       ),
@@ -328,23 +328,30 @@ class _DataSuratState extends State<DataSurat> {
                     Text(
                       widget.subtitle,
                       style: const TextStyle(
-                        fontSize: 18.0,
+                        fontSize: 12.0,
                         fontWeight: FontWeight.w600,
                       ),
                     ),
-                    const SizedBox(height: 10.0),
+                    // const SizedBox(height: 10.0),
                     Text(
                       widget.pengirim,
+                      style: TextStyle(
+                        fontSize: 10
+                      ),
                     ),
                     Text(
                       widget.tanggal,
+                      style: TextStyle(
+                        fontSize: 10
+                      ),
                     ),
-                    const SizedBox(height: 10.0),
+                    // const SizedBox(height: 10.0),
                     GestureDetector(
                       child: Text(
                         widget.tautan,
                         style: const TextStyle(
                           color: Colors.blue,
+                          fontSize: 10
                         ),
                       ),
                       onTap: () {
