@@ -53,18 +53,18 @@ class Catatan extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.only(left: 30, right: 30),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const Text(
               'Menampilkan 2 catatan:',
               style: TextStyle(
-                fontSize: 20,
+                fontSize: 16,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: 10),
             // Gunakan ListView untuk menggulir daftar catatan
             Expanded(
               child: ListView(
@@ -103,7 +103,11 @@ class CatatanItem extends StatelessWidget {
   final String tanggal;
   final String catatanText;
 
-  const CatatanItem({super.key, required this.tanggal, required this.catatanText});
+  const CatatanItem({
+    Key? key,
+    required this.tanggal,
+    required this.catatanText,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -117,34 +121,35 @@ class CatatanItem extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Text(
-              'Tanggal:\n$tanggal',
-              style: const TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
-              ),
+            padding: const EdgeInsets.all(
+                16.0), // Atur padding sesuai preferensi Anda
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Tanggal:\n$tanggal',
+                  style: const TextStyle(
+                    fontSize: 12,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                const SizedBox(height: 5),
+                const Text(
+                  'Catatan:',
+                  style: TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Text(
+                  catatanText,
+                  style: const TextStyle(
+                    fontSize: 12,
+                  ),
+                ),
+              ],
             ),
-          ),
-          const Padding(
-            padding: EdgeInsets.all(16.0),
-            child: Text(
-              'Catatan:',
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Text(
-              catatanText,
-              style: const TextStyle(
-                fontSize: 16,
-              ),
-            ),
-          ),
+          )
         ],
       ),
     );
@@ -164,7 +169,7 @@ class _CatatanInputState extends State<CatatanInput> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 16.0),
+      padding: const EdgeInsets.only(left: 30, right: 30, top: 15, bottom: 15),
       child: Row(
         children: <Widget>[
           Expanded(
@@ -173,6 +178,7 @@ class _CatatanInputState extends State<CatatanInput> {
               maxLines: 3, // Jumlah maksimal baris dalam textarea
               decoration: InputDecoration(
                 hintText: 'Tambahkan catatan...',
+                hintStyle: const TextStyle(fontSize: 14),
                 focusedBorder: OutlineInputBorder(
                   borderSide: const BorderSide(color: Colors.blue, width: 2),
                   borderRadius: BorderRadius.circular(10),
