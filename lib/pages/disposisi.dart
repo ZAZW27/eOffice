@@ -47,19 +47,18 @@ class DisposisiSection extends StatelessWidget {
       ),
     );
   }
+
   AppBar appBar(BuildContext context) {
     return AppBar(
       title: const Text(
         'Data Surat',
         style: TextStyle(
-          color: Colors.black,
-          fontSize: 15,
-          fontWeight: FontWeight.w700
-        ),
+            color: Colors.black, fontSize: 15, fontWeight: FontWeight.w700),
       ),
-      // adjust the style to the app bar 
+      // adjust the style to the app bar
       elevation: 0.0,
-      backgroundColor: const Color.fromARGB(100, 255, 255, 255).withOpacity(0.7),
+      backgroundColor:
+          const Color.fromARGB(100, 255, 255, 255).withOpacity(0.7),
       centerTitle: true,
       // add the arrow icons to the app bar
       leading: IconButton(
@@ -90,12 +89,12 @@ class _DisposisiColumnState extends State<DisposisiColumn> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          SizedBox(height: 20), // Spasi atas
+          SizedBox(height: 5), // Spasi atas
           Text(
             "Disposisi Surat",
             textAlign: TextAlign.center,
             style: TextStyle(
-              fontSize: 20, // Ukuran teks
+              fontSize: 16, // Ukuran teks
               fontWeight: FontWeight.bold, // Tebal
               color: Colors.black,
             ),
@@ -104,11 +103,11 @@ class _DisposisiColumnState extends State<DisposisiColumn> {
             "Daftar Dokumen Digital Surat yang diupload oleh Pembuat Surat",
             textAlign: TextAlign.center,
             style: TextStyle(
-              fontSize: 15,
+              fontSize: 12,
               fontWeight: FontWeight.normal,
             ),
           ),
-          SizedBox(height: 20), // Spasi antara teks dan kotak pencarian
+          SizedBox(height: 5), // Spasi antara teks dan kotak pencarian
           // Tambahkan konten lainnya di bawah teks "Data Surat Masuk"
         ],
       ),
@@ -123,7 +122,8 @@ class Disposisi extends StatefulWidget {
   final String tanggal;
 
   // ignore: prefer_const_constructors_in_immutables
-  Disposisi({super.key, 
+  Disposisi({
+    super.key,
     required this.initial,
     required this.dari,
     required this.perihal,
@@ -140,10 +140,12 @@ class _DisposisiState extends State<Disposisi> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(20.0), // Berikan padding keseluruhan
+      padding: const EdgeInsets.only(
+          left: 10.0, right: 10, bottom: 5), // Berikan padding keseluruhan
       child: Row(
         children: <Widget>[
-          const SizedBox(width: 10.0), // Spasi antara lingkaran dan persegi panjang
+          const SizedBox(
+              width: 10.0), // Spasi antara lingkaran dan persegi panjang
           // Kolom kedua dengan persegi panjang
           Expanded(
             child: GestureDetector(
@@ -171,24 +173,16 @@ class _DisposisiState extends State<Disposisi> {
                 child: Row(
                   // Menggunakan Row untuk menyatukan lingkaran dan konten dalam satu baris
                   children: <Widget>[
-                    Container(
-                      width: 60.0,
-                      height: 60.0,
-                      decoration: const BoxDecoration(
-                        color: Colors.blue,
-                        shape: BoxShape.circle,
-                      ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          Text(
-                            widget.initial,
-                            style: const TextStyle(
-                              fontSize: 28.0,
-                              color: Colors.white,
-                            ),
-                          )
-                        ],
+                    CircleAvatar(
+                      backgroundColor: Colors.blue,
+                      radius:
+                          20.0, // Sesuaikan dengan ukuran yang Anda inginkan
+                      child: Text(
+                        widget.initial,
+                        style: const TextStyle(
+                          fontSize: 18.0,
+                          color: Colors.white,
+                        ),
                       ),
                     ),
                     const SizedBox(width: 10.0),
@@ -199,55 +193,55 @@ class _DisposisiState extends State<Disposisi> {
                           const Text(
                             "Dari:",
                             style: TextStyle(
-                              fontSize: 18.0,
+                              fontSize: 14.0,
                               fontWeight: FontWeight.bold,
                               color: Colors.black,
                             ),
                           ),
-                          const SizedBox(height: 5.0),
+                          // const SizedBox(height: 5.0),
                           Text(
                             widget.dari,
                             style: const TextStyle(
-                              fontSize: 14.0,
-                              fontWeight: FontWeight.normal,
+                              fontSize: 12.0,
+                              fontWeight: FontWeight.w500,
                               color: Colors.black,
                             ),
                           ),
-                          const SizedBox(height: 20.0),
+                          const SizedBox(height: 5.0),
                           const Text(
                             "Perihal:",
                             style: TextStyle(
-                              fontSize: 18.0,
+                              fontSize: 14.0,
                               fontWeight: FontWeight.bold,
                               color: Colors.black,
                             ),
                           ),
-                          const SizedBox(height: 5.0),
+                          // const SizedBox(height: 5.0),
                           Text(
                             widget.perihal,
                             style: const TextStyle(
-                              fontSize: 14.0,
-                              fontWeight: FontWeight.w600,
+                              fontSize: 12.0,
+                              fontWeight: FontWeight.w500,
                             ),
                           ),
-                          const SizedBox(height: 20.0),
+                          const SizedBox(height: 5.0),
                           const Text(
                             "Tanggal:",
                             style: TextStyle(
-                              fontSize: 18.0,
+                              fontSize: 14.0,
                               fontWeight: FontWeight.bold,
                               color: Colors.black,
                             ),
                           ),
-                          const SizedBox(height: 5.0),
+                          // const SizedBox(height: 5.0),
                           Text(
                             widget.tanggal,
                             style: const TextStyle(
-                              fontSize: 14.0,
-                              fontWeight: FontWeight.w600,
+                              fontSize: 12.0,
+                              fontWeight: FontWeight.w500,
                             ),
                           ),
-                          const SizedBox(height: 10.0),
+                          // const SizedBox(height: 10.0),
                         ],
                       ),
                     ),
@@ -274,17 +268,18 @@ class _headerSuratPengaturanState extends State<headerSuratPengaturan> {
 
   @override
   Widget build(BuildContext context) {
-    final contentWidth =  MediaQuery.of(context).size.width * 0.98;
+    final contentWidth = MediaQuery.of(context).size.width * 0.98;
     return SingleChildScrollView(
       child: Column(
         children: [
           _infoBanner(contentWidth), // Consists of profile pic, and surat info
-          const SizedBox(height:20), 
+          const SizedBox(height: 20),
           _navBar(), // consists of navigation button to navigate through out the pages
         ],
       ),
     );
   }
+
   Center _infoBanner(double contentWidth) {
     return Center(
       child: SizedBox(
@@ -294,18 +289,20 @@ class _headerSuratPengaturanState extends State<headerSuratPengaturan> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             CircleAvatar(
-              radius: 50,
+              radius: 30,
               child: Text(
                 "DB",
                 style: TextStyle(
-                  fontSize: 40,
+                  fontSize: 20,
                   color: Colors.white,
                 ),
               ),
-                // Gambar profil pengguna (jika ada)
-                // Misalnya, backgroundImage: AssetImage('gambar_profil.jpg'),
+              // Gambar profil pengguna (jika ada)
+              // Misalnya, backgroundImage: AssetImage('gambar_profil.jpg'),
             ),
-            SizedBox(height: 10,),
+            SizedBox(
+              height: 10,
+            ),
             Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
@@ -319,7 +316,10 @@ class _headerSuratPengaturanState extends State<headerSuratPengaturan> {
                 Text(
                   textAlign: TextAlign.center, // Center-align the text
                   "Sumber Daya Manusia",
-                  style: TextStyle(fontWeight: FontWeight.w600, fontSize: 16, ),
+                  style: TextStyle(
+                    fontWeight: FontWeight.w600,
+                    fontSize: 16,
+                  ),
                 ),
                 SizedBox(height: 5),
                 Text(
@@ -351,7 +351,8 @@ class _headerSuratPengaturanState extends State<headerSuratPengaturan> {
             padding: const EdgeInsets.only(right: 2),
             child: OutlinedButton(
               onPressed: () {
-                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const Informasi()));
+                Navigator.pushReplacement(context,
+                    MaterialPageRoute(builder: (context) => const Informasi()));
                 // Action to perform when the "SuratPengaturan" button is pressed
               },
               style: OutlinedButton.styleFrom(
@@ -361,31 +362,37 @@ class _headerSuratPengaturanState extends State<headerSuratPengaturan> {
                   borderRadius: BorderRadius.circular(10.0),
                 ),
               ),
-              child: const Text("Informasi", style: TextStyle(color: Colors.black),),
+              child: const Text(
+                "Informasi",
+                style: TextStyle(color: Colors.black),
+              ),
             ),
           ),
           Padding(
             padding: const EdgeInsets.only(right: 2, left: 2),
             child: OutlinedButton(
-              onPressed: () {
-                
-              },
+              onPressed: () {},
               style: OutlinedButton.styleFrom(
-                backgroundColor: const Color.fromARGB(255, 1, 141, 255).withOpacity(1), 
+                backgroundColor:
+                    const Color.fromARGB(255, 1, 141, 255).withOpacity(1),
                 foregroundColor: Colors.white,
                 minimumSize: const Size(40, 40),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10.0),
                 ),
               ),
-              child: const Text("Disposisi", style: TextStyle(color: Colors.white),),
+              child: const Text(
+                "Disposisi",
+                style: TextStyle(color: Colors.white),
+              ),
             ),
           ),
           Padding(
             padding: const EdgeInsets.only(right: 2, left: 2),
             child: OutlinedButton(
               onPressed: () {
-                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const Riwayat()));
+                Navigator.pushReplacement(context,
+                    MaterialPageRoute(builder: (context) => const Riwayat()));
               },
               style: OutlinedButton.styleFrom(
                 foregroundColor: Colors.blue,
@@ -394,14 +401,18 @@ class _headerSuratPengaturanState extends State<headerSuratPengaturan> {
                   borderRadius: BorderRadius.circular(10.0),
                 ),
               ),
-              child: const Text("Riwayat", style: TextStyle(color: Colors.black),),
+              child: const Text(
+                "Riwayat",
+                style: TextStyle(color: Colors.black),
+              ),
             ),
           ),
           Padding(
             padding: const EdgeInsets.only(right: 2, left: 2),
             child: OutlinedButton(
               onPressed: () {
-                Navigator.of(context).push(MaterialPageRoute(builder: (context) => const CatatanSection()));
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => const CatatanSection()));
               },
               style: OutlinedButton.styleFrom(
                 foregroundColor: Colors.blue,
@@ -410,7 +421,10 @@ class _headerSuratPengaturanState extends State<headerSuratPengaturan> {
                   borderRadius: BorderRadius.circular(10.0),
                 ),
               ),
-              child: const Text("Catatan", style: TextStyle(color: Colors.black),),
+              child: const Text(
+                "Catatan",
+                style: TextStyle(color: Colors.black),
+              ),
             ),
           ),
         ],
@@ -418,4 +432,3 @@ class _headerSuratPengaturanState extends State<headerSuratPengaturan> {
     );
   }
 }
-
