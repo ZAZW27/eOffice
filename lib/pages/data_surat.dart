@@ -29,125 +29,132 @@ class _DataSuratPageState extends State<DataSuratPage> {
         itemCount: dataSuratList.length,
         itemBuilder: (BuildContext context, int index) {
           final surat = dataSuratList[index];
-          return Column(
-            children: <Widget>[
-              ListTile(
-                onTap: () {
-                  Navigator.of(context).push(PageRouteBuilder(
-                    pageBuilder: (context, animation, secondaryAnimation) =>
-                        const Informasi(),
-                    transitionsBuilder:
-                        (context, animation, secondaryAnimation, child) {
-                      const begin = Offset(0.0, -1.0);
-                      const end = Offset.zero;
-                      const curve = Curves.easeInOut;
-                      var tween = Tween(begin: begin, end: end)
-                          .chain(CurveTween(curve: curve));
-                      var offsetAnimation = animation.drive(tween);
+          return Padding(
+            padding: const EdgeInsets.only(top: 6, bottom: 6),
+            child: Column(
+              children: <Widget>[
+                ListTile(
+                  onTap: () {
+                    Navigator.of(context).push(PageRouteBuilder(
+                      pageBuilder: (context, animation, secondaryAnimation) =>
+                          const Informasi(),
+                      transitionsBuilder:
+                          (context, animation, secondaryAnimation, child) {
+                        const begin = Offset(0.0, -1.0);
+                        const end = Offset.zero;
+                        const curve = Curves.easeInOut;
+                        var tween = Tween(begin: begin, end: end)
+                            .chain(CurveTween(curve: curve));
+                        var offsetAnimation = animation.drive(tween);
 
-                      return SlideTransition(
-                        position: offsetAnimation,
-                        child: child,
-                      );
-                    },
-                    // ignore: prefer_const_constructors
-                    transitionDuration: Duration(milliseconds: 200),
-                  ));
-                },
-                leading: CircleAvatar(
-                  backgroundColor: Colors.blue,
-                  child: Text(
-                    surat.initial,
-                    style: const TextStyle(
-                      fontSize: 20.0,
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
-                title: Text(
-                  surat.title,
-                  style: const TextStyle(
-                    fontSize: 14.0,
-                    fontWeight: FontWeight.w800,
-                    color: Colors.blue,
-                  ),
-                ),
-                subtitle: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      surat.subtitle,
-                      style: const TextStyle(
-                        fontSize: 12.0,
-                        fontWeight: FontWeight.w600,
-                        color: Colors.black,
-                      ),
-                    ),
-                    Text(
-                      surat.pengirim,
-                      style: const TextStyle(
-                        fontSize: 10,
-                        color: Colors.black,
-                      ),
-                    ),
-                    Text(
-                      surat.tanggal,
-                      style: const TextStyle(
-                        fontSize: 10,
-                        color: Colors.black,
-                      ),
-                    ),
-                    GestureDetector(
-                      child: Text(
-                        surat.tautan,
-                        style:
-                            const TextStyle(color: Colors.blue, fontSize: 10),
-                      ),
-                      onTap: () {
-                        // Tambahkan aksi ketika tautan ditekan
+                        return SlideTransition(
+                          position: offsetAnimation,
+                          child: child,
+                        );
                       },
+                      // ignore: prefer_const_constructors
+                      transitionDuration: Duration(milliseconds: 200),
+                    ));
+                  },
+                  leading: CircleAvatar(
+                    backgroundColor: Colors.blue,
+                    child: Text(
+                      surat.initial,
+                      style: const TextStyle(
+                        fontSize: 20.0,
+                        color: Colors.white,
+                      ),
                     ),
-                    Wrap(
-                      children: <Widget>[
-                        Container(
-                          padding: const EdgeInsets.all(5.0),
-                          margin: const EdgeInsets.only(bottom: 5),
-                          decoration: BoxDecoration(
-                            color: Colors.grey[300],
-                            borderRadius: BorderRadius.circular(5.0),
+                  ),
+                  title: Padding(
+                    padding: const EdgeInsets.only(bottom: 4),
+                    child: Text(
+                      surat.title,
+                      style: const TextStyle(
+                        fontSize: 14.0,
+                        fontWeight: FontWeight.w800,
+                        color: Colors.blue,
+                      ),
+                    ),
+                  ),
+                  subtitle: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 4),
+                        child: Text(
+                          surat.subtitle,
+                          style: const TextStyle(
+                            fontSize: 12.0,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.black,
                           ),
-                          child: Text(surat.status,
-                              style: const TextStyle(
-                                fontSize: 10,
-                                color: Colors.black,
-                              )),
                         ),
-                        const SizedBox(width: 5.0),
-                        Container(
-                          padding: const EdgeInsets.all(5.0),
-                          decoration: BoxDecoration(
-                            color: Colors.blue,
-                            borderRadius: BorderRadius.circular(5.0),
+                      ),
+                      Text(
+                        surat.pengirim,
+                        style: const TextStyle(
+                          fontSize: 10,
+                          color: Colors.black,
+                        ),
+                      ),
+                      Text(
+                        surat.tanggal,
+                        style: const TextStyle(
+                          fontSize: 10,
+                          color: Colors.black,
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 4, bottom: 10),
+                        child: Text(
+                          surat.tautan,
+                          style:
+                              const TextStyle(color: Colors.blue, fontSize: 10),
+                        ),
+                      ),
+                      Wrap(
+                        children: <Widget>[
+                          Container(
+                            padding: const EdgeInsets.all(5.0),
+                            margin: const EdgeInsets.only(bottom: 5),
+                            decoration: BoxDecoration(
+                              color: Colors.grey[300],
+                              borderRadius: BorderRadius.circular(5.0),
+                            ),
+                            child: Text(surat.status,
+                                style: const TextStyle(
+                                  fontSize: 10,
+                                  color: Colors.black,
+                                )),
                           ),
-                          child: Text(
-                            surat.disposisi,
-                            style: const TextStyle(
-                              color: Colors.white,
-                              fontSize: 10,
+                          const SizedBox(width: 5.0),
+                          Container(
+                            padding: const EdgeInsets.all(5.0),
+                            decoration: BoxDecoration(
+                              color: Colors.blue,
+                              borderRadius: BorderRadius.circular(5.0),
+                            ),
+                            child: Text(
+                              surat.disposisi,
+                              style: const TextStyle(
+                                color: Colors.white,
+                                fontSize: 10,
+                              ),
                             ),
                           ),
-                        ),
-                      ],
-                    ),
-                  ],
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-              if (index < dataSuratList.length - 1)
-                const Divider(
-                  color: Colors.black,
-                  height: 1.0,
-                ),
-            ],
+                if (index < dataSuratList.length - 1)
+                  const Divider(
+                    color: Colors.black,
+                    height: 1.0,
+                  ),
+              ],
+            ),
           );
         },
       ),
@@ -225,7 +232,7 @@ class _DataSuratPageState extends State<DataSuratPage> {
                   children: [
                     Text(
                       // First Text
-                      'PRANATA KOMPUTER PERTAMA',
+                      'DATA SURAT MASUK',
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 18,
