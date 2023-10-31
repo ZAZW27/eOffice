@@ -20,7 +20,9 @@ class _InformasiState extends State<Informasi> {
           child: Column(
         children: [
           _infoBanner(contentWidth),
+          SizedBox(height: 5), 
           _navBar(),
+          SizedBox(height: 5), 
           infoPage(contentWidth, context),
         ],
       )),
@@ -47,7 +49,7 @@ class _InformasiState extends State<Informasi> {
                 ),
               ),
               child: Padding(
-                padding: EdgeInsets.only(bottom: 5), // Add padding to the bottom
+                padding: EdgeInsets.only(bottom: 8), // Add padding to the bottom
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -80,7 +82,7 @@ class _InformasiState extends State<Informasi> {
                 ),
               ),
               child: Padding(
-                padding: EdgeInsets.only(bottom: 5), // Add padding to the bottom
+                padding: EdgeInsets.only(bottom: 8), // Add padding to the bottom
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -113,7 +115,7 @@ class _InformasiState extends State<Informasi> {
                 ),
               ),
               child: Padding(
-                padding: EdgeInsets.only(bottom: 5), // Add padding to the bottom
+                padding: EdgeInsets.only(bottom: 8), // Add padding to the bottom
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -146,7 +148,7 @@ class _InformasiState extends State<Informasi> {
                 ),
               ),
               child: Padding(
-                padding: EdgeInsets.only(bottom: 5), // Add padding to the bottom
+                padding: EdgeInsets.only(bottom: 8), // Add padding to the bottom
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -179,7 +181,7 @@ class _InformasiState extends State<Informasi> {
                 ),
               ),
               child: Padding(
-                padding: EdgeInsets.only(bottom: 5), // Add padding to the bottom
+                padding: EdgeInsets.only(bottom: 8), // Add padding to the bottom
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -212,7 +214,7 @@ class _InformasiState extends State<Informasi> {
                 ),
               ),
               child: Padding(
-                padding: EdgeInsets.only(bottom: 5), // Add padding to the bottom
+                padding: EdgeInsets.only(bottom: 8), // Add padding to the bottom
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -245,7 +247,7 @@ class _InformasiState extends State<Informasi> {
                 ),
               ),
               child: Padding(
-                padding: EdgeInsets.only(bottom: 5), // Add padding to the bottom
+                padding: EdgeInsets.only(bottom: 8), // Add padding to the bottom
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -278,7 +280,7 @@ class _InformasiState extends State<Informasi> {
                 ),
               ),
               child: Padding(
-                padding: EdgeInsets.only(bottom: 5), // Add padding to the bottom
+                padding: EdgeInsets.only(bottom: 8), // Add padding to the bottom
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -324,13 +326,13 @@ class _InformasiState extends State<Informasi> {
                     ),
                     const Text(
                       "Daftar Dokumen Digital Surat yang diupload oleh Pembuat Surat",
-                      style: TextStyle(fontSize: 14),
+                      style: TextStyle(fontSize: 11),
                     ),
                     Container(
                       alignment: Alignment.centerLeft, // Membuat card rata kiri
                       margin: const EdgeInsets.only(bottom: 5.0),
-                      width: 260.0, // Mengatur lebar container
-                      height: 60.0, // Mengatur margin antara card
+                      width: 220.0, // Mengatur lebar container
+                      height: 40.0, // Mengatur margin antara card
                       child: const Card(
                         color: Colors.blue, // Mengatur warna latar belakang
                         child: ListTile(
@@ -340,7 +342,7 @@ class _InformasiState extends State<Informasi> {
                               color: Colors.white, // Mengatur warna teks
                               decoration: TextDecoration
                                   .underline, // Menambahkan garis bawah
-                              fontSize: 13.0, // Mengatur ukuran teks
+                              fontSize: 11.0, // Mengatur ukuran teks
                             ),
                           ),
                         ),

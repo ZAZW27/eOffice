@@ -188,7 +188,7 @@ class _DataSuratState extends State<DataSurat> {
       margin: const EdgeInsets.only(left: 7, right: 7),
       duration: const Duration(milliseconds: 200),
       decoration: BoxDecoration(
-        color: isTapped ? const Color.fromARGB(255, 243, 243, 245) : const Color.fromARGB(0, 255, 255, 255),
+        color: isTapped ? Color.fromARGB(255, 238, 240, 248) : Color.fromARGB(79, 255, 255, 255),
         border: Border(
           bottom: BorderSide(
             color: isTapped ? const Color.fromARGB(255, 15, 79, 131) : const Color.fromARGB(255, 223, 221, 221),
@@ -198,7 +198,7 @@ class _DataSuratState extends State<DataSurat> {
         
       ),
       child: Padding(
-        padding: const EdgeInsets.only(right: 10, left: 10, bottom: 3), // Berikan padding keseluruhan
+        padding: const EdgeInsets.only(right: 10, left: 10, bottom: 8), // Berikan padding keseluruhan
         child: Row(
           children: <Widget>[
             // Kolom pertama dengan lingkaran
@@ -240,7 +240,7 @@ class _DataSuratState extends State<DataSurat> {
                 // CONTENT: information
                 child: AnimatedContainer(
                   duration: const Duration(milliseconds: 100),
-                  padding: const EdgeInsets.only(left: 10, top: 10),
+                  padding: const EdgeInsets.only(left: 10, top: 8),
                   decoration: const BoxDecoration(
                     // color: const Color.fromARGB(19, 0, 0, 0)
                   ),
@@ -265,7 +265,7 @@ class _DataSuratState extends State<DataSurat> {
                             style: TextStyle(
                               fontSize: 12,
                               fontWeight: FontWeight.w400,
-                              color: isTapped ? Colors.blue : Colors.black,
+                              color: Colors.black,
                             ),
                           ),
                         ],
@@ -288,7 +288,7 @@ class _DataSuratState extends State<DataSurat> {
                             style: TextStyle(
                               fontSize: 11.5,
                               fontWeight: FontWeight.w400,
-                              color: isTapped ? Colors.blue : Colors.black,
+                              color: Colors.black,
                             ),
                           ),
                         ],
@@ -381,7 +381,9 @@ class _headerSuratPengaturanState extends State<headerSuratPengaturan> {
       child: Column(
         children: [
           _infoBanner(contentWidth), // Consists of profile pic, and surat info
+          SizedBox(height: 5,), 
           _navBar(), // consists of navigation button to navigate through out the pages
+          SizedBox(height: 5,), 
         ],
       ),
     );

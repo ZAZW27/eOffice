@@ -107,7 +107,6 @@ class _DashboardState extends State<Dashboard> {
                                     const curve = Curves.easeInOut;
                                     var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
                                     var offsetAnimation = animation.drive(tween);
-
                                     return SlideTransition(
                                       position: offsetAnimation,
                                       child: child,
@@ -140,7 +139,7 @@ class _DashboardState extends State<Dashboard> {
                                 ),
                                 // GAMBARAN DAN TEXT 
                                 child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                   children: [
                                     // CONTAINER GAMBAR
                                     AnimatedContainer(
@@ -209,14 +208,16 @@ class _DashboardState extends State<Dashboard> {
                                         ),
                                       ),
                                     ),
-                                    const Center(child: Text(
+                                    const Center(
+                                      child: Text(
                                       "Surat masuk",
                                       style: TextStyle(
                                         fontSize: 18,
                                         color: Colors.white,
                                         fontWeight: FontWeight.w600, 
                                       ),  
-                                    )),
+                                      )
+                                    ),
                                   ],
                                 ),
                               ),
@@ -255,7 +256,7 @@ class _DashboardState extends State<Dashboard> {
                                 ),
                                 // GAMBARAN DAN TEXT 
                                 child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                   children: [
                                     // CONTAINER GAMBAR
                                     AnimatedContainer(
@@ -379,7 +380,7 @@ class _DashboardState extends State<Dashboard> {
                                   borderRadius: BorderRadius.circular(5),
                                 ),
                                 child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                   children: [
                                     AnimatedContainer(
                                       duration: const Duration(milliseconds: 50),
@@ -479,7 +480,7 @@ class _DashboardState extends State<Dashboard> {
                                 height: isTappedFour ? 138 : 140,
                                 margin: const EdgeInsets.only(left: 3, right: 10 ),
                                 decoration: BoxDecoration(
-                                  color: const Color.fromARGB(255, 235, 200, 3),
+                                  color: Color.fromARGB(255, 244, 123, 17),
                                   boxShadow: isTappedFour ? []:const [
                                     BoxShadow(
                                       color: Color.fromARGB(80, 71, 56, 129), // Shadow color
@@ -492,7 +493,7 @@ class _DashboardState extends State<Dashboard> {
                                 ),
                                 // GAMBARAN DAN TEXT 
                                 child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                   children: [
                                     // CONTAINER GAMBAR
                                     AnimatedContainer(
@@ -503,7 +504,7 @@ class _DashboardState extends State<Dashboard> {
                                         height: isTappedFour? 81:80,
                                         decoration: BoxDecoration(
                                           gradient: const LinearGradient(
-                                            colors: [Color.fromARGB(255, 248, 228, 149), Color.fromARGB(255, 252, 243, 69)], // Define your gradient colors
+                                            colors: [Color.fromARGB(255, 248, 180, 149), Color.fromARGB(255, 252, 151, 69)], // Define your gradient colors
                                             begin: Alignment.topCenter, // Adjust the starting point
                                             end: Alignment.bottomCenter, // Adjust the ending point
                                           ),

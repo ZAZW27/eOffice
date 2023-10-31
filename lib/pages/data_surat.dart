@@ -108,7 +108,7 @@ class _DataSuratPageState extends State<DataSuratPage> {
                       children: <Widget>[
                         Container(
                           padding: const EdgeInsets.all(5.0),
-                          margin: const EdgeInsets.only(bottom: 5),
+                          margin: const EdgeInsets.only(top: 5),
                           decoration: BoxDecoration(
                             color: Colors.grey[300],
                             borderRadius: BorderRadius.circular(5.0),
@@ -122,6 +122,7 @@ class _DataSuratPageState extends State<DataSuratPage> {
                         const SizedBox(width: 5.0),
                         Container(
                           padding: const EdgeInsets.all(5.0),
+                          margin: const EdgeInsets.only(top: 5),
                           decoration: BoxDecoration(
                             color: Colors.blue,
                             borderRadius: BorderRadius.circular(5.0),
