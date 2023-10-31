@@ -131,14 +131,33 @@ class _mainBody extends StatelessWidget {
                                 fontSize: 12,
                               ),
                             ),
-                            Text(
-                              "Definitif",
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontStyle: FontStyle.italic,
-                                fontSize: 12,
-                              ),
-                            ),
+                            Row(
+                              children: [
+                                Container(
+                                  margin: EdgeInsets.only(top: 5),
+                                  decoration: BoxDecoration(
+                                    color: Colors.blue[700], // Set your desired background color here
+                                    borderRadius: BorderRadius.circular(5), // Optionally, add rounded corners
+                                  ),
+                                  child: Padding(
+                                    padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 3),
+                                    child: Text(
+                                      "Definitif",
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.w500,
+                                        fontStyle: FontStyle.italic,
+                                        fontSize: 12,
+                                        color: Colors.white
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                SizedBox(
+                                  width: 5, // Adjust this value for right padding
+                                ),
+                              ],
+                            )
+
                           ],
                         ),
                       ),
