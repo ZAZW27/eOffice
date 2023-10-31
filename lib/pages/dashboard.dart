@@ -684,7 +684,7 @@ class _DashboardState extends State<Dashboard> {
           color: Colors.black,
         ),
         onPressed: () {
-          // Navigator.of(context).pop();
+          Navigator.of(context).pop();
         },
       ),
     );

@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:eoffice/pages/dashboard.dart';
+import 'package:eoffice/pages/jabatan.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
 
@@ -31,16 +32,16 @@ class _SplashScreenState extends State<SplashScreen> {
     // Wait for 1 second after dashboard data is ready and then navigate
     if (_isLoading) {
       Future.delayed(const Duration(milliseconds: 1500), () {
-        _navToDashboard();
+        _navToMain();
       });
     }
   }
 
-  _navToDashboard() {
+  _navToMain() {
     Navigator.pushReplacement(
       context,
       PageRouteBuilder(
-        pageBuilder: (context, animation, secondaryAnimation) => const Dashboard(),
+        pageBuilder: (context, animation, secondaryAnimation) => const Jabatan(),
         transitionsBuilder: (context, animation, secondaryAnimation, child) {
           const begin = Offset(1.0, 0.0);
           const end = Offset.zero;
