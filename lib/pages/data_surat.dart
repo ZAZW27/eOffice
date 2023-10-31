@@ -34,12 +34,15 @@ class _DataSuratPageState extends State<DataSuratPage> {
               ListTile(
                 onTap: () {
                   Navigator.of(context).push(PageRouteBuilder(
-                    pageBuilder: (context, animation, secondaryAnimation) => const Informasi(),
-                    transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                    pageBuilder: (context, animation, secondaryAnimation) =>
+                        const Informasi(),
+                    transitionsBuilder:
+                        (context, animation, secondaryAnimation, child) {
                       const begin = Offset(0.0, -1.0);
                       const end = Offset.zero;
                       const curve = Curves.easeInOut;
-                      var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+                      var tween = Tween(begin: begin, end: end)
+                          .chain(CurveTween(curve: curve));
                       var offsetAnimation = animation.drive(tween);
 
                       return SlideTransition(
@@ -97,8 +100,8 @@ class _DataSuratPageState extends State<DataSuratPage> {
                     GestureDetector(
                       child: Text(
                         surat.tautan,
-                        style: const TextStyle(
-                            color: Colors.blue, fontSize: 10),
+                        style:
+                            const TextStyle(color: Colors.blue, fontSize: 10),
                       ),
                       onTap: () {
                         // Tambahkan aksi ketika tautan ditekan
@@ -176,14 +179,16 @@ class _DataSuratPageState extends State<DataSuratPage> {
       ),
     );
   }
-  Container _bannerApp(BuildContext context){
+
+  Container _bannerApp(BuildContext context) {
     return Container(
       // IMAGE BANNER
       width: MediaQuery.of(context).size.width,
       height: MediaQuery.of(context).size.height * 0.19, // 18% of screen height
       margin: const EdgeInsets.only(top: 10, left: 10, right: 10),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(15), // Radius adjusment Match the other one below \/
+        borderRadius: BorderRadius.circular(
+            15), // Radius adjusment Match the other one below \/
         image: const DecorationImage(
           image: AssetImage('assets/images/WavyBackground.jpg'),
           fit: BoxFit.cover,
@@ -194,7 +199,8 @@ class _DataSuratPageState extends State<DataSuratPage> {
           // Gradient overlay
           Container(
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(15), // Match the radius of the outer container
+              borderRadius: BorderRadius.circular(
+                  15), // Match the radius of the outer container
               gradient: const LinearGradient(
                 begin: Alignment.bottomCenter,
                 end: Alignment.topCenter,
@@ -209,14 +215,16 @@ class _DataSuratPageState extends State<DataSuratPage> {
           // Content and texts
           Column(
             mainAxisAlignment: MainAxisAlignment.center, // Center vertically
-            crossAxisAlignment: CrossAxisAlignment.start, // Align text to the left
+            crossAxisAlignment:
+                CrossAxisAlignment.start, // Align text to the left
             children: [
               Container(
                 margin: const EdgeInsets.only(left: 20, right: 20),
                 child: const Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text( // First Text
+                    Text(
+                      // First Text
                       'PRANATA KOMPUTER PERTAMA',
                       style: TextStyle(
                         color: Colors.white,
@@ -225,7 +233,8 @@ class _DataSuratPageState extends State<DataSuratPage> {
                       ),
                     ),
                     SizedBox(height: 10),
-                    Text( // Second Text
+                    Text(
+                      // Second Text
                       'Dinas Komunikasi dan Informatika Jabatan Definitif',
                       style: TextStyle(
                         color: Colors.white,
@@ -263,7 +272,8 @@ class _DataSuratMasukColumnState extends State<DataSuratMasukColumn> {
     return Padding(
       padding: const EdgeInsets.all(20),
       child: Container(
-        color: Colors.white.withOpacity(0), // Add a semi-transparent white background
+        color: Colors.white
+            .withOpacity(0), // Add a semi-transparent white background
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
@@ -306,7 +316,6 @@ class _DataSuratMasukColumnState extends State<DataSuratMasukColumn> {
     );
   }
 }
-
 
 class DataSurat extends StatefulWidget {
   final String initial;
