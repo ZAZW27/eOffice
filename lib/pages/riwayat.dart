@@ -381,9 +381,9 @@ class _headerSuratPengaturanState extends State<headerSuratPengaturan> {
       child: Column(
         children: [
           _infoBanner(contentWidth), // Consists of profile pic, and surat info
-          SizedBox(height: 5,), 
+          SizedBox(height: 10), 
           _navBar(), // consists of navigation button to navigate through out the pages
-          SizedBox(height: 5,), 
+          SizedBox(height: 10,), 
         ],
       ),
     );

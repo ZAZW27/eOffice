@@ -117,7 +117,6 @@ class _DisposisiColumnState extends State<DisposisiColumn> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          SizedBox(height: 5), // Spasi atas
           Text(
             "Disposisi Surat",
             textAlign: TextAlign.center,
@@ -307,6 +306,7 @@ class _headerSuratPengaturanState extends State<headerSuratPengaturan> {
       child: Column(
         children: [
           _infoBanner(contentWidth), // Consists of profile pic, and surat info
+          SizedBox(height: 10), 
           _navBar(), // consists of navigation button to navigate through out the pages
         ],
       ),
@@ -316,7 +316,6 @@ class _headerSuratPengaturanState extends State<headerSuratPengaturan> {
   Center _infoBanner(double contentWidth) {
     return Center(
       child: Container(
-        margin: const EdgeInsets.only(bottom: 20),
         child: SizedBox(
           width: contentWidth,
           // decoration: BoxDecoration(color: Colors.black),
