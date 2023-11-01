@@ -53,7 +53,7 @@ class Catatan extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.only(left: 30, right: 30),
+        padding: const EdgeInsets.only(left: 18, right: 18),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -71,7 +71,9 @@ class Catatan extends StatelessWidget {
                 children: const [
                   // Catatan 1
                   CatatanItem(
-                    tanggal: 'xx-xx-xxxx',
+                    initial: 'JD', 
+                    nama: 'john doe',
+                    tanggal: '05-01-2023',
                     catatanText:
                         '1. Perlu diingat bahwa tanggal tenggat waktu pengiriman dokumen adalah 15 November 2023.\n'
                         '2. Pastikan untuk mencantumkan nomor referensi surat pada setiap dokumen terkait.\n'
@@ -81,7 +83,9 @@ class Catatan extends StatelessWidget {
                   ),
                   // Catatan 2
                   CatatanItem(
-                    tanggal: 'xx-xx-xxxx',
+                    initial: 'JD', 
+                    nama: 'john doe',
+                    tanggal: '01-4-2022',
                     catatanText:
                         '1. Harap segera menyelesaikan laporan keuangan bulan lalu dan kirimkan kepada Departemen Keuangan paling lambat tanggal 5 Desember 2023.\n'
                         '2. Ruang rapat telah dijadwalkan untuk digunakan pada tanggal 12 Desember 2023, pukul 14:00 untuk presentasi proyek.\n'
@@ -100,11 +104,15 @@ class Catatan extends StatelessWidget {
 }
 
 class CatatanItem extends StatelessWidget {
+  final String initial;
+  final String nama;
   final String tanggal;
   final String catatanText;
 
   const CatatanItem({
     Key? key,
+    required this.initial,
+    required this.nama,
     required this.tanggal,
     required this.catatanText,
   }) : super(key: key);
@@ -114,38 +122,105 @@ class CatatanItem extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.only(bottom: 20),
       decoration: BoxDecoration(
-        border: Border.all(color: Colors.black, width: 2),
+        border: Border.all(color: const Color.fromARGB(255, 18, 13, 50), width: 1.4),
         borderRadius: BorderRadius.circular(10),
       ),
-      
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
-            padding: const EdgeInsets.all(
-                16.0), // Atur padding sesuai preferensi Anda
+            padding: const EdgeInsets.all(14.0), // Atur padding sesuai preferensi Anda
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  'Tanggal:\n$tanggal',
-                  style: const TextStyle(
-                    fontSize: 12,
-                    fontWeight: FontWeight.bold,
+                SizedBox(
+                  width: double.infinity,
+                  child: Wrap(
+                    alignment: WrapAlignment.spaceBetween, // Adjust main axis alignment
+                    children: [
+                      Wrap(
+                        direction:Axis.horizontal,
+                        alignment: WrapAlignment.center,
+                        children: [
+                          Container(
+                            width: 30.0, // Lebar lingkaran
+                            height: 30.0, // Tinggi lingkaran
+                            decoration: const BoxDecoration(
+                              color: Colors.blue, // Warna lingkaran
+                              shape: BoxShape.circle, // Bentuk lingkaran
+                            ),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: <Widget>[
+                                Text(
+                                  initial,
+                                  style: const TextStyle(
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 14.0,
+                                    color: Colors.white,
+                                  ),
+                                )
+                              ]
+                            )
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 5, top: 4),
+                            child: Text(
+                              nama, 
+                              style: const TextStyle(
+                                fontWeight: FontWeight.w500,
+                                fontSize: 14.0,
+                                color: Colors.black,
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 4),
+                        child: Text(
+                          tanggal,
+                          style: const TextStyle(
+                            fontSize: 12,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
-                const SizedBox(height: 5),
-                const Text(
-                  'Catatan:',
-                  style: TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.bold,
+                const SizedBox(height: 8),
+                Container(
+                  width: double.infinity,
+                  decoration: const BoxDecoration(
+                    border: Border(
+                      top: BorderSide(
+                        color: Colors.black, // Color of the border
+                        width: 1.0,          // Width of the border
+                      ),
+                    ),
                   ),
-                ),
-                Text(
-                  catatanText,
-                  style: const TextStyle(
-                    fontSize: 12,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Padding(
+                        padding: EdgeInsets.only(top: 8, bottom: 4),
+                        child: Text(
+                          'Catatan:',
+                          style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                      Text(
+                        catatanText,
+                        style: const TextStyle(
+                          fontSize: 12,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ],
