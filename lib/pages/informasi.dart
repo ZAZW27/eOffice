@@ -20,11 +20,11 @@ class _InformasiState extends State<Informasi> {
           child: Column(
         children: [
           _infoBanner(contentWidth),
-          SizedBox(height: 10), 
+          const SizedBox(height: 10), 
           _navBar(),
-          SizedBox(height: 10), 
+          const SizedBox(height: 10), 
           infoPage(contentWidth, context),
-          SizedBox(height: 10,), 
+          const SizedBox(height: 10,), 
         ],
       )),
     );
@@ -329,7 +329,7 @@ class _InformasiState extends State<Informasi> {
                       "Daftar Dokumen Digital Surat yang diupload oleh Pembuat Surat",
                       style: TextStyle(fontSize: 11),
                     ),
-                    SizedBox(height: 10,),
+                    const SizedBox(height: 10,),
                     ElevatedButton(
                       onPressed: () {
                         // Add your button's click functionality here
@@ -337,11 +337,11 @@ class _InformasiState extends State<Informasi> {
                       style: ButtonStyle(
                         backgroundColor: MaterialStateProperty.all(Colors.blue),
                         // Adjust the padding here
-                        padding: MaterialStateProperty.all(EdgeInsets.symmetric(vertical: 10.0)),
+                        padding: MaterialStateProperty.all(const EdgeInsets.symmetric(vertical: 10.0)),
                       ),
                       child: Container(
-                        padding: EdgeInsets.symmetric(vertical: 6, horizontal: 8), // Adjust the padding here
-                        child: Text(
+                        padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 8), // Adjust the padding here
+                        child: const Text(
                           "1. suratpengantar_90566_signed.pdf",
                           style: TextStyle(
                             color: Colors.white,
@@ -351,7 +351,7 @@ class _InformasiState extends State<Informasi> {
                         ),
                       ),
                     ),
-                    SizedBox(height: 8,), 
+                    const SizedBox(height: 8,), 
                     ElevatedButton(
                       onPressed: () {
                         // Add your button's click functionality here
@@ -359,11 +359,11 @@ class _InformasiState extends State<Informasi> {
                       style: ButtonStyle(
                         backgroundColor: MaterialStateProperty.all(Colors.blue),
                         // Adjust the padding here
-                        padding: MaterialStateProperty.all(EdgeInsets.symmetric(vertical: 10.0)),
+                        padding: MaterialStateProperty.all(const EdgeInsets.symmetric(vertical: 10.0)),
                       ),
                       child: Container(
-                        padding: EdgeInsets.symmetric(vertical: 6, horizontal: 8), // Adjust the padding here
-                        child: Text(
+                        padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 8), // Adjust the padding here
+                        child: const Text(
                           "2. e4246ecf87daba2f6be4eea16078b69c.pdf",
                           style: TextStyle(
                             color: Colors.white,

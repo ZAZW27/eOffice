@@ -480,7 +480,7 @@ class _DashboardState extends State<Dashboard> {
                                 height: isTappedFour ? 138 : 140,
                                 margin: const EdgeInsets.only(left: 3, right: 10 ),
                                 decoration: BoxDecoration(
-                                  color: Color.fromARGB(255, 244, 123, 17),
+                                  color: const Color.fromARGB(255, 244, 123, 17),
                                   boxShadow: isTappedFour ? []:const [
                                     BoxShadow(
                                       color: Color.fromARGB(80, 71, 56, 129), // Shadow color

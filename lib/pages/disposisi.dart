@@ -306,7 +306,7 @@ class _headerSuratPengaturanState extends State<headerSuratPengaturan> {
       child: Column(
         children: [
           _infoBanner(contentWidth), // Consists of profile pic, and surat info
-          SizedBox(height: 10), 
+          const SizedBox(height: 10), 
           _navBar(), // consists of navigation button to navigate through out the pages
         ],
       ),
@@ -315,56 +315,54 @@ class _headerSuratPengaturanState extends State<headerSuratPengaturan> {
 
   Center _infoBanner(double contentWidth) {
     return Center(
-      child: Container(
-        child: SizedBox(
-          width: contentWidth,
-          // decoration: BoxDecoration(color: Colors.black),
-          child: const Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              CircleAvatar(
-                radius: 30,
-                child: Text(
-                  "DB",
+      child: SizedBox(
+        width: contentWidth,
+        // decoration: BoxDecoration(color: Colors.black),
+        child: const Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            CircleAvatar(
+              radius: 30,
+              child: Text(
+                "DB",
+                style: TextStyle(
+                  fontSize: 20,
+                  color: Colors.white,
+                ),
+              ),
+              // Gambar profil pengguna (jika ada)
+              // Misalnya, backgroundImage: AssetImage('gambar_profil.jpg'),
+            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  textAlign: TextAlign.center, // Center-align the text
+                  "Badan Kepegawaian dan Pengembangan",
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
+                ),
+                Text(
+                  textAlign: TextAlign.center, // Center-align the text
+                  "Sumber Daya Manusia",
                   style: TextStyle(
-                    fontSize: 20,
-                    color: Colors.white,
+                    fontWeight: FontWeight.w600,
+                    fontSize: 13.7,
                   ),
                 ),
-                // Gambar profil pengguna (jika ada)
-                // Misalnya, backgroundImage: AssetImage('gambar_profil.jpg'),
-              ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    textAlign: TextAlign.center, // Center-align the text
-                    "Badan Kepegawaian dan Pengembangan",
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
-                  ),
-                  Text(
-                    textAlign: TextAlign.center, // Center-align the text
-                    "Sumber Daya Manusia",
-                    style: TextStyle(
-                      fontWeight: FontWeight.w600,
-                      fontSize: 13.7,
-                    ),
-                  ),
-                  Text(
-                    textAlign: TextAlign.center, // Center-align the text
-                    "DIDIK BUDIANTO",
-                    style: TextStyle(fontSize: 12),
-                  ),
-                  Text(
-                    textAlign: TextAlign.center, // Center-align the text
-                    "198701312011011007",
-                    style: TextStyle(fontSize: 12),
-                  ),
-                ],
-              ),
-            ],
-          ),
+                Text(
+                  textAlign: TextAlign.center, // Center-align the text
+                  "DIDIK BUDIANTO",
+                  style: TextStyle(fontSize: 12),
+                ),
+                Text(
+                  textAlign: TextAlign.center, // Center-align the text
+                  "198701312011011007",
+                  style: TextStyle(fontSize: 12),
+                ),
+              ],
+            ),
+          ],
         ),
       ),
     );

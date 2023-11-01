@@ -188,7 +188,7 @@ class _DataSuratState extends State<DataSurat> {
       margin: const EdgeInsets.only(left: 7, right: 7),
       duration: const Duration(milliseconds: 200),
       decoration: BoxDecoration(
-        color: isTapped ? Color.fromARGB(255, 238, 240, 248) : Color.fromARGB(79, 255, 255, 255),
+        color: isTapped ? const Color.fromARGB(255, 238, 240, 248) : const Color.fromARGB(79, 255, 255, 255),
         border: Border(
           bottom: BorderSide(
             color: isTapped ? const Color.fromARGB(255, 15, 79, 131) : const Color.fromARGB(255, 223, 221, 221),
@@ -262,7 +262,7 @@ class _DataSuratState extends State<DataSurat> {
                           ),
                           Text(
                             widget.dari,
-                            style: TextStyle(
+                            style: const TextStyle(
                               fontSize: 12,
                               fontWeight: FontWeight.w400,
                               color: Colors.black,
@@ -285,7 +285,7 @@ class _DataSuratState extends State<DataSurat> {
                           ),
                           Text(
                             widget.kepada,
-                            style: TextStyle(
+                            style: const TextStyle(
                               fontSize: 11.5,
                               fontWeight: FontWeight.w400,
                               color: Colors.black,
@@ -381,9 +381,9 @@ class _headerSuratPengaturanState extends State<headerSuratPengaturan> {
       child: Column(
         children: [
           _infoBanner(contentWidth), // Consists of profile pic, and surat info
-          SizedBox(height: 10), 
+          const SizedBox(height: 10), 
           _navBar(), // consists of navigation button to navigate through out the pages
-          SizedBox(height: 10,), 
+          const SizedBox(height: 10,), 
         ],
       ),
     );

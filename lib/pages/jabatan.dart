@@ -19,7 +19,7 @@ class _JabatanState extends State<Jabatan> {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: appBar(),
-        body: _mainBody(),
+        body: const _mainBody(),
       ),
     );
   }
@@ -53,10 +53,9 @@ class _JabatanState extends State<Jabatan> {
   }
 }
 
+// ignore: camel_case_types
 class _mainBody extends StatelessWidget {
-  const _mainBody({
-    super.key,
-  });
+  const _mainBody();
 
   @override
   Widget build(BuildContext context) {
@@ -87,18 +86,22 @@ class _mainBody extends StatelessWidget {
               color: Colors.white,
               boxShadow: const [
                 BoxShadow(
-                  color: Color.fromARGB(46, 39, 34, 59),
+                  color: Color.fromARGB(61, 39, 34, 59),
                   offset: Offset(2, 2),
                   blurRadius: 2,
                   spreadRadius: 1,
                 )
               ],
             ),
-            child: InkWell(
-              onTap: () {
-                Navigator.of(context).push(MaterialPageRoute(builder: (context) => const Dashboard()));
-              },
-              child: Container(
+            child: Material(
+              borderRadius: BorderRadius.circular(20),
+              child: InkWell(
+                borderRadius: BorderRadius.circular(20),
+                onTap: () {
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context) => const Dashboard()));
+                },
+                hoverColor: Color.fromARGB(255, 241, 249, 255), 
+                highlightColor: Color.fromARGB(255, 231, 243, 252), 
                 child: Padding(
                   padding: const EdgeInsets.all(16.0),
                   child: Row(
@@ -117,14 +120,14 @@ class _mainBody extends StatelessWidget {
                         child: ListView(
                           shrinkWrap: true,
                           children: <Widget>[
-                            Text(
+                            const Text(
                               "Dinas Komunikasi dan Informatika",
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 12.5,
                               ),
                             ),
-                            Text(
+                            const Text(
                               "PRANATA KOMPUTER Pertama",
                               style: TextStyle(
                                 fontStyle: FontStyle.italic,
@@ -134,13 +137,13 @@ class _mainBody extends StatelessWidget {
                             Row(
                               children: [
                                 Container(
-                                  margin: EdgeInsets.only(top: 5),
+                                  margin: const EdgeInsets.only(top: 5),
                                   decoration: BoxDecoration(
                                     color: Colors.blue[700], // Set your desired background color here
                                     borderRadius: BorderRadius.circular(5), // Optionally, add rounded corners
                                   ),
-                                  child: Padding(
-                                    padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 3),
+                                  child: const Padding(
+                                    padding: EdgeInsets.symmetric(horizontal: 5, vertical: 3),
                                     child: Text(
                                       "Definitif",
                                       style: TextStyle(
@@ -152,12 +155,12 @@ class _mainBody extends StatelessWidget {
                                     ),
                                   ),
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   width: 5, // Adjust this value for right padding
                                 ),
                               ],
                             )
-
+            
                           ],
                         ),
                       ),

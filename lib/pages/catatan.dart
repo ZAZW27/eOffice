@@ -117,6 +117,7 @@ class CatatanItem extends StatelessWidget {
         border: Border.all(color: Colors.black, width: 2),
         borderRadius: BorderRadius.circular(10),
       ),
+      
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -176,7 +177,7 @@ class _CatatanInputState extends State<CatatanInput> {
             child: TextField(
               controller: _catatanController,
               maxLines: 3,
-              style: TextStyle(fontSize: 11), // Adjust the font size as needed
+              style: const TextStyle(fontSize: 11), // Adjust the font size as needed
               decoration: InputDecoration(
                 hintText: 'Tambahkan catatan...',
                 hintStyle: const TextStyle(fontSize: 11),
