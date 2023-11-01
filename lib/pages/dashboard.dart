@@ -680,9 +680,11 @@ class _DashboardState extends State<Dashboard> {
       centerTitle: true,
       // add the arrow icons to the app bar
       leading: IconButton(
-        icon: const Icon(
-          Icons.arrow_back,
-          color: Colors.black,
+        icon: SvgPicture.asset(
+          'assets/icons/left-arrow.svg',  // Replace with the path to your SVG image
+          color: Colors.black, // Color of the icon
+          width: 40, // Width of the icon
+          height: 40, // Height of the icon
         ),
         onPressed: () {
           Navigator.of(context).pop();

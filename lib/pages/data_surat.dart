@@ -1,5 +1,6 @@
 import 'package:eoffice/pages/informasi.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 class DataSuratPage extends StatefulWidget {
   const DataSuratPage({super.key});
@@ -176,9 +177,10 @@ class _DataSuratPageState extends State<DataSuratPage> {
           const Color.fromARGB(100, 255, 255, 255).withOpacity(0.7),
       centerTitle: true,
       leading: IconButton(
-        icon: const Icon(
-          Icons.arrow_back,
-          color: Colors.black,
+        icon: SvgPicture.asset(
+          'assets/icons/left-arrow.svg',  // Replace with the path to your SVG image
+          width: 40, // Width of the icon
+          height: 40, // Height of the icon
         ),
         onPressed: () {
           Navigator.of(context).pop();
